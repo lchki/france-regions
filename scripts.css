@@ -114,3 +114,81 @@ body {
         max-height: 75vh; /* Limite la hauteur de la popin à 75% de la hauteur de l'écran */
     }
 }
+/* Styles dynamiques pour la popup */
+#region-popup {
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    width: 350px; /* Largeur fixe mais ajustable */
+    max-width: 90%; /* Pour les petits écrans */
+    background: linear-gradient(135deg, #ffffff, #e6e6e6);
+    border: 2px solid #007BFF;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none; /* Cachée par défaut */
+    animation: popup-slide-in 0.4s ease-in-out;
+    overflow: hidden; /* Empêche le débordement */
+}
+
+/* Animation pour faire glisser la popup depuis la droite */
+@keyframes popup-slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Bouton de fermeture */
+#region-popup #close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenu de la popup */
+#region-popup h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+}
+
+#region-popup p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+#region-popup a.download-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#region-popup a.download-link:hover {
+    background-color: #218838;
+}
