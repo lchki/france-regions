@@ -34,61 +34,176 @@ document.addEventListener('DOMContentLoaded', () => {
       'nouvelle-caledonie': { population: '285,000', capital: 'Nouméa', area: '18,576 km²' }
     };
   
-    // Sélectionne l'élément du popup
+    const regionData = {
+        'corse': {
+            title: 'Région Corse',
+            description: 'La Corse est une île de la Méditerranée célèbre pour ses paysages magnifiques et son patrimoine unique.',
+            pdfLink: 'corse-info.pdf'
+        },
+        'centre-val-de-loire' : {
+            title: 'centre-val-de-loire',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'centre-val-de-loire'
+        },
+        'bretagne': {
+            title: 'bretagne',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'bretagne'
+        },
+        'bourgogne-franche-comte' : {
+            title: 'bourgogne-franche-comte',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'bourgogne-franche-comte'
+        },
+        'grand-est': {
+            title: 'grand-est',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'grand-est'
+        },
+        'occitanie' : {
+            title: 'occitanie',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'occitanie'
+        },
+        'hauts-de-france': {
+            title: 'hauts-de-france',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'hauts-de-france'
+        },
+        'auvergne-rhone-alpe' : {
+            title: 'auvergne-rhone-alpe',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'auvergne-rhone-alpe'
+        },
+        'normandie': {
+            title: 'normandie',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'normandie'
+        },
+        'pays-de-la-loire': {
+            title: 'pays-de-la-loire',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'pays-de-la-loire'
+        },
+        'PACA' : {
+            title: 'PACA',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'PACA'
+        },
+        'ile-de-france': {
+            title: 'ile-de-france',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'ile-de-france'
+        },
+        'nouvelle-aquitaine': {
+            title: 'nouvelle-aquitaine',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'nouvelle-aquitaine'
+        },
+        'guyane' : {
+            title: 'guyane',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'guyane'
+        },
+        'martinique': {
+            title: 'martinique',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'martinique'
+        },
+        'mayotte': {
+            title: 'mayotte',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'mayotte'
+        },
+        'guadeloupe': {
+            title: 'guadeloupe',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'guadeloupe'
+        },
+        'reunion': {
+            title: 'reunion',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'reunion'
+        },
+        'wallis-et-futuna': {
+            title: 'wallis-et-futuna',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'wallis-et-futuna'
+        },
+        'saint-pierre-et-miquelon': {
+            title: 'saint-pierre-et-miquelon',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'saint-pierre-et-miquelon'
+        },
+        'polynesie-francaise': {
+            title: 'polynesie-francaise',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'polynesie-francaise'
+        },
+        'nouvelle-caledonie': {
+            title: 'nouvelle-caledonie',
+            description: 'Lorem ipsum dolor',
+            pdfLink: 'nouvelle-caledonie'
+        },
+
+    };
+
+    // Création et stylisation de la popup
     const popup = document.createElement('div');
     popup.id = 'region-popup';
     popup.style.position = 'absolute';
     popup.style.top = '50px';
     popup.style.right = '10px';
-    popup.style.width = '250px';
+    popup.style.width = '300px';
     popup.style.backgroundColor = '#fff';
     popup.style.border = '1px solid #ccc';
-    popup.style.padding = '10px';
+    popup.style.padding = '15px';
     popup.style.display = 'none';
     popup.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.15)';
     document.body.appendChild(popup);
-  
-    // Récupère chaque région et ajoute des événements d'interaction
+
+    // Gestion des interactions pour chaque région
     regions.forEach(regionId => {
-      const region = document.getElementById(regionId);
-  
-      if (region) {
-        // Change la couleur au survol
-        region.addEventListener('mouseover', () => {
-          region.setAttribute('fill', '#FF5733'); // Couleur de surbrillance
-        });
-  
-        // Remet la couleur d'origine après le survol
-        region.addEventListener('mouseout', () => {
-          region.setAttribute('fill', '#ECEDEC'); // Couleur d'origine
-        });
-  
-        // Action au clic : affiche un popup avec les informations de la région
-        region.addEventListener('click', () => {
-          // Récupère les informations de la région
-          const info = regionInfo[regionId];
-  
-          if (info) {
-            // Met à jour le contenu du popup avec les informations supplémentaires
-            popup.innerHTML = `
-              <h3>${regionId.replace(/-/g, ' ')}</h3>
-              <p><strong>Population:</strong> ${info.population}</p>
-              <p><strong>Capitale:</strong> ${info.capital}</p>
-              <p><strong>Superficie:</strong> ${info.area}</p>
-            `;
-  
-            // Affiche le popup
-            popup.style.display = 'block';
-          }
-        });
-      }
+        const region = document.getElementById(regionId);
+        if (region) {
+            // Survol : changement de couleur
+            region.addEventListener('mouseover', () => {
+                region.setAttribute('fill', '#FF5733');
+            });
+            region.addEventListener('mouseout', () => {
+                region.setAttribute('fill', '#ECEDEC');
+            });
+
+            // Clic : affichage des informations et du lien de téléchargement
+            region.addEventListener('click', () => {
+                const info = regionInfo[regionId];
+                const data = regionData[regionId];
+
+                if (info && data) {
+                    popup.innerHTML = `
+                        <button id="close-popup">&times;</button>
+                        <h3>${data.title}</h3>
+                        <p>${data.description}</p>
+                        <p><strong>Population:</strong> ${info.population}</p>
+                        <p><strong>Capitale:</strong> ${info.capital}</p>
+                        <p><strong>Superficie:</strong> ${info.area}</p>
+                        <a href="${data.pdfLink}" target="_blank" class="download-link">Télécharger le PDF</a>
+                    `;
+                    popup.style.display = 'block';
+
+                    // Fermeture de la popup
+                    document.getElementById('close-popup').addEventListener('click', () => {
+                        popup.style.display = 'none';
+                    });
+                }
+            });
+        }
     });
-  
-    // Fermer le popup si l'utilisateur clique en dehors du popup
+
+    // Fermeture de la popup en cliquant à l'extérieur
     document.addEventListener('click', (e) => {
-      if (!popup.contains(e.target) && !regions.some(regionId => document.getElementById(regionId).contains(e.target))) {
-        popup.style.display = 'none';
-      }
+        if (!popup.contains(e.target) && !e.target.classList.contains('region')) {
+            popup.style.display = 'none';
+        }
     });
-  });
-  
+});
