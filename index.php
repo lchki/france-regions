@@ -58,7 +58,7 @@
             </svg>
         </div>
     </div>
-
+    <div id="region-popup"></div>
     <script src="prod/scripts.js"></script>
 </body>
 </html>
