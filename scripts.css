@@ -1,0 +1,116 @@
+/* Styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Conteneur de la carte */
+.interactive-map {
+    max-width: 100%;
+    margin: auto;
+}
+
+/* Ajustement de la carte */
+.interactive-map .map {
+    position: relative;
+    width: 70%;  /* Réduit la largeur de la carte à 70% de la largeur disponible */
+    max-width: 900px;  /* Limite la largeur maximale */
+    margin: 20px auto;  /* Centre la carte horizontalement */
+    transform: scale(0.75); /* Applique un zoom plus fort pour réduire la carte davantage */
+    transform-origin: center center; /* Centre le zoom */
+}
+
+/* Ajustement de l'objet SVG dans la carte */
+.interactive-map .map object {
+    width: 100%; /* La largeur de l'objet est égale à la largeur de la div contenant la carte */
+    height: auto;
+}
+
+/* Styles des régions cliquables */
+.interactive-map .map .region {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Quand la région est sélectionnée */
+.interactive-map .map .region[data-opened="opened"] {
+    fill: #FF7F00; /* Couleur de la région sélectionnée */
+    stroke: #FF7F00;
+}
+
+/* Styles de la popin (détail de la région) */
+.interactive-map .map .region-detail {
+    position: absolute;
+    background: white;
+    border: 2px solid #FF7F00;
+    padding: 0.5rem;
+    display: none;
+    transition: all 0.3s ease;
+    z-index: 999;
+    max-width: 250px; /* Largeur maximale réduite de la popin */
+    max-height: 350px; /* Hauteur maximale réduite */
+    overflow-y: auto; /* Ajoute un défilement vertical si le contenu est trop long */
+}
+
+/* Quand la popin est visible */
+.interactive-map .map .region-detail.visible {
+    display: block;
+}
+
+/* Positionnement centré de la popin */
+.interactive-map .map .region-detail.opened {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Style pour le menu défilant dans la popin */
+.interactive-map .map .region-detail .scrolling-menu {
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+/* Menu dans la popin */
+.interactive-map .map .region-detail .menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.interactive-map .map .region-detail .menu li {
+    margin: 10px 0;
+}
+
+/* Media Queries pour les écrans plus petits (tablettes et mobiles) */
+@media (max-width: 768px) {
+    .interactive-map .map {
+        width: 80%; /* Augmente légèrement la largeur de la carte pour mieux s'adapter aux petits écrans */
+        transform: scale(0.65); /* Réduit encore la taille de la carte sur mobile */
+    }
+
+    .interactive-map .map .region-detail {
+        max-width: 80%; /* Réduit la largeur de la popin pour les petits écrans */
+        max-height: 75vh; /* Ajuste la hauteur de la popin pour qu'elle tienne bien sur l'écran */
+    }
+
+    .interactive-map .map .region-detail .scrolling-menu {
+        max-height: 50vh; /* Permet plus d'espace pour le menu défilant sur mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .interactive-map .map {
+        width: 90%; /* Utilise presque toute la largeur de l'écran sur les très petits écrans */
+        transform: scale(0.55); /* Réduit encore plus la taille de la carte */
+    }
+
+    .interactive-map .map .region-detail {
+        max-width: 70%; /* Réduit encore la largeur de la popin sur les très petits écrans */
+        max-height: 75vh; /* Limite la hauteur de la popin à 75% de la hauteur de l'écran */
+    }
+}
