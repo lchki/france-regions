@@ -70,10 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Lorem ipsum dolor',
             pdfLink: 'hauts-de-france'
         },
-        'auvergne-rhone-alpe' : {
-            title: 'auvergne-rhone-alpe',
+        'auvergne-rhone-alpes' : {
+            title: 'auvergne-rhone-alpes',
             description: 'Lorem ipsum dolor',
-            pdfLink: 'auvergne-rhone-alpe'
+            pdfLink: 'auvergne-rhone-alpes'
         },
         'normandie': {
             title: 'normandie',
@@ -151,15 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Création et stylisation de la popup
     const popup = document.createElement('div');
     popup.id = 'region-popup';
-    popup.style.position = 'absolute';
-    popup.style.top = '50px';
-    popup.style.right = '10px';
-    popup.style.width = '300px';
+    popup.style.position = 'fixed';
     popup.style.backgroundColor = '#fff';
     popup.style.border = '1px solid #ccc';
     popup.style.padding = '15px';
-    popup.style.display = 'none';
     popup.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.15)';
+    popup.style.display = 'none';
     document.body.appendChild(popup);
 
     // Gestion des interactions pour chaque région
