@@ -241,6 +241,32 @@ document.addEventListener('DOMContentLoaded', () => {
         region.setAttribute('fill', color);
     };
 
+    // Fonction pour modifier l'URL sans recharger la page
+    const updateURLWithRegion = (regionId) => {
+        const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?region=" + regionId;
+        window.history.pushState({ path: newUrl }, '', newUrl);
+    };
+
+    // Fonction pour suivre les clics via Google Analytics
+    const trackRegionClick = (regionId) => {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'region_click', {
+                'event_category': 'Carte des régions',
+                'event_label': regionId,  // Nom de la région cliquée
+                'value': 1
+            });
+        }
+    };
+
+    // Réinitialiser la position de la carte
+    const resetMapPosition = () => {
+        const mapElement = document.querySelector('.interactive-map .map');
+        mapElement.style.transform = 'scale(1)';  // Remettre à l'échelle d'origine
+        mapElement.style.position = 'absolute'; // Position absolue
+        mapElement.style.left = '0';  // Réinitialiser le déplacement horizontal
+        mapElement.style.top = '0';   // Réinitialiser le déplacement vertical
+    };
+
     // Réduire la carte et la déplacer
     const zoomOutMap = () => {
         const mapElement = document.querySelector('.interactive-map .map');
@@ -286,6 +312,12 @@ document.addEventListener('DOMContentLoaded', () => {
             region.addEventListener('click', () => {
                 const data = regionData[regionId];
                 if (data) {
+                    // Mise à jour de l'URL
+                    updateURLWithRegion(regionId);
+
+                    // Suivi du clic dans Google Analytics
+                    trackRegionClick(regionId);
+
                     // Maintenir la couleur de la région sélectionnée
                     if (selectedRegion) {
                         highlightRegion(selectedRegion, '#ECEDEC'); // Réinitialiser la couleur précédente
@@ -303,25 +335,30 @@ document.addEventListener('DOMContentLoaded', () => {
     popup.addEventListener('click', e => {
         if (e.target.id === 'close-popup') {
             popup.style.display = 'none';
-            const mapElement = document.querySelector('.interactive-map .map');
-            mapElement.style.transform = 'scale(1)';
-            mapElement.style.left = '0';
+
+            // Réinitialiser la carte
+            resetMapPosition(); // Reset position et échelle
+
+            // Réinitialiser la couleur de la région
             if (selectedRegion) {
-                highlightRegion(selectedRegion, '#ECEDEC'); // Réinitialiser la couleur
-                selectedRegion = null; // Désélectionner la région
+                highlightRegion(selectedRegion, '#ECEDEC');
+                selectedRegion = null;
             }
         }
     });
 
+    // Quand on clique en dehors de la popup
     document.addEventListener('click', e => {
         if (!popup.contains(e.target) && !e.target.classList.contains('region')) {
             popup.style.display = 'none';
-            const mapElement = document.querySelector('.interactive-map .map');
-            mapElement.style.transform = 'scale(1)';
-            mapElement.style.left = '0';
+
+            // Réinitialiser la carte
+            resetMapPosition(); // Reset position et échelle
+
+            // Réinitialiser la couleur de la région
             if (selectedRegion) {
-                highlightRegion(selectedRegion, '#ECEDEC'); // Réinitialiser la couleur
-                selectedRegion = null; // Désélectionner la région
+                highlightRegion(selectedRegion, '#ECEDEC');
+                selectedRegion = null;
             }
         }
     });
