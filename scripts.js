@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const regions = [
       'Centre-Val-de-Loire', 'Bretagne', 'Bourgogne-Franche-Comte', 'Grand-Est',
       'Occitanie', 'Hauts-de-France', 'Auvergne-Rhone-Alpes', 'Normandie', 'Pays-de-la-Loire',
-      'PACA', 'Ile-de-france', 'Nouvelle-Aquitaine'
+      'PACA', 'Ile-de-France', 'Nouvelle-Aquitaine'
     ];
   
     // Crée un objet contenant les informations supplémentaires des régions
@@ -217,83 +217,112 @@ document.addEventListener('DOMContentLoaded', () => {
 
     };
 
-     // Création de la popup
-     const popup = document.createElement('div');
-     popup.id = 'region-popup';
-     popup.style.position = 'fixed';
-     popup.style.backgroundColor = '#fff';
-     popup.style.border = '1px solid #ccc';
-     popup.style.padding = '15px';
-     popup.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.15)';
-     popup.style.display = 'none';
-     popup.style.zIndex = '1000';
-     document.body.appendChild(popup);
+    // Création de la popup
+    const popup = document.createElement('div');
+    popup.id = 'region-popup';
+    popup.style.position = 'fixed';
+    popup.style.backgroundColor = '#fff';
+    popup.style.border = '1px solid #ccc';
+    popup.style.padding = '15px';
+    popup.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.15)';
+    popup.style.display = 'none';
+    popup.style.zIndex = '1000';
+    popup.style.transition = 'transform 0.5s ease, width 0.5s ease';
+    popup.style.right = '10px';  // Position de la popup à droite
+    popup.style.top = '50px'; // Décale la popup vers le bas
+    popup.style.width = '400px'; // Largeur de la popup
+    document.body.appendChild(popup);
  
-     // Fonction pour styliser la région au survol
-     const highlightRegion = (region, color) => {
-         region.setAttribute('fill', color);
-     };
+     // Crée une variable pour garder une trace de la région sélectionnée
+    let selectedRegion = null;
 
-    // Fonction pour zoomer et dézoomer sur la région
-    const zoomOnRegion = (scale) => {
+    // Styliser la région surlignée
+    const highlightRegion = (region, color) => {
+        region.setAttribute('fill', color);
+    };
+
+    // Réduire la carte et la déplacer
+    const zoomOutMap = () => {
         const mapElement = document.querySelector('.interactive-map .map');
-        mapElement.style.transition = "transform 0.3s ease"; // Transition douce pour le zoom
-        mapElement.style.transform = `scale(${scale})`;  // Zoom ou dézoom
+        mapElement.style.transform = 'scale(0.6)';
+        mapElement.style.transition = 'transform 0.5s ease';
+        mapElement.style.position = 'absolute';
+        mapElement.style.left = '10px';
     };
 
-    // Fonction pour réinitialiser le zoom
-    const resetZoom = () => {
-        zoomOnRegion(1); // Réinitialise le zoom à 1x
-    };
- 
-     // Gestion des interactions pour chaque région
-     regions.forEach(regionId => {
-         const region = document.getElementById(regionId);
-         if (region) {
-             // Survol : surbrillance
-             region.addEventListener('mouseover', () => highlightRegion(region, '#FF5733'));
-             region.addEventListener('mouseout', () => highlightRegion(region, '#ECEDEC'));
- 
-             // Clic : affichage des informations
-             region.addEventListener('click', () => {
-                 const info = regionInfo[regionId];
-                 const data = regionData[regionId];
- 
-                 if (info && data) {
-                     // Génère les sections de contenu
-                     const sectionsHTML = data.sections.map(section => `
-                         <div class="popup-section">
-                             <h4>${section.title}</h4>
-                             <p>${section.content}</p>
-                         </div>
-                     `).join('');
- 
-                     // Contenu de la popup
-                     popup.innerHTML = `
-                         <button id="close-popup">&times;</button>
-                         <h3>${data.title}</h3>
-                         ${sectionsHTML}
-                         <a href="${data.pdfLink}" target="_blank" class="download-link">Télécharger le PDF</a>
-                     `;
-                     popup.style.display = 'block';
+    // Agrandir la popup
+    const showPopup = (regionId, data) => {
+        const sectionsHTML = data.sections.map(section => `
+            <div class="popup-section">
+                <h4>${section.title}</h4>
+                <p>${section.content}</p>
+            </div>
+        `).join('');
 
-                     // Zoom sur la région
-                    zoomOnRegion(1.5);  // Zoom sur la région sélectionnée
-                 }
-             });
-         }
-     });
- 
-     // Fermeture de la popup en cliquant sur le bouton ou à l'extérieur
-     popup.addEventListener('click', e => {
-         if (e.target.id === 'close-popup') {
-             popup.style.display = 'none';
-         }
-     });
-     document.addEventListener('click', e => {
-         if (!popup.contains(e.target) && !e.target.classList.contains('region')) {
-             popup.style.display = 'none';
-             resetZoom(); // Réinitialiser le zoom quand l'utilisateur clique en dehors
-         }
-     });
- });
+        popup.innerHTML = `
+            <button id="close-popup">&times;</button>
+            <h3>${data.title}</h3>
+            ${sectionsHTML}
+            <a href="${data.pdfLink}" target="_blank" class="download-link">Télécharger le PDF</a>
+        `;
+        popup.style.display = 'block';
+        popup.style.transform = 'translateX(0)';
+    };
+
+    // Fonction pour gérer les clics sur les régions
+    regions.forEach(regionId => {
+        const region = document.getElementById(regionId);
+        if (region) {
+            // Survol : surbrillance
+            region.addEventListener('mouseover', () => highlightRegion(region, '#FF5733'));
+            region.addEventListener('mouseout', () => {
+                // Si la région est sélectionnée, on la laisse colorée
+                if (selectedRegion !== region) {
+                    highlightRegion(region, '#ECEDEC');
+                }
+            });
+
+            // Clic : affichage des informations et zoom/dézoom
+            region.addEventListener('click', () => {
+                const data = regionData[regionId];
+                if (data) {
+                    // Maintenir la couleur de la région sélectionnée
+                    if (selectedRegion) {
+                        highlightRegion(selectedRegion, '#ECEDEC'); // Réinitialiser la couleur précédente
+                    }
+                    selectedRegion = region; // Marquer la région comme sélectionnée
+                    highlightRegion(region, '#FF5733'); // Met en surbrillance la région
+                    zoomOutMap(); // Réduit et déplace la carte
+                    showPopup(regionId, data); // Affiche la popup agrandie
+                }
+            });
+        }
+    });
+
+    // Fermeture de la popup
+    popup.addEventListener('click', e => {
+        if (e.target.id === 'close-popup') {
+            popup.style.display = 'none';
+            const mapElement = document.querySelector('.interactive-map .map');
+            mapElement.style.transform = 'scale(1)';
+            mapElement.style.left = '0';
+            if (selectedRegion) {
+                highlightRegion(selectedRegion, '#ECEDEC'); // Réinitialiser la couleur
+                selectedRegion = null; // Désélectionner la région
+            }
+        }
+    });
+
+    document.addEventListener('click', e => {
+        if (!popup.contains(e.target) && !e.target.classList.contains('region')) {
+            popup.style.display = 'none';
+            const mapElement = document.querySelector('.interactive-map .map');
+            mapElement.style.transform = 'scale(1)';
+            mapElement.style.left = '0';
+            if (selectedRegion) {
+                highlightRegion(selectedRegion, '#ECEDEC'); // Réinitialiser la couleur
+                selectedRegion = null; // Désélectionner la région
+            }
+        }
+    });
+});
