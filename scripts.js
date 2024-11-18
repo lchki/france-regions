@@ -197,8 +197,18 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'PACA' : {
             title: 'PACA',
-            description: 'Lorem ipsum dolor',
-            pdfLink: 'PACA'
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],            pdfLink: 'PACA'
         },
         'ile-de-france': {
             title: 'ile-de-france',
@@ -346,13 +356,33 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'polynesie-francaise': {
             title: 'polynesie-francaise',
-            description: 'Lorem ipsum dolor',
-            pdfLink: 'polynesie-francaise'
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],            pdfLink: 'polynesie-francaise'
         },
         'nouvelle-caledonie': {
             title: 'nouvelle-caledonie',
-            description: 'Lorem ipsum dolor',
-            pdfLink: 'nouvelle-caledonie'
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],            pdfLink: 'nouvelle-caledonie'
         },
 
     };
