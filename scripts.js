@@ -233,6 +233,18 @@ document.addEventListener('DOMContentLoaded', () => {
      const highlightRegion = (region, color) => {
          region.setAttribute('fill', color);
      };
+
+    // Fonction pour zoomer et dézoomer sur la région
+    const zoomOnRegion = (scale) => {
+        const mapElement = document.querySelector('.interactive-map .map');
+        mapElement.style.transition = "transform 0.3s ease"; // Transition douce pour le zoom
+        mapElement.style.transform = `scale(${scale})`;  // Zoom ou dézoom
+    };
+
+    // Fonction pour réinitialiser le zoom
+    const resetZoom = () => {
+        zoomOnRegion(1); // Réinitialise le zoom à 1x
+    };
  
      // Gestion des interactions pour chaque région
      regions.forEach(regionId => {
@@ -264,6 +276,9 @@ document.addEventListener('DOMContentLoaded', () => {
                          <a href="${data.pdfLink}" target="_blank" class="download-link">Télécharger le PDF</a>
                      `;
                      popup.style.display = 'block';
+
+                     // Zoom sur la région
+                    zoomOnRegion(1.5);  // Zoom sur la région sélectionnée
                  }
              });
          }
@@ -278,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
      document.addEventListener('click', e => {
          if (!popup.contains(e.target) && !e.target.classList.contains('region')) {
              popup.style.display = 'none';
+             resetZoom(); // Réinitialiser le zoom quand l'utilisateur clique en dehors
          }
      });
  });
