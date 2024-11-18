@@ -8,75 +8,85 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    color: #333; /* Couleur par défaut pour le texte */
+    line-height: 1.5;
 }
 
-/* Conteneur de la carte */
+/* Conteneur principal de la carte */
 .interactive-map {
     max-width: 100%;
     margin: auto;
+    padding: 20px; /* Ajoute de l'espace autour pour aérer */
 }
 
 /* Ajustement de la carte */
 .interactive-map .map {
     position: relative;
-    width: 70%;  /* Réduit la largeur de la carte à 70% de la largeur disponible */
-    max-width: 900px;  /* Limite la largeur maximale */
-    margin: 20px auto;  /* Centre la carte horizontalement */
-    transform: scale(0.75); /* Applique un zoom plus fort pour réduire la carte davantage */
-    transform-origin: center center; /* Centre le zoom */
+    width: 70%; 
+    max-width: 900px;
+    margin: 20px auto;
+    transform: scale(0.75);
+    transform-origin: center center;
+    transition: transform 0.3s ease; /* Animation au redimensionnement */
 }
 
-/* Ajustement de l'objet SVG dans la carte */
+/* Objet SVG dans la carte */
 .interactive-map .map object {
-    width: 100%; /* La largeur de l'objet est égale à la largeur de la div contenant la carte */
+    width: 100%;
     height: auto;
 }
 
-/* Styles des régions cliquables */
+/* Styles pour les régions */
 .interactive-map .map .region {
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: fill 0.3s ease, stroke 0.3s ease;
 }
 
-/* Quand la région est sélectionnée */
+.interactive-map .map .region:hover {
+    fill: #FFA500; /* Couleur au survol */
+    stroke: #FFA500;
+}
+
 .interactive-map .map .region[data-opened="opened"] {
-    fill: #FF7F00; /* Couleur de la région sélectionnée */
+    fill: #FF7F00;
     stroke: #FF7F00;
 }
 
-/* Styles de la popin (détail de la région) */
+/* Détails de la région */
 .interactive-map .map .region-detail {
     position: absolute;
     background: white;
     border: 2px solid #FF7F00;
+    border-radius: 8px;
     padding: 0.5rem;
     display: none;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease;
     z-index: 999;
-    max-width: 250px; /* Largeur maximale réduite de la popin */
-    max-height: 350px; /* Hauteur maximale réduite */
-    overflow-y: auto; /* Ajoute un défilement vertical si le contenu est trop long */
+    max-width: 250px;
+    max-height: 350px;
+    overflow-y: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Quand la popin est visible */
 .interactive-map .map .region-detail.visible {
     display: block;
+    opacity: 1;
 }
 
-/* Positionnement centré de la popin */
 .interactive-map .map .region-detail.opened {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* Style pour le menu défilant dans la popin */
+/* Scrolling dans les détails */
 .interactive-map .map .region-detail .scrolling-menu {
     max-height: 40vh;
     overflow-y: auto;
+    padding-right: 10px; /* Ajoute un espace pour mieux gérer la barre de défilement */
 }
 
-/* Menu dans la popin */
+/* Listes dans la région détaillée */
 .interactive-map .map .region-detail .menu {
     list-style-type: none;
     padding: 0;
@@ -84,55 +94,55 @@ body {
 
 .interactive-map .map .region-detail .menu li {
     margin: 10px 0;
+    color: #555;
 }
 
-/* Media Queries pour les écrans plus petits (tablettes et mobiles) */
+/* Styles responsives */
 @media (max-width: 768px) {
     .interactive-map .map {
-        width: 80%; /* Augmente légèrement la largeur de la carte pour mieux s'adapter aux petits écrans */
-        transform: scale(0.65); /* Réduit encore la taille de la carte sur mobile */
+        width: 80%;
+        transform: scale(0.65);
     }
 
     .interactive-map .map .region-detail {
-        max-width: 80%; /* Réduit la largeur de la popin pour les petits écrans */
-        max-height: 75vh; /* Ajuste la hauteur de la popin pour qu'elle tienne bien sur l'écran */
+        max-width: 80%;
+        max-height: 75vh;
     }
 
     .interactive-map .map .region-detail .scrolling-menu {
-        max-height: 50vh; /* Permet plus d'espace pour le menu défilant sur mobile */
+        max-height: 50vh;
     }
 }
 
 @media (max-width: 480px) {
     .interactive-map .map {
-        width: 90%; /* Utilise presque toute la largeur de l'écran sur les très petits écrans */
-        transform: scale(0.55); /* Réduit encore plus la taille de la carte */
+        width: 90%;
+        transform: scale(0.55);
     }
 
     .interactive-map .map .region-detail {
-        max-width: 70%; /* Réduit encore la largeur de la popin sur les très petits écrans */
-        max-height: 75vh; /* Limite la hauteur de la popin à 75% de la hauteur de l'écran */
+        max-width: 70%;
+        max-height: 75vh;
     }
 }
-/* Styles dynamiques pour la popup */
+
+/* Popup dynamique */
 #region-popup {
     position: fixed;
     top: 10%;
     right: 5%;
-    width: 350px; /* Largeur fixe mais ajustable */
-    max-width: 90%; /* Pour les petits écrans */
+    width: 350px;
+    max-width: 90%;
     background: linear-gradient(135deg, #ffffff, #e6e6e6);
     border: 2px solid #007BFF;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     z-index: 1000;
-    display: none; /* Cachée par défaut */
+    display: none;
     animation: popup-slide-in 0.4s ease-in-out;
-    overflow: hidden; /* Empêche le débordement */
 }
 
-/* Animation pour faire glisser la popup depuis la droite */
 @keyframes popup-slide-in {
     from {
         transform: translateX(100%);
@@ -157,12 +167,10 @@ body {
     height: 30px;
     cursor: pointer;
     font-size: 20px;
-    line-height: 30px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Contenu de la popup */
 #region-popup h2 {
     font-size: 1.5rem;
     color: #333;
