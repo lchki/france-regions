@@ -37,52 +37,162 @@ document.addEventListener('DOMContentLoaded', () => {
     const regionData = {
         'corse': {
             title: 'Région Corse',
-            description: 'La Corse est une île de la Méditerranée célèbre pour ses paysages magnifiques et son patrimoine unique.',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `La Corse est une île de la Méditerranée célèbre pour ses paysages magnifiques et son patrimoine unique.
+                              Vivamus scelerisque in urna non consequat. Suspendisse mollis augue ac felis vulputate.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'corse-info.pdf'
         },
         'centre-val-de-loire' : {
             title: 'centre-val-de-loire',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'centre-val-de-loire'
         },
         'bretagne': {
             title: 'bretagne',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'bretagne'
         },
         'bourgogne-franche-comte' : {
             title: 'bourgogne-franche-comte',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'bourgogne-franche-comte'
         },
         'grand-est': {
             title: 'grand-est',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'grand-est'
         },
         'occitanie' : {
             title: 'occitanie',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'occitanie'
         },
         'hauts-de-france': {
             title: 'hauts-de-france',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'hauts-de-france'
         },
         'auvergne-rhone-alpes' : {
             title: 'auvergne-rhone-alpes',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'auvergne-rhone-alpes'
         },
         'normandie': {
             title: 'normandie',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'normandie'
         },
         'pays-de-la-loire': {
             title: 'pays-de-la-loire',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'pays-de-la-loire'
         },
         'PACA' : {
@@ -92,47 +202,146 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'ile-de-france': {
             title: 'ile-de-france',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'ile-de-france'
         },
         'nouvelle-aquitaine': {
             title: 'nouvelle-aquitaine',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'nouvelle-aquitaine'
         },
         'guyane' : {
             title: 'guyane',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'guyane'
         },
         'martinique': {
             title: 'martinique',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'martinique'
         },
         'mayotte': {
             title: 'mayotte',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'mayotte'
         },
         'guadeloupe': {
             title: 'guadeloupe',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'guadeloupe'
         },
         'reunion': {
             title: 'reunion',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'reunion'
         },
         'wallis-et-futuna': {
             title: 'wallis-et-futuna',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'wallis-et-futuna'
         },
         'saint-pierre-et-miquelon': {
             title: 'saint-pierre-et-miquelon',
-            description: 'Lorem ipsum dolor',
+            sections: [
+                {
+                    title: 'Introduction',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                },
+                {
+                    title: 'Histoire',
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
+                }
+            ],
             pdfLink: 'saint-pierre-et-miquelon'
         },
         'polynesie-francaise': {
@@ -175,15 +384,24 @@ document.addEventListener('DOMContentLoaded', () => {
             region.addEventListener('click', () => {
                 const info = regionInfo[regionId];
                 const data = regionData[regionId];
-
+            
                 if (info && data) {
+                    // Génère les sections avec leurs titres et contenus
+                    let sectionsHTML = '';
+                    data.sections.forEach(section => {
+                        sectionsHTML += `
+                            <div class="popup-section">
+                                <h4>${section.title}</h4>
+                                <p>${section.content}</p>
+                            </div>
+                        `;
+                    });
+            
+                    // Crée le contenu complet de la popup
                     popup.innerHTML = `
                         <button id="close-popup">&times;</button>
                         <h3>${data.title}</h3>
-                        <p>${data.description}</p>
-                        <p><strong>Population:</strong> ${info.population}</p>
-                        <p><strong>Capitale:</strong> ${info.capital}</p>
-                        <p><strong>Superficie:</strong> ${info.area}</p>
+                        ${sectionsHTML}
                         <a href="${data.pdfLink}" target="_blank" class="download-link">Télécharger le PDF</a>
                     `;
                     popup.style.display = 'block';
