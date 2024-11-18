@@ -1,47 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Sélectionne toutes les régions par leur id
     const regions = [
-      'corse', 'centre-val-de-loire', 'bretagne', 'bourgogne-franche-comte', 'grand-est',
-      'occitanie', 'hauts-de-france', 'auvergne-rhone-alpes', 'normandie', 'pays-de-la-loire',
-      'PACA', 'ile-de-france', 'nouvelle-aquitaine', 'guyane', 'martinique', 'mayotte',
-      'guadeloupe', 'reunion', 'wallis-et-futuna', 'saint-pierre-et-miquelon', 'polynesie-francaise', 
-      'nouvelle-caledonie'
+      'Centre-Val-de-Loire', 'Bretagne', 'Bourgogne-Franche-Comte', 'Grand-Est',
+      'Occitanie', 'Hauts-de-France', 'Auvergne-Rhone-Alpes', 'Normandie', 'Pays-de-la-Loire',
+      'PACA', 'Ile-de-france', 'Nouvelle-Aquitaine'
     ];
   
     // Crée un objet contenant les informations supplémentaires des régions
     const regionInfo = {
-      'corse': { population: '330,000', capital: 'Ajaccio', area: '8,680 km²' },
-      'centre-val-de-loire': { population: '2,570,000', capital: 'Orléans', area: '39,151 km²' },
-      'bretagne': { population: '3,300,000', capital: 'Rennes', area: '27,208 km²' },
-      'bourgogne-franche-comte': { population: '2,800,000', capital: 'Dijon', area: '47,784 km²' },
-      'grand-est': { population: '5,500,000', capital: 'Strasbourg', area: '57,433 km²' },
-      'occitanie': { population: '5,900,000', capital: 'Toulouse', area: '72,724 km²' },
-      'hauts-de-france': { population: '6,000,000', capital: 'Lille', area: '31,813 km²' },
-      'auvergne-rhone-alpes': { population: '8,000,000', capital: 'Lyon', area: '69,711 km²' },
-      'normandie': { population: '3,300,000', capital: 'Rouen', area: '29,907 km²' },
-      'pays-de-la-loire': { population: '3,700,000', capital: 'Nantes', area: '32,082 km²' },
+      'Centre-Val-de-Loire': { population: '2,570,000', capital: 'Orléans', area: '39,151 km²' },
+      'Bretagne': { population: '3,300,000', capital: 'Rennes', area: '27,208 km²' },
+      'Bourgogne-Franche-Comte': { population: '2,800,000', capital: 'Dijon', area: '47,784 km²' },
+      'Grand-Est': { population: '5,500,000', capital: 'Strasbourg', area: '57,433 km²' },
+      'Occitanie': { population: '5,900,000', capital: 'Toulouse', area: '72,724 km²' },
+      'Hauts-de-France': { population: '6,000,000', capital: 'Lille', area: '31,813 km²' },
+      'Auvergne-Rhone-Alpes': { population: '8,000,000', capital: 'Lyon', area: '69,711 km²' },
+      'Normandie': { population: '3,300,000', capital: 'Rouen', area: '29,907 km²' },
+      'Pays-de-la-Loire': { population: '3,700,000', capital: 'Nantes', area: '32,082 km²' },
       'PACA': { population: '5,000,000', capital: 'Marseille', area: '31,400 km²' },
-      'ile-de-france': { population: '12,000,000', capital: 'Paris', area: '12,012 km²' },
-      'nouvelle-aquitaine': { population: '6,000,000', capital: 'Bordeaux', area: '84,036 km²' },
-      'guyane': { population: '300,000', capital: 'Cayenne', area: '83,534 km²' },
-      'martinique': { population: '400,000', capital: 'Fort-de-France', area: '1,128 km²' },
-      'mayotte': { population: '270,000', capital: 'Mamoudzou', area: '374 km²' },
-      'guadeloupe': { population: '400,000', capital: 'Basse-Terre', area: '1,628 km²' },
-      'reunion': { population: '860,000', capital: 'Saint-Denis', area: '2,512 km²' },
-      'wallis-et-futuna': { population: '11,000', capital: 'Mata Utu', area: '274 km²' },
-      'saint-pierre-et-miquelon': { population: '6,000', capital: 'Saint-Pierre', area: '242 km²' },
-      'polynesie-francaise': { population: '280,000', capital: 'Papeete', area: '4,167 km²' },
-      'nouvelle-caledonie': { population: '285,000', capital: 'Nouméa', area: '18,576 km²' }
+      'Ile-de-France': { population: '12,000,000', capital: 'Paris', area: '12,012 km²' },
+      'Nouvelle-Aquitaine': { population: '6,000,000', capital: 'Bordeaux', area: '84,036 km²' },
     };
   
     const regionData = {
-        'corse': {
-            title: 'Région Corse',
+        'Centre-Val-de-Loire' : {
+            title: 'Centre-Val-de-Loire',
             sections: [
                 {
                     title: 'Introduction',
-                    content: `La Corse est une île de la Méditerranée célèbre pour ses paysages magnifiques et son patrimoine unique.
-                              Vivamus scelerisque in urna non consequat. Suspendisse mollis augue ac felis vulputate.`
+                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
+                              Nam sit amet sapien eros.`
                 },
                 {
                     title: 'Histoire',
@@ -49,10 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
                               Nam sit amet sapien eros.`
                 }
             ],
-            pdfLink: 'corse-info.pdf'
+            pdfLink: 'Centre-Val-de-Loire'
         },
-        'centre-val-de-loire' : {
-            title: 'centre-val-de-loire',
+        'Bretagne': {
+            title: 'Bretagne',
             sections: [
                 {
                     title: 'Introduction',
@@ -65,10 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
                               Nam sit amet sapien eros.`
                 }
             ],
-            pdfLink: 'centre-val-de-loire'
+            pdfLink: 'Bretagne'
         },
-        'bretagne': {
-            title: 'bretagne',
+        'Bourgogne-Franche-Comte' : {
+            title: 'Bourgogne-Franche-Comte',
             sections: [
                 {
                     title: 'Introduction',
@@ -81,10 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
                               Nam sit amet sapien eros.`
                 }
             ],
-            pdfLink: 'bretagne'
+            pdfLink: 'Bourgogne-Franche-Comte'
         },
-        'bourgogne-franche-comte' : {
-            title: 'bourgogne-franche-comte',
+        'Grand-Est': {
+            title: 'Grand-Est',
             sections: [
                 {
                     title: 'Introduction',
@@ -97,10 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
                               Nam sit amet sapien eros.`
                 }
             ],
-            pdfLink: 'bourgogne-franche-comte'
+            pdfLink: 'Grand-Est'
         },
-        'grand-est': {
-            title: 'grand-est',
+        'Occitanie' : {
+            title: 'Occitanie',
             sections: [
                 {
                     title: 'Introduction',
@@ -113,10 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
                               Nam sit amet sapien eros.`
                 }
             ],
-            pdfLink: 'grand-est'
+            pdfLink: 'Occitanie'
         },
-        'occitanie' : {
-            title: 'occitanie',
+        'Hauts-de-France': {
+            title: 'Hauts-de-France',
             sections: [
                 {
                     title: 'Introduction',
@@ -129,10 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
                               Nam sit amet sapien eros.`
                 }
             ],
-            pdfLink: 'occitanie'
+            pdfLink: 'Hauts-de-France'
         },
-        'hauts-de-france': {
-            title: 'hauts-de-france',
+        'Auvergne-Rhone-Alpes' : {
+            title: 'Auvergne-Rhone-Alpes',
             sections: [
                 {
                     title: 'Introduction',
@@ -145,10 +133,10 @@ document.addEventListener('DOMContentLoaded', () => {
                               Nam sit amet sapien eros.`
                 }
             ],
-            pdfLink: 'hauts-de-france'
+            pdfLink: 'Auvergne-Rhone-Alpes'
         },
-        'auvergne-rhone-alpes' : {
-            title: 'auvergne-rhone-alpes',
+        'Normandie': {
+            title: 'Normandie',
             sections: [
                 {
                     title: 'Introduction',
@@ -161,10 +149,10 @@ document.addEventListener('DOMContentLoaded', () => {
                               Nam sit amet sapien eros.`
                 }
             ],
-            pdfLink: 'auvergne-rhone-alpes'
+            pdfLink: 'Normandie'
         },
-        'normandie': {
-            title: 'normandie',
+        'Pays-de-la-Loire': {
+            title: 'Pays-de-la-Loire',
             sections: [
                 {
                     title: 'Introduction',
@@ -177,23 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
                               Nam sit amet sapien eros.`
                 }
             ],
-            pdfLink: 'normandie'
-        },
-        'pays-de-la-loire': {
-            title: 'pays-de-la-loire',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'pays-de-la-loire'
+            pdfLink: 'Pays-de-la-Loire'
         },
         'PACA' : {
             title: 'PACA',
@@ -210,8 +182,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             ],            pdfLink: 'PACA'
         },
-        'ile-de-france': {
-            title: 'ile-de-france',
+        'Ile-de-France': {
+            title: 'Ile-de-France',
             sections: [
                 {
                     title: 'Introduction',
@@ -224,10 +196,10 @@ document.addEventListener('DOMContentLoaded', () => {
                               Nam sit amet sapien eros.`
                 }
             ],
-            pdfLink: 'ile-de-france'
+            pdfLink: 'Ile-de-France'
         },
-        'nouvelle-aquitaine': {
-            title: 'nouvelle-aquitaine',
+        'Nouvelle-Aquitaine': {
+            title: 'Nouvelle-Aquitaine',
             sections: [
                 {
                     title: 'Introduction',
@@ -240,215 +212,72 @@ document.addEventListener('DOMContentLoaded', () => {
                               Nam sit amet sapien eros.`
                 }
             ],
-            pdfLink: 'nouvelle-aquitaine'
-        },
-        'guyane' : {
-            title: 'guyane',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'guyane'
-        },
-        'martinique': {
-            title: 'martinique',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'martinique'
-        },
-        'mayotte': {
-            title: 'mayotte',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'mayotte'
-        },
-        'guadeloupe': {
-            title: 'guadeloupe',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'guadeloupe'
-        },
-        'reunion': {
-            title: 'reunion',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'reunion'
-        },
-        'wallis-et-futuna': {
-            title: 'wallis-et-futuna',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'wallis-et-futuna'
-        },
-        'saint-pierre-et-miquelon': {
-            title: 'saint-pierre-et-miquelon',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'saint-pierre-et-miquelon'
-        },
-        'polynesie-francaise': {
-            title: 'polynesie-francaise',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],            pdfLink: 'polynesie-francaise'
-        },
-        'nouvelle-caledonie': {
-            title: 'nouvelle-caledonie',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],            pdfLink: 'nouvelle-caledonie'
+            pdfLink: 'Nouvelle-Aquitaine'
         },
 
     };
 
-    // Création et stylisation de la popup
-    const popup = document.createElement('div');
-    popup.id = 'region-popup';
-    popup.style.position = 'fixed';
-    popup.style.backgroundColor = '#fff';
-    popup.style.border = '1px solid #ccc';
-    popup.style.padding = '15px';
-    popup.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.15)';
-    popup.style.display = 'none';
-    document.body.appendChild(popup);
-
-    // Gestion des interactions pour chaque région
-    regions.forEach(regionId => {
-        const region = document.getElementById(regionId);
-        if (region) {
-            // Survol : changement de couleur
-            region.addEventListener('mouseover', () => {
-                region.setAttribute('fill', '#FF5733');
-            });
-            region.addEventListener('mouseout', () => {
-                region.setAttribute('fill', '#ECEDEC');
-            });
-
-            // Clic : affichage des informations et du lien de téléchargement
-            region.addEventListener('click', () => {
-                const info = regionInfo[regionId];
-                const data = regionData[regionId];
-            
-                if (info && data) {
-                    // Génère les sections avec leurs titres et contenus
-                    let sectionsHTML = '';
-                    data.sections.forEach(section => {
-                        sectionsHTML += `
-                            <div class="popup-section">
-                                <h4>${section.title}</h4>
-                                <p>${section.content}</p>
-                            </div>
-                        `;
-                    });
-            
-                    // Crée le contenu complet de la popup
-                    popup.innerHTML = `
-                        <button id="close-popup">&times;</button>
-                        <h3>${data.title}</h3>
-                        ${sectionsHTML}
-                        <a href="${data.pdfLink}" target="_blank" class="download-link">Télécharger le PDF</a>
-                    `;
-                    popup.style.display = 'block';
-
-                    // Fermeture de la popup
-                    document.getElementById('close-popup').addEventListener('click', () => {
-                        popup.style.display = 'none';
-                    });
-                }
-            });
-        }
-    });
-
-    // Fermeture de la popup en cliquant à l'extérieur
-    document.addEventListener('click', (e) => {
-        if (!popup.contains(e.target) && !e.target.classList.contains('region')) {
-            popup.style.display = 'none';
-        }
-    });
-});
+     // Création de la popup
+     const popup = document.createElement('div');
+     popup.id = 'region-popup';
+     popup.style.position = 'fixed';
+     popup.style.backgroundColor = '#fff';
+     popup.style.border = '1px solid #ccc';
+     popup.style.padding = '15px';
+     popup.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.15)';
+     popup.style.display = 'none';
+     popup.style.zIndex = '1000';
+     document.body.appendChild(popup);
+ 
+     // Fonction pour styliser la région au survol
+     const highlightRegion = (region, color) => {
+         region.setAttribute('fill', color);
+     };
+ 
+     // Gestion des interactions pour chaque région
+     regions.forEach(regionId => {
+         const region = document.getElementById(regionId);
+         if (region) {
+             // Survol : surbrillance
+             region.addEventListener('mouseover', () => highlightRegion(region, '#FF5733'));
+             region.addEventListener('mouseout', () => highlightRegion(region, '#ECEDEC'));
+ 
+             // Clic : affichage des informations
+             region.addEventListener('click', () => {
+                 const info = regionInfo[regionId];
+                 const data = regionData[regionId];
+ 
+                 if (info && data) {
+                     // Génère les sections de contenu
+                     const sectionsHTML = data.sections.map(section => `
+                         <div class="popup-section">
+                             <h4>${section.title}</h4>
+                             <p>${section.content}</p>
+                         </div>
+                     `).join('');
+ 
+                     // Contenu de la popup
+                     popup.innerHTML = `
+                         <button id="close-popup">&times;</button>
+                         <h3>${data.title}</h3>
+                         ${sectionsHTML}
+                         <a href="${data.pdfLink}" target="_blank" class="download-link">Télécharger le PDF</a>
+                     `;
+                     popup.style.display = 'block';
+                 }
+             });
+         }
+     });
+ 
+     // Fermeture de la popup en cliquant sur le bouton ou à l'extérieur
+     popup.addEventListener('click', e => {
+         if (e.target.id === 'close-popup') {
+             popup.style.display = 'none';
+         }
+     });
+     document.addEventListener('click', e => {
+         if (!popup.contains(e.target) && !e.target.classList.contains('region')) {
+             popup.style.display = 'none';
+         }
+     });
+ });
