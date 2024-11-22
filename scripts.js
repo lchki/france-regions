@@ -23,199 +23,139 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   
     const regionData = {
-        'Centre-Val-de-Loire' : {
-            title: 'Centre-Val-de-Loire',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'Centre-Val-de-Loire'
+        'Centre-Val-de-Loire': {
+          title: 'Centre-Val-de-Loire',
+          sections: [
+            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: 'Analyse de Lisa', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
+            { title: 'Population', content: '6 069 352' },
+            { title: 'Sondés', content: '4 000 346' },
+            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] }
+          ],
+          pdfLink: 'Centre-Val-de-Loire'
         },
         'Bretagne': {
-            title: 'Bretagne',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'Bretagne'
+          title: 'Bretagne',
+          sections: [
+            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: 'Analyse de Lisa', content: 'La Bretagne est une région charmante, idéale pour les vacances.' },
+            { title: 'Population', content: '3 300 000' },
+            { title: 'Sondés', content: '2 000 000' },
+            { title: 'Qualité de vie', content: ['80% heureux', '85% en sécurité', '90% satisfaits de leur quartier', '50% pessimistes pour leur avenir', '65% pessimistes pour la société'] }
+          ],
+          pdfLink: 'Bretagne'
         },
-        'Bourgogne-Franche-Comte' : {
-            title: 'Bourgogne-Franche-Comte',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'Bourgogne-Franche-Comte'
+        'Bourgogne-Franche-Comte': {
+          title: 'Bourgogne-Franche-Comte',
+          sections: [
+            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: 'Analyse de Lisa', content: 'Bourgogne-Franche-Comté est une belle région pour la gastronomie et le vin.' },
+            { title: 'Population', content: '2 800 000' },
+            { title: 'Sondés', content: '1 500 000' },
+            { title: 'Qualité de vie', content: ['65% heureux', '70% en sécurité', '75% satisfaits de leur quartier', '55% pessimistes pour leur avenir', '68% pessimistes pour la société'] }
+          ],
+          pdfLink: 'Bourgogne-Franche-Comte'
         },
         'Grand-Est': {
-            title: 'Grand-Est',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'Grand-Est'
+          title: 'Grand-Est',
+          sections: [
+            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: 'Analyse de Lisa', content: 'Le Grand-Est est un carrefour européen avec une grande diversité culturelle.' },
+            { title: 'Population', content: '5 500 000' },
+            { title: 'Sondés', content: '3 000 000' },
+            { title: 'Qualité de vie', content: ['70% heureux', '75% en sécurité', '80% satisfaits de leur quartier', '45% pessimistes pour leur avenir', '60% pessimistes pour la société'] }
+          ],
+          pdfLink: 'Grand-Est'
         },
-        'Occitanie' : {
-            title: 'Occitanie',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'Occitanie'
+        'Occitanie': {
+          title: 'Occitanie',
+          sections: [
+            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: 'Analyse de Lisa', content: 'Occitanie est connue pour son climat et ses paysages magnifiques.' },
+            { title: 'Population', content: '5 900 000' },
+            { title: 'Sondés', content: '2 800 000' },
+            { title: 'Qualité de vie', content: ['85% heureux', '80% en sécurité', '88% satisfaits de leur quartier', '42% pessimistes pour leur avenir', '58% pessimistes pour la société'] }
+          ],
+          pdfLink: 'Occitanie'
         },
         'Hauts-de-France': {
-            title: 'Hauts-de-France',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'Hauts-de-France'
+          title: 'Hauts-de-France',
+          sections: [
+            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: 'Analyse de Lisa', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoine.' },
+            { title: 'Population', content: '6 000 000' },
+            { title: 'Sondés', content: '4 500 000' },
+            { title: 'Qualité de vie', content: ['60% heureux', '70% en sécurité', '65% satisfaits de leur quartier', '50% pessimistes pour leur avenir', '75% pessimistes pour la société'] }
+          ],
+          pdfLink: 'Hauts-de-France'
         },
-        'Auvergne-Rhone-Alpes' : {
-            title: 'Auvergne-Rhone-Alpes',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'Auvergne-Rhone-Alpes'
+        'Auvergne-Rhone-Alpes': {
+          title: 'Auvergne-Rhone-Alpes',
+          sections: [
+            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: 'Analyse de Lisa', content: 'Une région montagneuse avec un fort potentiel touristique et économique.' },
+            { title: 'Population', content: '8 000 000' },
+            { title: 'Sondés', content: '5 000 000' },
+            { title: 'Qualité de vie', content: ['78% heureux', '80% en sécurité', '85% satisfaits de leur quartier', '40% pessimistes pour leur avenir', '65% pessimistes pour la société'] }
+          ],
+          pdfLink: 'Auvergne-Rhone-Alpes'
         },
         'Normandie': {
-            title: 'Normandie',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'Normandie'
+          title: 'Normandie',
+          sections: [
+            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: 'Analyse de Lisa', content: 'La Normandie est une région historique avec des paysages variés et une forte tradition maritime.' },
+            { title: 'Population', content: '3 300 000' },
+            { title: 'Sondés', content: '1 800 000' },
+            { title: 'Qualité de vie', content: ['75% heureux', '77% en sécurité', '80% satisfaits de leur quartier', '45% pessimistes pour leur avenir', '70% pessimistes pour la société'] }
+          ],
+          pdfLink: 'Normandie'
         },
         'Pays-de-la-Loire': {
-            title: 'Pays-de-la-Loire',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'Pays-de-la-Loire'
+          title: 'Pays-de-la-Loire',
+          sections: [
+            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: 'Analyse de Lisa', content: 'Les Pays-de-la-Loire sont réputés pour leur économie dynamique et leur littoral.' },
+            { title: 'Population', content: '3 700 000' },
+            { title: 'Sondés', content: '2 000 000' },
+            { title: 'Qualité de vie', content: ['80% heureux', '85% en sécurité', '90% satisfaits de leur quartier', '55% pessimistes pour leur avenir', '60% pessimistes pour la société'] }
+          ],
+          pdfLink: 'Pays-de-la-Loire'
         },
-        'PACA' : {
-            title: 'PACA',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],            pdfLink: 'PACA'
+        'PACA': {
+          title: 'PACA',
+          sections: [
+            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: 'Analyse de Lisa', content: 'PACA, une région dynamique avec une belle côte méditerranéenne.' },
+            { title: 'Population', content: '5 000 000' },
+            { title: 'Sondés', content: '2 500 000' },
+            { title: 'Qualité de vie', content: ['85% heureux', '82% en sécurité', '88% satisfaits de leur quartier', '48% pessimistes pour leur avenir', '72% pessimistes pour la société'] }
+          ],
+          pdfLink: 'PACA'
         },
         'Ile-de-France': {
-            title: 'Ile-de-France',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'Ile-de-France'
+          title: 'Ile-de-France',
+          sections: [
+            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: 'Analyse de Lisa', content: 'La région capitale est un centre économique et culturel majeur.' },
+            { title: 'Population', content: '12 000 000' },
+            { title: 'Sondés', content: '7 000 000' },
+            { title: 'Qualité de vie', content: ['65% heureux', '72% en sécurité', '78% satisfaits de leur quartier', '60% pessimistes pour leur avenir', '68% pessimistes pour la société'] }
+          ],
+          pdfLink: 'Ile-de-France'
         },
         'Nouvelle-Aquitaine': {
-            title: 'Nouvelle-Aquitaine',
-            sections: [
-                {
-                    title: 'Introduction',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                },
-                {
-                    title: 'Histoire',
-                    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit eu eros hendrerit pulvinar. 
-                              Nam sit amet sapien eros.`
-                }
-            ],
-            pdfLink: 'Nouvelle-Aquitaine'
-        },
-
-    };
+          title: 'Nouvelle-Aquitaine',
+          sections: [
+            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: 'Analyse de Lisa', content: 'Nouvelle-Aquitaine, un grand territoire aux paysages variés et à l’économie solide.' },
+            { title: 'Population', content: '6 000 000' },
+            { title: 'Sondés', content: '3 200 000' },
+            { title: 'Qualité de vie', content: ['80% heureux', '76% en sécurité', '85% satisfaits de leur quartier', '50% pessimistes pour leur avenir', '63% pessimistes pour la société'] }
+          ],
+          pdfLink: 'Nouvelle-Aquitaine'
+        }
+      };
 
     // Création de la popup
     const popup = document.createElement('div');
