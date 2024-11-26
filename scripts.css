@@ -6,9 +6,9 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333; /* Couleur par défaut pour le texte */
+    font-family: 'Noto Serif Bengali', serif;
+    background-color: #f9f7f5;
+    color: #07275f; /* Couleur par défaut pour le texte */
     line-height: 1.5;
 }
 
@@ -133,7 +133,7 @@ body {
     right: 5%;
     width: 350px;
     max-width: 90%;
-    background: linear-gradient(135deg, #ffffff, #e6e6e6);
+    background: #f5f6f8;
     border: 2px solid #007BFF;
     border-radius: 12px;
     padding: 20px;
@@ -159,7 +159,7 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #ff4d4d;
+    background: #07275f;
     color: white;
     border: none;
     border-radius: 50%;
@@ -173,11 +173,26 @@ body {
 
 #region-popup h2 {
     font-size: 1.5rem;
-    color: #333;
+    color: #07275f;;
     margin-bottom: 10px;
-    border-bottom: 2px solid #007BFF;
     padding-bottom: 5px;
 }
+
+/* Ajout d'un espacement autour des listes */
+#region-popup ul {
+    padding-left: 20px;  /* Espacement à gauche pour les puces */
+    margin-top: 10px;    /* Marge au-dessus de la liste */
+    margin-bottom: 10px; /* Marge en dessous de la liste */
+    list-style-type: disc; /* Liste avec des puces */
+}
+
+/* Amélioration du style des éléments de liste */
+#region-popup ul li {
+    margin-bottom: 5px; /* Espacement entre les éléments de la liste */
+    font-size: 1rem;    /* Taille de police confortable */
+    color: #555;        /* Couleur du texte */
+}
+
 
 #region-popup p {
     margin: 10px 0;
@@ -189,17 +204,15 @@ body {
     display: inline-block;
     margin-top: 15px;
     padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
+    background-color: #ffffff;
+    color: #07275f;
     text-decoration: none;
+    border: 1px solid #07275f;
     border-radius: 8px;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
 #region-popup a.download-link:hover {
-    background-color: #218838;
+    background-color: #f9f7f5;
 }
-
-scripts.css
-Affichage de scripts.css
