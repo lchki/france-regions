@@ -38,6 +38,18 @@
             </svg>
         </div>
     </div>
+    <div id="comparison-container">
+    <h3>Comparer les régions</h3>
+    <button id="add-region-btn">Ajouter une région</button>
+    <div id="selected-regions"></div>
+    <button id="compare-btn">Comparer</button>
+</div>
+
+<div id="comparison-result" style="display: none;">
+    <h3>Comparaison des régions</h3>
+    <div id="comparison-table"></div>
+</div>
+
     <div id="region-popup"></div>
     <script src="prod/scripts.js"></script>
 </body>
