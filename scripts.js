@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth < 600) {
+        popup.style.width = '90%';  // Taille de la popup pour mobile
+    }
+    
+
     // Sélectionne toutes les régions par leur id
     const regions = [
       'Centre-Val-de-Loire', 'Bretagne', 'Bourgogne-Franche-Comte', 'Grand-Est',
@@ -24,166 +29,465 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const regionData = {
         'Centre-Val-de-Loire': {
-          title: 'Centre-Val-de-Loire',
+          title: '<h2>Centre-Val-de-Loire</h2>',
           sections: [
-            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-            { title: 'Analyse de Lisa', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
-            { title: 'Population', content: '6 069 352' },
-            { title: 'Sondés', content: '4 000 346' },
-            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] },
-            { title: 'Économie & Service publics', content: ['50% ont des difficultés financières', '39% à découvert régulièrement', '41% estiment les services publics en recul', '31% trouvent les transports insuffisants'] },
-            { title: 'Inégalités sociales', content: ['84% considèrent la société injuste', '68% estiment l’impôt inefficace'] }
-
-          ],
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Analyse de Lisa</h2>', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
+            { title: '<h2>Population</h2>', content: '6 069 352' },
+            { title: '<h2>Sondés</h2>', content: '4 000 346' },
+            {       title: '<h2>Qualité de vie</h2>', 
+                content: `
+                  <ul>
+                    <li>72% heureux</li>
+                    <li>74% en sécurité</li>
+                    <li>69% satisfaits de leur quartier</li>
+                    <li>46% pessimistes pour leur avenir</li>
+                    <li>72% pessimistes pour la société</li>
+                  </ul>` 
+              },
+              { 
+                title: '<h2>Économie & Service publics</h2>', 
+                content: `
+                  <ul>
+                    <li>50% ont des difficultés financières</li>
+                    <li>39% à découvert régulièrement</li>
+                    <li>41% estiment les services publics en recul</li>
+                    <li>31% trouvent les transports insuffisants</li>
+                  </ul>`
+              },
+              { 
+                title: '<h2>Inégalités sociales</h2>', 
+                content: `
+                  <ul>
+                    <li>84% considèrent la société injuste</li>
+                    <li>68% estiment l’impôt inefficace</li>
+                  </ul>`
+              }
+            ],
           pdfLink: 'Centre-Val-de-Loire'
         },
 
         'Bretagne': {
-          title: 'Bretagne',
+          title: '<h2>Bretagne</h2>',
           sections: [
-            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-            { title: 'Analyse de Lisa', content: 'La Bretagne est une région charmante, idéale pour les vacances.' },
-            { title: 'Population', content: '3 300 000' },
-            { title: 'Sondés', content: '2 000 000' },
-            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] },
-            { title: 'Économie & Service publics', content: ['50% ont des difficultés financières', '39% à découvert régulièrement', '41% estiment les services publics en recul', '31% trouvent les transports insuffisants'] },
-            { title: 'Inégalités sociales', content: ['84% considèrent la société injuste', '68% estiment l’impôt inefficace'] }
-          ],
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Analyse de Lisa</h2>', content: 'La Bretagne est une région charmante, idéale pour les vacances.' },
+            { title: '<h2>Population</h2>', content: '3 300 000' },
+            { title: '<h2>Sondés</h2>', content: '2 000 000' },
+            {       title: '<h2>Qualité de vie</h2>', 
+                content: `
+                  <ul>
+                    <li>72% heureux</li>
+                    <li>74% en sécurité</li>
+                    <li>69% satisfaits de leur quartier</li>
+                    <li>46% pessimistes pour leur avenir</li>
+                    <li>72% pessimistes pour la société</li>
+                  </ul>` 
+              },
+              { 
+                title: '<h2>Économie & Service publics</h2>', 
+                content: `
+                  <ul>
+                    <li>50% ont des difficultés financières</li>
+                    <li>39% à découvert régulièrement</li>
+                    <li>41% estiment les services publics en recul</li>
+                    <li>31% trouvent les transports insuffisants</li>
+                  </ul>`
+              },
+              { 
+                title: '<h2>Inégalités sociales</h2>', 
+                content: `
+                  <ul>
+                    <li>84% considèrent la société injuste</li>
+                    <li>68% estiment l’impôt inefficace</li>
+                  </ul>`
+              }
+            ],
           pdfLink: 'Bretagne'
         },
 
         'Bourgogne-Franche-Comte': {
-          title: 'Bourgogne-Franche-Comte',
+          title: '<h2>Bourgogne-Franche-Comte</h2>',
           sections: [
-            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-            { title: 'Analyse de Lisa', content: 'Bourgogne-Franche-Comté est une belle région pour la gastronomie et le vin.' },
-            { title: 'Population', content: '2 800 000' },
-            { title: 'Sondés', content: '1 500 000' },
-            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] },
-            { title: 'Économie & Service publics', content: ['50% ont des difficultés financières', '39% à découvert régulièrement', '41% estiment les services publics en recul', '31% trouvent les transports insuffisants'] },
-            { title: 'Inégalités sociales', content: ['84% considèrent la société injuste', '68% estiment l’impôt inefficace'] }
-          ],
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Analyse de Lisa</h2>', content: 'Bourgogne-Franche-Comté est une belle région pour la gastronomie et le vin.' },
+            { title: '<h2>Population</h2>', content: '2 800 000' },
+            { title: '<h2>Sondés</h2>', content: '1 500 000' },
+            {       title: '<h2>Qualité de vie</h2>', 
+                content: `
+                  <ul>
+                    <li>72% heureux</li>
+                    <li>74% en sécurité</li>
+                    <li>69% satisfaits de leur quartier</li>
+                    <li>46% pessimistes pour leur avenir</li>
+                    <li>72% pessimistes pour la société</li>
+                  </ul>` 
+              },
+              { 
+                title: '<h2>Économie & Service publics</h2>', 
+                content: `
+                  <ul>
+                    <li>50% ont des difficultés financières</li>
+                    <li>39% à découvert régulièrement</li>
+                    <li>41% estiment les services publics en recul</li>
+                    <li>31% trouvent les transports insuffisants</li>
+                  </ul>`
+              },
+              { 
+                title: '<h2>Inégalités sociales</h2>', 
+                content: `
+                  <ul>
+                    <li>84% considèrent la société injuste</li>
+                    <li>68% estiment l’impôt inefficace</li>
+                  </ul>`
+              }
+            ],
           pdfLink: 'Bourgogne-Franche-Comte'
         },
 
         'Grand-Est': {
-          title: 'Grand-Est',
+          title: '<h2>Grand-Est</h2>',
           sections: [
-            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-            { title: 'Analyse de Lisa', content: 'Le Grand-Est est un carrefour européen avec une grande diversité culturelle.' },
-            { title: 'Population', content: '5 500 000' },
-            { title: 'Sondés', content: '3 000 000' },
-            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] },
-            { title: 'Économie & Service publics', content: ['50% ont des difficultés financières', '39% à découvert régulièrement', '41% estiment les services publics en recul', '31% trouvent les transports insuffisants'] },
-            { title: 'Inégalités sociales', content: ['84% considèrent la société injuste', '68% estiment l’impôt inefficace'] }
-          ],
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Analyse de Lisa</h2>', content: 'Le Grand-Est est un carrefour européen avec une grande diversité culturelle.' },
+            { title: '<h2>Population</h2>', content: '5 500 000' },
+            { title: '<h2>Sondés</h2>', content: '3 000 000' },
+            {       title: '<h2>Qualité de vie</h2>', 
+                content: `
+                  <ul>
+                    <li>72% heureux</li>
+                    <li>74% en sécurité</li>
+                    <li>69% satisfaits de leur quartier</li>
+                    <li>46% pessimistes pour leur avenir</li>
+                    <li>72% pessimistes pour la société</li>
+                  </ul>` 
+              },
+              { 
+                title: '<h2>Économie & Service publics</h2>', 
+                content: `
+                  <ul>
+                    <li>50% ont des difficultés financières</li>
+                    <li>39% à découvert régulièrement</li>
+                    <li>41% estiment les services publics en recul</li>
+                    <li>31% trouvent les transports insuffisants</li>
+                  </ul>`
+              },
+              { 
+                title: '<h2>Inégalités sociales</h2>', 
+                content: `
+                  <ul>
+                    <li>84% considèrent la société injuste</li>
+                    <li>68% estiment l’impôt inefficace</li>
+                  </ul>`
+              }
+            ],
           pdfLink: 'Grand-Est'
         },
 
         'Occitanie': {
-          title: 'Occitanie',
+          title: '<h2>Occitanie</h2>',
           sections: [
-            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-            { title: 'Analyse de Lisa', content: 'Occitanie est connue pour son climat et ses paysages magnifiques.' },
-            { title: 'Population', content: '5 900 000' },
-            { title: 'Sondés', content: '2 800 000' },
-            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] },
-            { title: 'Économie & Service publics', content: ['50% ont des difficultés financières', '39% à découvert régulièrement', '41% estiment les services publics en recul', '31% trouvent les transports insuffisants'] },
-            { title: 'Inégalités sociales', content: ['84% considèrent la société injuste', '68% estiment l’impôt inefficace'] }
-          ],
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Analyse de Lisa</h2>', content: 'Occitanie est connue pour son climat et ses paysages magnifiques.' },
+            { title: '<h2>Population</h2>', content: '5 900 000' },
+            { title: '<h2>Sondés</h2>', content: '2 800 000' },
+            {       title: '<h2>Qualité de vie</h2>', 
+                content: `
+                  <ul>
+                    <li>72% heureux</li>
+                    <li>74% en sécurité</li>
+                    <li>69% satisfaits de leur quartier</li>
+                    <li>46% pessimistes pour leur avenir</li>
+                    <li>72% pessimistes pour la société</li>
+                  </ul>` 
+              },
+              { 
+                title: '<h2>Économie & Service publics</h2>', 
+                content: `
+                  <ul>
+                    <li>50% ont des difficultés financières</li>
+                    <li>39% à découvert régulièrement</li>
+                    <li>41% estiment les services publics en recul</li>
+                    <li>31% trouvent les transports insuffisants</li>
+                  </ul>`
+              },
+              { 
+                title: '<h2>Inégalités sociales</h2>', 
+                content: `
+                  <ul>
+                    <li>84% considèrent la société injuste</li>
+                    <li>68% estiment l’impôt inefficace</li>
+                  </ul>`
+              }
+            ],
           pdfLink: 'Occitanie'
         },
 
         'Hauts-de-France': {
-          title: 'Hauts-de-France',
+          title: '<h2>Hauts-de-France</h2>',
           sections: [
-            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-            { title: 'Analyse de Lisa', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoine.' },
-            { title: 'Population', content: '6 000 000' },
-            { title: 'Sondés', content: '4 500 000' },
-            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] },
-            { title: 'Économie & Service publics', content: ['50% ont des difficultés financières', '39% à découvert régulièrement', '41% estiment les services publics en recul', '31% trouvent les transports insuffisants'] },
-            { title: 'Inégalités sociales', content: ['84% considèrent la société injuste', '68% estiment l’impôt inefficace'] }
-          ],
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Analyse de Lisa</h2>', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoine.' },
+            { title: '<h2>Population</h2>', content: '6 000 000' },
+            { title: '<h2>Sondés</h2>', content: '4 500 000' },
+            {       title: '<h2>Qualité de vie</h2>', 
+                content: `
+                  <ul>
+                    <li>72% heureux</li>
+                    <li>74% en sécurité</li>
+                    <li>69% satisfaits de leur quartier</li>
+                    <li>46% pessimistes pour leur avenir</li>
+                    <li>72% pessimistes pour la société</li>
+                  </ul>` 
+              },
+              { 
+                title: '<h2>Économie & Service publics</h2>', 
+                content: `
+                  <ul>
+                    <li>50% ont des difficultés financières</li>
+                    <li>39% à découvert régulièrement</li>
+                    <li>41% estiment les services publics en recul</li>
+                    <li>31% trouvent les transports insuffisants</li>
+                  </ul>`
+              },
+              { 
+                title: '<h2>Inégalités sociales</h2>', 
+                content: `
+                  <ul>
+                    <li>84% considèrent la société injuste</li>
+                    <li>68% estiment l’impôt inefficace</li>
+                  </ul>`
+              }
+            ],
           pdfLink: 'Hauts-de-France'
         },
 
         'Auvergne-Rhone-Alpes': {
-          title: 'Auvergne-Rhone-Alpes',
+          title: '<h2>Auvergne-Rhone-Alpes</h2>',
           sections: [
-            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-            { title: 'Analyse de Lisa', content: 'Une région montagneuse avec un fort potentiel touristique et économique.' },
-            { title: 'Population', content: '8 000 000' },
-            { title: 'Sondés', content: '5 000 000' },
-            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] },
-            { title: 'Économie & Service publics', content: ['50% ont des difficultés financières', '39% à découvert régulièrement', '41% estiment les services publics en recul', '31% trouvent les transports insuffisants'] },
-            { title: 'Inégalités sociales', content: ['84% considèrent la société injuste', '68% estiment l’impôt inefficace'] }
-          ],
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Analyse de Lisa</h2>', content: 'Une région montagneuse avec un fort potentiel touristique et économique.' },
+            { title: '<h2>Population</h2>', content: '8 000 000' },
+            { title: '<h2>Sondés</h2>', content: '5 000 000' },
+            {       title: '<h2>Qualité de vie</h2>', 
+                content: `
+                  <ul>
+                    <li>72% heureux</li>
+                    <li>74% en sécurité</li>
+                    <li>69% satisfaits de leur quartier</li>
+                    <li>46% pessimistes pour leur avenir</li>
+                    <li>72% pessimistes pour la société</li>
+                  </ul>` 
+              },
+              { 
+                title: '<h2>Économie & Service publics</h2>', 
+                content: `
+                  <ul>
+                    <li>50% ont des difficultés financières</li>
+                    <li>39% à découvert régulièrement</li>
+                    <li>41% estiment les services publics en recul</li>
+                    <li>31% trouvent les transports insuffisants</li>
+                  </ul>`
+              },
+              { 
+                title: '<h2>Inégalités sociales</h2>', 
+                content: `
+                  <ul>
+                    <li>84% considèrent la société injuste</li>
+                    <li>68% estiment l’impôt inefficace</li>
+                  </ul>`
+              }
+            ],
           pdfLink: 'Auvergne-Rhone-Alpes'
         },
         'Normandie': {
-          title: 'Normandie',
+          title: '<h2>Normandie</h2>',
           sections: [
-            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-            { title: 'Analyse de Lisa', content: 'La Normandie est une région historique avec des paysages variés et une forte tradition maritime.' },
-            { title: 'Population', content: '3 300 000' },
-            { title: 'Sondés', content: '1 800 000' },
-            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] },
-            { title: 'Économie & Service publics', content: ['50% ont des difficultés financières', '39% à découvert régulièrement', '41% estiment les services publics en recul', '31% trouvent les transports insuffisants'] },
-            { title: 'Inégalités sociales', content: ['84% considèrent la société injuste', '68% estiment l’impôt inefficace'] }
-          ],
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Analyse de Lisa</h2>', content: 'La Normandie est une région historique avec des paysages variés et une forte tradition maritime.' },
+            { title: '<h2>Population</h2>', content: '3 300 000' },
+            { title: '<h2>Sondés</h2>', content: '1 800 000' },
+            {       title: '<h2>Qualité de vie</h2>', 
+                content: `
+                  <ul>
+                    <li>72% heureux</li>
+                    <li>74% en sécurité</li>
+                    <li>69% satisfaits de leur quartier</li>
+                    <li>46% pessimistes pour leur avenir</li>
+                    <li>72% pessimistes pour la société</li>
+                  </ul>` 
+              },
+              { 
+                title: '<h2>Économie & Service publics</h2>', 
+                content: `
+                  <ul>
+                    <li>50% ont des difficultés financières</li>
+                    <li>39% à découvert régulièrement</li>
+                    <li>41% estiment les services publics en recul</li>
+                    <li>31% trouvent les transports insuffisants</li>
+                  </ul>`
+              },
+              { 
+                title: '<h2>Inégalités sociales</h2>', 
+                content: `
+                  <ul>
+                    <li>84% considèrent la société injuste</li>
+                    <li>68% estiment l’impôt inefficace</li>
+                  </ul>`
+              }
+            ],
           pdfLink: 'Normandie'
         },
         'Pays-de-la-Loire': {
-          title: 'Pays-de-la-Loire',
+          title: '<h2>Pays-de-la-Loire</h2>',
           sections: [
-            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-            { title: 'Analyse de Lisa', content: 'Les Pays-de-la-Loire sont réputés pour leur économie dynamique et leur littoral.' },
-            { title: 'Population', content: '3 700 000' },
-            { title: 'Sondés', content: '2 000 000' },
-            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] },
-            { title: 'Économie & Service publics', content: ['50% ont des difficultés financières', '39% à découvert régulièrement', '41% estiment les services publics en recul', '31% trouvent les transports insuffisants'] },
-            { title: 'Inégalités sociales', content: ['84% considèrent la société injuste', '68% estiment l’impôt inefficace'] }
-          ],
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Analyse de Lisa</h2>', content: 'Les Pays-de-la-Loire sont réputés pour leur économie dynamique et leur littoral.' },
+            { title: '<h2>Population</h2>', content: '3 700 000' },
+            { title: '<h2>Sondés</h2>', content: '2 000 000' },
+            {       title: '<h2>Qualité de vie</h2>', 
+                content: `
+                  <ul>
+                    <li>72% heureux</li>
+                    <li>74% en sécurité</li>
+                    <li>69% satisfaits de leur quartier</li>
+                    <li>46% pessimistes pour leur avenir</li>
+                    <li>72% pessimistes pour la société</li>
+                  </ul>` 
+              },
+              { 
+                title: '<h2>Économie & Service publics</h2>', 
+                content: `
+                  <ul>
+                    <li>50% ont des difficultés financières</li>
+                    <li>39% à découvert régulièrement</li>
+                    <li>41% estiment les services publics en recul</li>
+                    <li>31% trouvent les transports insuffisants</li>
+                  </ul>`
+              },
+              { 
+                title: '<h2>Inégalités sociales</h2>', 
+                content: `
+                  <ul>
+                    <li>84% considèrent la société injuste</li>
+                    <li>68% estiment l’impôt inefficace</li>
+                  </ul>`
+              }
+            ],
           pdfLink: 'Pays-de-la-Loire'
         },
         'PACA': {
-          title: 'PACA',
+          title: '<h2>PACA</h2>',
           sections: [
-            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-            { title: 'Analyse de Lisa', content: 'PACA, une région dynamique avec une belle côte méditerranéenne.' },
-            { title: 'Population', content: '5 000 000' },
-            { title: 'Sondés', content: '2 500 000' },
-            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] },
-            { title: 'Économie & Service publics', content: ['50% ont des difficultés financières', '39% à découvert régulièrement', '41% estiment les services publics en recul', '31% trouvent les transports insuffisants'] },
-            { title: 'Inégalités sociales', content: ['84% considèrent la société injuste', '68% estiment l’impôt inefficace'] }
-          ],
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Analyse de Lisa</h2>', content: 'PACA, une région dynamique avec une belle côte méditerranéenne.' },
+            { title: '<h2>Population</h2>', content: '5 000 000' },
+            { title: '<h2>Sondés</h2>', content: '2 500 000' },
+            {       title: '<h2>Qualité de vie</h2>', 
+                content: `
+                  <ul>
+                    <li>72% heureux</li>
+                    <li>74% en sécurité</li>
+                    <li>69% satisfaits de leur quartier</li>
+                    <li>46% pessimistes pour leur avenir</li>
+                    <li>72% pessimistes pour la société</li>
+                  </ul>` 
+              },
+              { 
+                title: '<h2>Économie & Service publics</h2>', 
+                content: `
+                  <ul>
+                    <li>50% ont des difficultés financières</li>
+                    <li>39% à découvert régulièrement</li>
+                    <li>41% estiment les services publics en recul</li>
+                    <li>31% trouvent les transports insuffisants</li>
+                  </ul>`
+              },
+              { 
+                title: '<h2>Inégalités sociales</h2>', 
+                content: `
+                  <ul>
+                    <li>84% considèrent la société injuste</li>
+                    <li>68% estiment l’impôt inefficace</li>
+                  </ul>`
+              }
+            ],
           pdfLink: 'PACA'
         },
         'Ile-de-France': {
-          title: 'Ile-de-France',
+          title: '<h2>Ile-de-France</h2>',
           sections: [
-            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-            { title: 'Analyse de Lisa', content: 'La région capitale est un centre économique et culturel majeur.' },
-            { title: 'Population', content: '12 000 000' },
-            { title: 'Sondés', content: '7 000 000' },
-            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] },
-            { title: 'Économie & Service publics', content: ['50% ont des difficultés financières', '39% à découvert régulièrement', '41% estiment les services publics en recul', '31% trouvent les transports insuffisants'] },
-            { title: 'Inégalités sociales', content: ['84% considèrent la société injuste', '68% estiment l’impôt inefficace'] }
-          ],
-          pdfLink: 'Ile-de-France'
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Analyse de Lisa</h2>', content: 'La région capitale est un centre économique et culturel majeur.' },
+            { title: '<h2>Population</h2>', content: '12 000 000' },
+            { title: '<h2>Sondés</h2>', content: '7 000 000' },
+            {       title: '<h2>Qualité de vie</h2>', 
+                content: `
+                  <ul>
+                    <li>72% heureux</li>
+                    <li>74% en sécurité</li>
+                    <li>69% satisfaits de leur quartier</li>
+                    <li>46% pessimistes pour leur avenir</li>
+                    <li>72% pessimistes pour la société</li>
+                  </ul>` 
+              },
+              { 
+                title: '<h2>Économie & Service publics</h2>', 
+                content: `
+                  <ul>
+                    <li>50% ont des difficultés financières</li>
+                    <li>39% à découvert régulièrement</li>
+                    <li>41% estiment les services publics en recul</li>
+                    <li>31% trouvent les transports insuffisants</li>
+                  </ul>`
+              },
+              { 
+                title: '<h2>Inégalités sociales</h2>', 
+                content: `
+                  <ul>
+                    <li>84% considèrent la société injuste</li>
+                    <li>68% estiment l’impôt inefficace</li>
+                  </ul>`
+              }
+            ],
+            pdfLink: 'Ile-de-France'
         },
         'Nouvelle-Aquitaine': {
-          title: 'Nouvelle-Aquitaine',
+          title: '<h2>Nouvelle-Aquitaine</h2>',
           sections: [
-            { title: 'Sous titre', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-            { title: 'Analyse de Lisa', content: 'Nouvelle-Aquitaine, un grand territoire aux paysages variés et à l’économie solide.' },
-            { title: 'Population', content: '6 000 000' },
-            { title: 'Sondés', content: '3 200 000' },
-            { title: 'Qualité de vie', content: ['72% heureux', '74% en sécurité', '69% satisfaits de leur quartier', '46% pessimistes pour leur avenir', '72% pessimistes pour la société'] },
-            { title: 'Économie & Service publics', content: ['50% ont des difficultés financières', '39% à découvert régulièrement', '41% estiment les services publics en recul', '31% trouvent les transports insuffisants'] },
-            { title: 'Inégalités sociales', content: ['84% considèrent la société injuste', '68% estiment l’impôt inefficace'] }
-          ],
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Analyse de Lisa</h2>', content: 'Nouvelle-Aquitaine, un grand territoire aux paysages variés et à l’économie solide.' },
+            { title: '<h2>Population</h2>', content: '6 000 000' },
+            { title: '<h2>Sondés</h2>', content: '3 200 000' },
+            {       title: '<h2>Qualité de vie</h2>', 
+                content: `
+                  <ul>
+                    <li>72% heureux</li>
+                    <li>74% en sécurité</li>
+                    <li>69% satisfaits de leur quartier</li>
+                    <li>46% pessimistes pour leur avenir</li>
+                    <li>72% pessimistes pour la société</li>
+                  </ul>` 
+              },
+              { 
+                title: '<h2>Économie & Service publics</h2>', 
+                content: `
+                  <ul>
+                    <li>50% ont des difficultés financières</li>
+                    <li>39% à découvert régulièrement</li>
+                    <li>41% estiment les services publics en recul</li>
+                    <li>31% trouvent les transports insuffisants</li>
+                  </ul>`
+              },
+              { 
+                title: '<h2>Inégalités sociales</h2>', 
+                content: `
+                  <ul>
+                    <li>84% considèrent la société injuste</li>
+                    <li>68% estiment l’impôt inefficace</li>
+                  </ul>`
+              }
+            ],
           pdfLink: 'Nouvelle-Aquitaine'
         }
       };
@@ -203,6 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
     popup.style.top = '50px'; // Décale la popup vers le bas
     popup.style.width = '400px'; // Largeur de la popup
     document.body.appendChild(popup);
+    
  
      // Crée une variable pour garder une trace de la région sélectionnée
     let selectedRegion = null;
@@ -334,3 +639,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+/////////////////////////////
+// NEW CODE CI-DESSSOUS
