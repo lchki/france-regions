@@ -13,42 +13,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const regionData = {
     'Centre-Val-de-Loire': {
-      title: '<h1>Centre-Val-de-Loire</h1>',
-      sections: [
-        { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
-        { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
-        { title: '<h2>Qualité de vie</h2>', 
-            content: `
-              <ul>
-                <li>72 % heureux</li>
-                <li>74 % en sécurité</li>
-                <li>69 % satisfaits de leur quartier</li>
-                <li>46 % pessimistes pour leur avenir</li>
-                <li>72 % pessimistes pour la société</li>
-              </ul>` 
-          },
-          { 
-            title: '<h2>Économie & Service publics</h2>', 
-            content: `
-              <ul>
-                <li>50 % ont des difficultés financières</li>
-                <li>39 % à découvert régulièrement</li>
-                <li>41 % estiment les services publics en recul</li>
-                <li>31 % trouvent les transports insuffisants</li>
-              </ul>`
-          },
-          { 
-            title: '<h2>Inégalités sociales</h2>', 
-            content: `
-              <ul>
-                <li>84 % considèrent la société injuste</li>
-                <li>68 % estiment l’impôt inefficace</li>
-              </ul>`
-          },
-          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
-          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
+        title: '<h1>Centre-Val-de-Loire</h1>',
+        sections: [
+            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
+            { title: '<h2>Qualité de vie</h2>', content: `
+                <ul>
+                    <li>72 % heureux</li>
+                    <li>74 % en sécurité</li>
+                    <li>69 % satisfaits de leur quartier</li>
+                    <li>46 % pessimistes pour leur avenir</li>
+                    <li>72 % pessimistes pour la société</li>
+                </ul>`
+            },
+            { title: '<h2>Économie & Service publics</h2>', content: `
+                <ul>
+                    <li>50 % ont des difficultés financières</li>
+                    <li>39 % à découvert régulièrement</li>
+                    <li>41 % estiment les services publics en recul</li>
+                    <li>31 % trouvent les transports insuffisants</li>
+                </ul>`
+            },
+            { title: '<h2>Inégalités sociales</h2>', content: `
+                <ul>
+                    <li>84 % considèrent la société injuste</li>
+                    <li>68 % estiment l’impôt inefficace</li>
+                </ul>`
+            },
+            { 
+                title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', 
+                content: '' 
+            },
+            { 
+                title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', 
+                content: '' 
+            },
         ],
-      pdfLink: 'Centre-Val-de-Loire'
+        pdfLink: 'Centre-Val-de-Loire'
     },
 
     'Bretagne': {
