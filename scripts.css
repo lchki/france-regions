@@ -16,7 +16,7 @@ body {
 .interactive-map {
     max-width: 100%;
     margin: auto;
-    padding: 20px; /* Ajoute de l'espace autour pour aérer */
+    padding: 10px; /* Ajoute de l'espace autour pour aérer */
 }
 
 /* Ajustement de la carte */
@@ -133,7 +133,7 @@ body {
     right: 5%;
     width: 350px;
     max-width: 90%;
-    background: #f5f6f8;
+    background: #f5f0ea !important;
     border: 2px solid #007BFF;
     border-radius: 12px;
     padding: 20px;
@@ -141,6 +141,56 @@ body {
     z-index: 1000;
     display: none;
     animation: popup-slide-in 0.4s ease-in-out;
+}
+
+
+#region-popup h1 {
+    font-family: 'Noto Serif Bengali', serif; /* Police spécifique */
+    font-size: 2rem; /* Augmente la taille pour un H1 */
+    color: #07275f; /* Couleur adaptée */
+    margin: 20px 0; /* Ajoute de l'espace au-dessus et en dessous */
+    text-align: center; /* Centre le texte */
+    padding-bottom: 3px; /* Espacement supplémentaire */
+    border-bottom: 2px solid #07275f; /* Optionnel : Ligne en bas pour le style */
+}
+
+#region-popup h2 {
+    font-size: 1.5rem;
+    color: #07275f;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+/* Ajout d'un espacement autour des listes */
+#region-popup ul {
+    padding-left: 20px;  /* Espacement à gauche pour les puces */
+    margin-top: 10px;    /* Marge au-dessus de la liste */
+    margin-bottom: 10px; /* Marge en dessous de la liste */
+    list-style-type: disc; /* Liste avec des puces */
+}
+
+/* Amélioration du style des éléments de liste */
+#region-popup p, 
+#region-popup ul li, 
+#region-popup .content {
+    font-family: 'Noto Sans', sans-serif; /* Applique Noto Sans */
+    font-size: 1rem; /* Taille de police confortable */
+    color: #07275f; /* Couleur de la police adaptée */
+    line-height: 1.4; /* Réduit légèrement l'interligne */
+    margin: 8px 0; /* Réduit les marges pour un contenu plus compact */
+}
+
+#region-popup a.download-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #07275f;
+    text-decoration: none;
+    border: 1px solid #07275f;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 @keyframes popup-slide-in {
@@ -169,48 +219,6 @@ body {
     font-size: 20px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-#region-popup h2 {
-    font-size: 1.5rem;
-    color: #07275f;;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-}
-
-/* Ajout d'un espacement autour des listes */
-#region-popup ul {
-    padding-left: 20px;  /* Espacement à gauche pour les puces */
-    margin-top: 10px;    /* Marge au-dessus de la liste */
-    margin-bottom: 10px; /* Marge en dessous de la liste */
-    list-style-type: disc; /* Liste avec des puces */
-}
-
-/* Amélioration du style des éléments de liste */
-#region-popup ul li {
-    margin-bottom: 5px; /* Espacement entre les éléments de la liste */
-    font-size: 1rem;    /* Taille de police confortable */
-    color: #555;        /* Couleur du texte */
-}
-
-
-#region-popup p {
-    margin: 10px 0;
-    font-size: 1rem;
-    color: #555;
-}
-
-#region-popup a.download-link {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #ffffff;
-    color: #07275f;
-    text-decoration: none;
-    border: 1px solid #07275f;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
 }
 
 #region-popup a.download-link:hover {
