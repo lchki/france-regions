@@ -98,6 +98,42 @@ body {
     color: #555;
 }
 
+/* Espacement spécifique entre le titre et le contenu */
+.popup-section span.discreet-info {
+    display: block ;    /* Affichage en bloc pour avoir les éléments sur des lignes séparées */
+    line-height: 1; /* Réduit l'espace vertical entre les lignes */
+    font-style: italic;
+    color: #888;  /* Couleur grise pour rendre l'information discrète */
+    font-size: 0.9em;  /* Taille de police plus petite */
+    margin: 0px;         /* Aucune marge */
+    padding: 0px;        /* Aucune marge intérieure */
+}
+
+.discreet-info {
+    font-weight: normal; /* Supprimer le gras */
+    font-style: italic;      /* Applique l'italique */
+    color: #888;             /* Couleur grise discrète */
+    font-size: 1rem !important; /* Optionnel : ajuster la taille de la police */
+    display: block !important;  /* Force l'affichage en bloc */
+    margin: 0; /* Élimine les marges externes */
+    padding: 0; /* Élimine les marges internes */
+    line-height: 1 !important;  /* Réduit l'espace vertical entre les éléments */
+    text-align: left !important; /* Assure que le texte est aligné à gauche */
+}
+
+/* Espacement entre les sections */
+.popup-section {
+    margin-bottom: 40px; /* Espace après chaque section */
+}
+
+/* Pour espacer les autres informations sous forme de liste */
+.popup-section ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
 /* Styles responsives */
 @media (max-width: 768px) {
     .interactive-map .map {
@@ -132,7 +168,7 @@ body {
     position: fixed;
     top: 10%;
     right: 5%;
-    width: 350px;
+    width: 600px;
     max-width: 90%;
     background: #f5f0ea !important;
     border: 2px solid #007BFF;
@@ -151,10 +187,25 @@ body {
     font-size: 2rem; /* Augmente la taille pour un H1 */
     color: #07275f; /* Couleur adaptée */
     margin: 20px 0; /* Ajoute de l'espace au-dessus et en dessous */
-    text-align: center; /* Centre le texte */
-    padding-bottom: 3px; /* Espacement supplémentaire */
-    border-bottom: 2px solid #07275f; /* Optionnel : Ligne en bas pour le style */
+    text-align: left; /* Aligne le texte à gauche */
+    position: relative; /* Nécessaire pour positionner le pseudo-élément */
+    padding-left: 40px; /* Ajoute de l'espace entre le titre et la ligne */
+    white-space: nowrap; /* Empêche le titre de se couper en plusieurs lignes */
 }
+
+#region-popup h1::before {
+    content: ""; /* Pas de texte, juste un espace */
+    position: absolute;
+    left: 0; /* Positionne le trait à gauche du titre */
+    top: 50%; /* Aligne le trait au centre vertical du titre */
+    transform: translateY(-50%); /* Aligne parfaitement le trait avec le titre */
+    width: 30px; /* Longueur du trait (fixée, petite) */
+    height: 2px; /* Épaisseur du trait */
+    background-color: #07275f; /* Couleur du trait */
+    z-index: -1; /* Placer le trait derrière le texte */
+}
+
+
 
 #region-popup h2 {
     font-weight: normal; /* Supprimer le gras */
@@ -162,14 +213,7 @@ body {
     color: #07275f;
     margin-bottom: 10px;
     padding-bottom: 5px;
-}
-
-.discreet-info {
-    font-weight: normal; /* Supprimer le gras */
-    font-style: italic;      /* Applique l'italique */
-    color: #888;             /* Couleur grise discrète */
-    font-size: 1rem;         /* Taille de texte discrète */
-  }
+}  
 
 
 .inline-info {
@@ -204,6 +248,7 @@ body {
 }
 
 #region-popup a.download-link {
+    font-family: 'Noto Sans', sans-serif !important;
     display: inline-block;
     margin-top: 15px;
     padding: 10px 20px;
@@ -212,7 +257,7 @@ body {
     text-decoration: none;
     border: 1px solid #07275f;
     border-radius: 8px;
-    font-weight: bold;
+    font-weight: normal !important;
     transition: background-color 0.3s ease;
 }
 
@@ -245,5 +290,6 @@ body {
 }
 
 #region-popup a.download-link:hover {
+    font-family: 'Noto Sans', sans-serif;
     background-color: #f9f7f5;
 }
