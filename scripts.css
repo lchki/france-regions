@@ -7,6 +7,7 @@
 
 body {
     font-family: 'Noto Serif Bengali', serif;
+    font-weight: normal; /* Supprimer le gras */
     background-color: #f9f7f5;
     color: #07275f; /* Couleur par défaut pour le texte */
     line-height: 1.5;
@@ -146,6 +147,7 @@ body {
 
 #region-popup h1 {
     font-family: 'Noto Serif Bengali', serif; /* Police spécifique */
+    font-weight: normal; /* Supprimer le gras */
     font-size: 2rem; /* Augmente la taille pour un H1 */
     color: #07275f; /* Couleur adaptée */
     margin: 20px 0; /* Ajoute de l'espace au-dessus et en dessous */
@@ -155,10 +157,31 @@ body {
 }
 
 #region-popup h2 {
+    font-weight: normal; /* Supprimer le gras */
     font-size: 1.5rem;
     color: #07275f;
     margin-bottom: 10px;
     padding-bottom: 5px;
+}
+
+.discreet-info {
+    font-weight: normal; /* Supprimer le gras */
+    font-style: italic;      /* Applique l'italique */
+    color: #888;             /* Couleur grise discrète */
+    font-size: 1rem;         /* Taille de texte discrète */
+  }
+
+
+.inline-info {
+    font-weight: normal; /* Supprimer le gras */
+    font-family: 'Noto Sans', sans-serif; /* Applique Noto Sans */
+    font-size: 14px; /* Réduit la taille du texte */
+    color: #808080; /* Gris */
+    font-style: italic; /* Italique */
+    display: inline-block; /* Affichage en ligne */
+    margin-top: 1px; /* Espacement au-dessus */
+    margin-bottom: 1px; /* Espacement en bas */
+    white-space: nowrap; /* Empêche le texte de se couper */
 }
 
 /* Ajout d'un espacement autour des listes */
