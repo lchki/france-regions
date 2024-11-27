@@ -11,32 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     'PACA', 'Ile-de-France', 'Nouvelle-Aquitaine'
   ];
 
-  // Crée un objet contenant les informations supplémentaires des régions
-  //const regionInfo = {
-   // 'Centre-Val-de-Loire': { population: '2,570,000', capital: 'Orléans', area: '39,151 km²' },
-    //'Bretagne': { population: '3,300,000', capital: 'Rennes', area: '27,208 km²' },
-    //'Bourgogne-Franche-Comte': { population: '2,800,000', capital: 'Dijon', area: '47,784 km²' },
-     //'Grand-Est': { population: '5,500,000', capital: 'Strasbourg', area: '57,433 km²' },
-     //'Occitanie': { population: '5,900,000', capital: 'Toulouse', area: '72,724 km²' },
-     //'Hauts-de-France': { population: '6,000,000', capital: 'Lille', area: '31,813 km²' },
-     //'Auvergne-Rhone-Alpes': { population: '8,000,000', capital: 'Lyon', area: '69,711 km²' },
-     //'Normandie': { population: '3,300,000', capital: 'Rouen', area: '29,907 km²' },
-     //'Pays-de-la-Loire': { population: '3,700,000', capital: 'Nantes', area: '32,082 km²' },
-     //'PACA': { population: '5,000,000', capital: 'Marseille', area: '31,400 km²' },
-     //'Ile-de-France': { population: '12,000,000', capital: 'Paris', area: '12,012 km²' },
-     //'Nouvelle-Aquitaine': { population: '6,000,000', capital: 'Bordeaux', area: '84,036 km²' },
-   //};
-
-
 const regionData = {
     'Centre-Val-de-Loire': {
       title: '<h1>Centre-Val-de-Loire</h1>',
       sections: [
         { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
-        { title: '<h2>Population</h2>', content: '6 069 352' },
-        { title: '<h2>Sondés</h2>', content: '4 000 346' },
-        {       title: '<h2>Qualité de vie</h2>', 
+        { title: '<h2>Qualité de vie</h2>', 
             content: `
               <ul>
                 <li>72 % heureux</li>
@@ -63,7 +44,9 @@ const regionData = {
                 <li>84 % considèrent la société injuste</li>
                 <li>68 % estiment l’impôt inefficace</li>
               </ul>`
-          }
+          },
+          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
+          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Centre-Val-de-Loire'
     },
@@ -73,9 +56,7 @@ const regionData = {
       sections: [
         { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'La Bretagne est une région charmante, idéale pour les vacances.' },
-        { title: '<h2>Population</h2>', content: '3 300 000' },
-        { title: '<h2>Sondés</h2>', content: '2 000 000' },
-        {       title: '<h2>Qualité de vie</h2>', 
+        { title: '<h2>Qualité de vie</h2>', 
             content: `
               <ul>
                 <li>72 % heureux</li>
@@ -102,7 +83,9 @@ const regionData = {
                 <li>84 % considèrent la société injuste</li>
                 <li>68 % estiment l’impôt inefficace</li>
               </ul>`
-          }
+          },
+          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
+          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Bretagne'
     },
@@ -112,9 +95,7 @@ const regionData = {
       sections: [
         { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Bourgogne-Franche-Comté est une belle région pour la gastronomie et le vin.' },
-        { title: '<h2>Population</h2>', content: '2 800 000' },
-        { title: '<h2>Sondés</h2>', content: '1 500 000' },
-        {       title: '<h2>Qualité de vie</h2>', 
+        { title: '<h2>Qualité de vie</h2>', 
             content: `
               <ul>
                 <li>72 % heureux</li>
@@ -141,7 +122,9 @@ const regionData = {
                 <li>84 % considèrent la société injuste</li>
                 <li>68 % estiment l’impôt inefficace</li>
               </ul>`
-          }
+          },
+          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
+          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Bourgogne-Franche-Comte'
     },
@@ -151,9 +134,7 @@ const regionData = {
       sections: [
         { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Grand-Est est un carrefour européen avec une grande diversité culturelle.' },
-        { title: '<h2>Population</h2>', content: '5 500 000' },
-        { title: '<h2>Sondés</h2>', content: '3 000 000' },
-        {       title: '<h2>Qualité de vie</h2>', 
+        { title: '<h2>Qualité de vie</h2>', 
             content: `
               <ul>
                 <li>72 % heureux</li>
@@ -180,7 +161,9 @@ const regionData = {
                 <li>84 % considèrent la société injuste</li>
                 <li>68 % estiment l’impôt inefficace</li>
               </ul>`
-          }
+          },
+          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
+          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Grand-Est'
     },
@@ -190,9 +173,7 @@ const regionData = {
       sections: [
         { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Occitanie est connue pour son climat et ses paysages magnifiques.' },
-        { title: '<h2>Population</h2>', content: '5 900 000' },
-        { title: '<h2>Sondés</h2>', content: '2 800 000' },
-        {       title: '<h2>Qualité de vie</h2>', 
+        { title: '<h2>Qualité de vie</h2>', 
             content: `
               <ul>
                 <li>72 % heureux</li>
@@ -219,7 +200,9 @@ const regionData = {
                 <li>84 % considèrent la société injuste</li>
                 <li>68 % estiment l’impôt inefficace</li>
               </ul>`
-          }
+          },
+          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
+          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Occitanie'
     },
@@ -229,9 +212,7 @@ const regionData = {
       sections: [
         { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoine.' },
-        { title: '<h2>Population</h2>', content: '6 000 000' },
-        { title: '<h2>Sondés</h2>', content: '4 500 000' },
-        {       title: '<h2>Qualité de vie</h2>', 
+        { title: '<h2>Qualité de vie</h2>', 
             content: `
               <ul>
                 <li>72 % heureux</li>
@@ -258,7 +239,9 @@ const regionData = {
                 <li>84 % considèrent la société injuste</li>
                 <li>68 % estiment l’impôt inefficace</li>
               </ul>`
-          }
+          },
+          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
+          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Hauts-de-France'
     },
@@ -268,9 +251,7 @@ const regionData = {
       sections: [
         { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Une région montagneuse avec un fort potentiel touristique et économique.' },
-        { title: '<h2>Population</h2>', content: '8 000 000' },
-        { title: '<h2>Sondés</h2>', content: '5 000 000' },
-        {       title: '<h2>Qualité de vie</h2>', 
+        { title: '<h2>Qualité de vie</h2>', 
             content: `
               <ul>
                 <li>72 % heureux</li>
@@ -297,7 +278,9 @@ const regionData = {
                 <li>84 % considèrent la société injuste</li>
                 <li>68 % estiment l’impôt inefficace</li>
               </ul>`
-          }
+          },
+          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
+          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Auvergne-Rhone-Alpes'
     },
@@ -306,9 +289,7 @@ const regionData = {
       sections: [
         { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'La Normandie est une région historique avec des paysages variés et une forte tradition maritime.' },
-        { title: '<h2>Population</h2>', content: '3 300 000' },
-        { title: '<h2>Sondés</h2>', content: '1 800 000' },
-        {       title: '<h2>Qualité de vie</h2>', 
+        { title: '<h2>Qualité de vie</h2>', 
             content: `
               <ul>
                 <li>72 % heureux</li>
@@ -335,7 +316,9 @@ const regionData = {
                 <li>84 % considèrent la société injuste</li>
                 <li>68 % estiment l’impôt inefficace</li>
               </ul>`
-          }
+          },
+          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
+          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Normandie'
     },
@@ -344,9 +327,7 @@ const regionData = {
       sections: [
         { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Pays-de-la-Loire sont réputés pour leur économie dynamique et leur littoral.' },
-        { title: '<h2>Population</h2>', content: '3 700 000' },
-        { title: '<h2>Sondés</h2>', content: '2 000 000' },
-        {       title: '<h2>Qualité de vie</h2>', 
+        { title: '<h2>Qualité de vie</h2>', 
             content: `
               <ul>
                 <li>72 % heureux</li>
@@ -373,7 +354,9 @@ const regionData = {
                 <li>84 % considèrent la société injuste</li>
                 <li>68 % estiment l’impôt inefficace</li>
               </ul>`
-          }
+          },
+          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
+          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Pays-de-la-Loire'
     },
@@ -382,9 +365,7 @@ const regionData = {
       sections: [
         { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'PACA, une région dynamique avec une belle côte méditerranéenne.' },
-        { title: '<h2>Population</h2>', content: '5 000 000' },
-        { title: '<h2>Sondés</h2>', content: '2 500 000' },
-        {       title: '<h2>Qualité de vie</h2>', 
+        { title: '<h2>Qualité de vie</h2>', 
             content: `
               <ul>
                 <li>72 % heureux</li>
@@ -411,7 +392,9 @@ const regionData = {
                 <li>84 % considèrent la société injuste</li>
                 <li>68 % estiment l’impôt inefficace</li>
               </ul>`
-          }
+          },
+          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
+          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'PACA'
     },
@@ -420,9 +403,7 @@ const regionData = {
       sections: [
         { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'La région capitale est un centre économique et culturel majeur.' },
-        { title: '<h2>Population</h2>', content: '12 000 000' },
-        { title: '<h2>Sondés</h2>', content: '7 000 000' },
-        {       title: '<h2>Qualité de vie</h2>', 
+        { title: '<h2>Qualité de vie</h2>', 
             content: `
               <ul>
                 <li>72 % heureux</li>
@@ -449,7 +430,9 @@ const regionData = {
                 <li>84 % considèrent la société injuste</li>
                 <li>68 % estiment l’impôt inefficace</li>
               </ul>`
-          }
+          },
+          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
+          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
         pdfLink: 'Ile-de-France'
     },
@@ -458,9 +441,7 @@ const regionData = {
       sections: [
         { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Nouvelle-Aquitaine, un grand territoire aux paysages variés et à l’économie solide.' },
-        { title: '<h2>Population</h2>', content: '6 000 000' },
-        { title: '<h2>Sondés</h2>', content: '3 200 000' },
-        {       title: '<h2>Qualité de vie</h2>', 
+        { title: '<h2>Qualité de vie</h2>', 
             content: `
               <ul>
                 <li>72 % heureux</li>
@@ -487,7 +468,9 @@ const regionData = {
                 <li>84 % considèrent la société injuste</li>
                 <li>68 % estiment l’impôt inefficace</li>
               </ul>`
-          }
+          },
+          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
+          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Nouvelle-Aquitaine'
     }
@@ -641,7 +624,3 @@ document.addEventListener('click', e => {
     }
 });
 });
-
-
-/////////////////////////////
-// NEW CODE CI-DESSSOUS
