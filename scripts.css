@@ -99,26 +99,16 @@ body {
 }
 
 /* Espacement spécifique entre le titre et le contenu */
-.popup-section span.discreet-info {
-    display: block ;    /* Affichage en bloc pour avoir les éléments sur des lignes séparées */
-    line-height: 1; /* Réduit l'espace vertical entre les lignes */
-    font-style: italic;
-    color: #888;  /* Couleur grise pour rendre l'information discrète */
-    font-size: 0.9em;  /* Taille de police plus petite */
-    margin: 0px;         /* Aucune marge */
-    padding: 0px;        /* Aucune marge intérieure */
-}
-
 .discreet-info {
-    font-weight: normal; /* Supprimer le gras */
-    font-style: italic;      /* Applique l'italique */
-    color: #888;             /* Couleur grise discrète */
-    font-size: 1rem !important; /* Optionnel : ajuster la taille de la police */
-    display: block !important;  /* Force l'affichage en bloc */
-    margin: 0; /* Élimine les marges externes */
-    padding: 0; /* Élimine les marges internes */
-    line-height: 1 !important;  /* Réduit l'espace vertical entre les éléments */
-    text-align: left !important; /* Assure que le texte est aligné à gauche */
+    display: block; 
+    margin: 0px 0 !important; 
+    padding: 0; 
+    line-height: 1.2; 
+    font-style: italic; 
+    font-size: 0.9em; 
+    color: #888; 
+    text-align: left;
+    font-weight: normal; 
 }
 
 /* Espacement entre les sections */
