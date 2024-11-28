@@ -15,7 +15,7 @@ const regionData = {
     'Centre-Val-de-Loire': {
         title: '<h1>Centre-Val-de-Loire</h1>',
         sections: [
-            { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+            { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
             { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
             { title: '<h2>Qualité de vie</h2>', content: `
                 <ul>
@@ -55,7 +55,7 @@ const regionData = {
     'Bretagne': {
       title: '<h1>Bretagne</h1>',
       sections: [
-        { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'La Bretagne est une région charmante, idéale pour les vacances.' },
         { title: '<h2>Qualité de vie</h2>', 
             content: `
@@ -94,7 +94,7 @@ const regionData = {
     'Bourgogne-Franche-Comte': {
       title: '<h1>Bourgogne-Franche-Comte</h1>',
       sections: [
-        { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Bourgogne-Franche-Comté est une belle région pour la gastronomie et le vin.' },
         { title: '<h2>Qualité de vie</h2>', 
             content: `
@@ -133,7 +133,7 @@ const regionData = {
     'Grand-Est': {
       title: '<h1>Grand-Est</h1>',
       sections: [
-        { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Grand-Est est un carrefour européen avec une grande diversité culturelle.' },
         { title: '<h2>Qualité de vie</h2>', 
             content: `
@@ -170,9 +170,9 @@ const regionData = {
     },
 
     'Occitanie': {
-      title: '<h2>Occitanie</h2>',
+      title: '<h1>Occitanie</h1>',
       sections: [
-        { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Occitanie est connue pour son climat et ses paysages magnifiques.' },
         { title: '<h2>Qualité de vie</h2>', 
             content: `
@@ -211,7 +211,7 @@ const regionData = {
     'Hauts-de-France': {
       title: '<h1>Hauts-de-France</h1>',
       sections: [
-        { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoine.' },
         { title: '<h2>Qualité de vie</h2>', 
             content: `
@@ -250,7 +250,7 @@ const regionData = {
     'Auvergne-Rhone-Alpes': {
       title: '<h1>Auvergne-Rhone-Alpes</h1>',
       sections: [
-        { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Une région montagneuse avec un fort potentiel touristique et économique.' },
         { title: '<h2>Qualité de vie</h2>', 
             content: `
@@ -288,7 +288,7 @@ const regionData = {
     'Normandie': {
       title: '<h1>Normandie</h1>',
       sections: [
-        { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'La Normandie est une région historique avec des paysages variés et une forte tradition maritime.' },
         { title: '<h2>Qualité de vie</h2>', 
             content: `
@@ -326,7 +326,7 @@ const regionData = {
     'Pays-de-la-Loire': {
       title: '<h1>Pays-de-la-Loire</h1>',
       sections: [
-        { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Pays-de-la-Loire sont réputés pour leur économie dynamique et leur littoral.' },
         { title: '<h2>Qualité de vie</h2>', 
             content: `
@@ -364,7 +364,7 @@ const regionData = {
     'PACA': {
       title: '<h1>PACA</h1>',
       sections: [
-        { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'PACA, une région dynamique avec une belle côte méditerranéenne.' },
         { title: '<h2>Qualité de vie</h2>', 
             content: `
@@ -402,7 +402,7 @@ const regionData = {
     'Ile-de-France': {
       title: '<h1>Ile-de-France</h1>',
       sections: [
-        { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'La région capitale est un centre économique et culturel majeur.' },
         { title: '<h2>Qualité de vie</h2>', 
             content: `
@@ -440,7 +440,7 @@ const regionData = {
     'Nouvelle-Aquitaine': {
       title: '<h1>Nouvelle-Aquitaine</h1>',
       sections: [
-        { title: '<h2>Sous titre</h2>', content: 'Un attachement au territoire plus fort que les inégalités territoriales' },
+        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Nouvelle-Aquitaine, un grand territoire aux paysages variés et à l’économie solide.' },
         { title: '<h2>Qualité de vie</h2>', 
             content: `
