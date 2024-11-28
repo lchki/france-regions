@@ -145,6 +145,7 @@ body {
     .interactive-map .map {
         width: 90%;
         transform: scale(0.55);
+        margin-left: -50px;
     }
 
     .interactive-map .map .region-detail {
