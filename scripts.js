@@ -477,6 +477,42 @@ const regionData = {
     }
   };
 
+  document.addEventListener('DOMContentLoaded', function() {
+    const mapContainer = document.querySelector('.map-container');
+    const interactiveMap = document.querySelector('.interactive-map');
+
+    // Empêcher la carte de disparaître
+    interactiveMap.addEventListener('click', function(e) {
+        // Empêche tout changement de visibilité ou de position
+        e.stopPropagation();
+        
+        // S'assurer que la carte reste bien visible
+        interactiveMap.style.visibility = 'visible';
+        interactiveMap.style.zIndex = 9999;
+    });
+
+    // Écouter le redimensionnement de la fenêtre pour s'assurer que la carte reste au centre
+    window.addEventListener('resize', function() {
+        const mapHeight = interactiveMap.offsetHeight;
+        const containerHeight = mapContainer.offsetHeight;
+        
+        // Ajuster la carte si elle déborde
+        if (mapHeight > containerHeight) {
+            interactiveMap.style.top = '50%';
+            interactiveMap.style.transform = 'translate(-50%, -50%)'; // Centre correctement
+        }
+    });
+
+    // Forcer l'initialisation pour être sûr que la carte est bien centrée au chargement
+    const mapHeight = interactiveMap.offsetHeight;
+    const containerHeight = mapContainer.offsetHeight;
+
+    if (mapHeight < containerHeight) {
+        interactiveMap.style.top = '50%';
+        interactiveMap.style.transform = 'translate(-50%, -50%)'; // Centre au démarrage
+    }
+});
+
 // Création de la popup
 const popup = document.createElement('div');
 popup.id = 'region-popup';
@@ -494,6 +530,24 @@ popup.style.width = '400px'; // Largeur de la popup
 popup.style.maxHeight = '80vh'; // Limite la hauteur à 80% de la fenêtre
 popup.style.overflowY = 'auto'; // Permet le défilement vertical
 document.body.appendChild(popup);
+
+// Créer un second popup : right-popup
+const rightPopup = document.createElement('div');
+rightPopup.id = 'right-popup';
+rightPopup.style.position = 'fixed';
+rightPopup.style.backgroundColor = '#f5f0ea';
+rightPopup.style.border = '1px solid #ccc';
+rightPopup.style.padding = '15px';
+rightPopup.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.15)';
+rightPopup.style.display = 'none';  // Initialement caché
+rightPopup.style.zIndex = '1000';
+rightPopup.style.transition = 'transform 0.5s ease, width 0.5s ease';
+rightPopup.style.right = '10px';  // Position à droite
+rightPopup.style.top = '50px';    // Décale la popup vers le bas
+rightPopup.style.width = '600px'; // Largeur de la popup
+rightPopup.style.maxHeight = '80vh'; // Limite la hauteur à 80% de la fenêtre
+rightPopup.style.overflowY = 'auto'; // Permet le défilement vertical
+document.body.appendChild(rightPopup);
 
 // Crée une variable pour garder une trace de la région sélectionnée
 let selectedRegion = null;
@@ -529,16 +583,7 @@ const resetMapPosition = () => {
     mapElement.style.top = '0';   // Réinitialiser le déplacement vertical
 };
 
-// Réduire la carte et la déplacer
-const zoomOutMap = () => {
-    const mapElement = document.querySelector('.interactive-map .map');
-    mapElement.style.transform = 'scale(0.6)';
-    mapElement.style.transition = 'transform 0.5s ease';
-    mapElement.style.position = 'absolute';
-    mapElement.style.left = '10px';
-};
-
-// Agrandir la popup
+// Fonction pour afficher la popup
 const showPopup = (regionId, data) => {
     const sectionsHTML = data.sections.map(section => `
         <div class="popup-section">
@@ -557,6 +602,17 @@ const showPopup = (regionId, data) => {
     popup.style.transform = 'translateX(0)';
 };
 
+// Fonction pour afficher l'image dans le right-popup
+const showRightPopup = (regionId) => {
+    rightPopup.innerHTML = `
+        <button id="close-right-popup">&times;</button>
+        <h3>Image de la région</h3>
+        <img src="src/data/image.png" alt="Image de la région" style="width: 100%; height: auto; max-height: 300px; object-fit: contain;">
+    `;
+    rightPopup.style.display = 'block';
+    rightPopup.style.transform = 'translateX(0)';
+};
+
 // Fonction pour gérer les clics sur les régions
 regions.forEach(regionId => {
     const region = document.getElementById(regionId);
@@ -564,7 +620,6 @@ regions.forEach(regionId => {
         // Survol : surbrillance
         region.addEventListener('mouseover', () => highlightRegion(region, '#FF5733'));
         region.addEventListener('mouseout', () => {
-            // Si la région est sélectionnée, on la laisse colorée
             if (selectedRegion !== region) {
                 highlightRegion(region, '#ECEDEC');
             }
@@ -574,34 +629,26 @@ regions.forEach(regionId => {
         region.addEventListener('click', () => {
             const data = regionData[regionId];
             if (data) {
-                // Mise à jour de l'URL
                 updateURLWithRegion(regionId);
-
-                // Suivi du clic dans Google Analytics
                 trackRegionClick(regionId);
 
-                // Maintenir la couleur de la région sélectionnée
                 if (selectedRegion) {
-                    highlightRegion(selectedRegion, '#ECEDEC'); // Réinitialiser la couleur précédente
+                    highlightRegion(selectedRegion, '#ECEDEC');
                 }
-                selectedRegion = region; // Marquer la région comme sélectionnée
-                highlightRegion(region, '#FF5733'); // Met en surbrillance la région
-                zoomOutMap(); // Réduit et déplace la carte
-                showPopup(regionId, data); // Affiche la popup agrandie
+                selectedRegion = region;
+                highlightRegion(region, '#FF5733');
+                showPopup(regionId, data);
+                showRightPopup(regionId);
             }
         });
     }
 });
 
-// Fermeture de la popup
+// Fermeture du popup à gauche
 popup.addEventListener('click', e => {
     if (e.target.id === 'close-popup') {
         popup.style.display = 'none';
-
-        // Réinitialiser la carte
-        resetMapPosition(); // Reset position et échelle
-
-        // Réinitialiser la couleur de la région
+        resetMapPosition();
         if (selectedRegion) {
             highlightRegion(selectedRegion, '#ECEDEC');
             selectedRegion = null;
@@ -609,15 +656,24 @@ popup.addEventListener('click', e => {
     }
 });
 
-// Quand on clique en dehors de la popup
+// Fermeture du right-popup à droite
+rightPopup.addEventListener('click', e => {
+    if (e.target.id === 'close-right-popup') {
+        rightPopup.style.display = 'none';
+        resetMapPosition();
+        if (selectedRegion) {
+            highlightRegion(selectedRegion, '#ECEDEC');
+            selectedRegion = null;
+        }
+    }
+});
+
+// Ferme les popups si l'utilisateur clique en dehors
 document.addEventListener('click', e => {
-    if (!popup.contains(e.target) && !e.target.classList.contains('region')) {
+    if (!popup.contains(e.target) && !rightPopup.contains(e.target) && !e.target.classList.contains('region')) {
         popup.style.display = 'none';
-
-        // Réinitialiser la carte
-        resetMapPosition(); // Reset position et échelle
-
-        // Réinitialiser la couleur de la région
+        rightPopup.style.display = 'none';
+        resetMapPosition();
         if (selectedRegion) {
             highlightRegion(selectedRegion, '#ECEDEC');
             selectedRegion = null;
@@ -625,3 +681,5 @@ document.addEventListener('click', e => {
     }
 });
 });
+
+
