@@ -57,7 +57,7 @@ body {
 /* Bloc 3 : right-popup (popup à droite avec image) */
 #right-popup {
     position: absolute; /* Placement absolu pour qu'il ne gêne pas la carte */
-    left: 65%; /* Positionner juste après la carte (ajustez cette valeur selon la taille de la carte) */
+    left: 70%; /* Positionner juste après la carte (ajustez cette valeur selon la taille de la carte) */
     top: 70%;
     transform: translateY(-50%); /* Centrer verticalement */
     z-index: 1001; /* Placer la popup au-dessus de la carte */
@@ -192,13 +192,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* Styles responsives */
-@media (max-width: 768px) {
-    #right-popup {
-        width: 400px; /* Taille pour les petits écrans */
-    }
-}
-
 
 @media (max-width: 768px) {
     .interactive-map .map {
@@ -214,20 +207,157 @@ body {
     .interactive-map .map .region-detail .scrolling-menu {
         max-height: 50vh;
     }
+
 }
 
+/* Combine les media queries pour éviter les doublons */
+/* Styles pour les petits écrans (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Conteneur principal centré */
+    .main-container {
+        display: flex;
+        flex-direction: column; /* Empile les éléments (popups + carte) */
+        justify-content: center; /* Centre verticalement */
+        align-items: center; /* Centre horizontalement */
+        height: 100vh; /* Prend toute la hauteur de l'écran */
+        overflow: hidden; /* Évite le débordement du contenu */
+    }
+
+    /* Carte : occupe la majeure partie de l'écran */
+    .map-container {
+        width: 100%; /* La carte occupe toute la largeur de l'écran */
+        height: 100%; /* La carte prend toute la hauteur disponible */
+        position: relative; /* Pour les popups positionnés relativement à la carte */
+        z-index: 0; /* La carte reste en arrière-plan */
+    }
+
+    /* Popup région du haut */
+    #region-popup {
+        position: absolute;
+        top: 5%; /* Un petit écart du haut */
+        left: 50%;
+        transform: translateX(-50%); /* Centré horizontalement */
+        width: 90%; /* Largeur de la popup, s'ajuste à l'écran */
+        max-width: 600px; /* Largeur maximale */
+        height: auto; /* Hauteur automatique */
+        padding: 15px;
+        background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Ombre pour un meilleur contraste */
+        z-index: 1001; /* S'assurer qu'elle se trouve au-dessus de la carte */
+        box-sizing: border-box; /* Prend en compte le padding dans la taille de l'élément */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Popup région du bas */
+    #right-popup {
+        position: absolute;
+        bottom: 5%; /* Un petit écart du bas */
+        left: 50%;
+        transform: translateX(-50%); /* Centré horizontalement */
+        width: 90%; /* Largeur ajustée pour l'écran */
+        max-width: 600px; /* Largeur maximale */
+        height: auto; /* Hauteur ajustable */
+        padding: 15px;
+        background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Ombre */
+        z-index: 1001; /* Assure qu'elle reste au-dessus de la carte */
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Ajustement du texte pour la lisibilité sur les petits écrans */
+    #region-popup h1, #right-popup h1 {
+        font-size: 1.2rem !important;
+        margin: 10px 0;
+    }
+
+    #region-popup h2, #right-popup h2 {
+        font-size: 1rem !important;
+        margin: 5px 0;
+    }
+
+    #region-popup p, #right-popup p {
+        font-size: 0.9rem !important;
+        margin: 5px 0;
+        line-height: 1.4;
+        text-align: center; /* Centrer le texte pour un meilleur aspect */
+    }
+
+    /* Ajuster l'image dans la popup du bas */
+    #right-popup img {
+        width: 100% !important; /* L'image prend 100% de la largeur disponible */
+        max-width: 100% !important;
+        height: auto;
+        border-radius: 8px; /* Coins arrondis */
+    }
+
+    /* Animation de la popup pour un effet dynamique */
+    #region-popup, #right-popup {
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Ajustement de la carte et des popups pour la réactivité */
+    #region-popup, #right-popup, .map-container {
+        height: auto; /* Ajuster la hauteur */
+        width: 100%; /* Largeur dynamique */
+    }
+
+    /* Ajustement des éléments à l'intérieur des popups */
+    #region-popup .content, #right-popup .content {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Empêche les popups de se chevaucher ou d'être trop petites */
+    #region-popup, #right-popup {
+        max-height: 45%; /* Limite la hauteur des popups à 45% de l'écran */
+        overflow-y: auto; /* Permet le défilement si nécessaire */
+    }
+}
+
+
+/* Ajustements pour les écrans très petits */
 @media (max-width: 480px) {
-    .interactive-map .map {
-        width: 90%;
-        transform: scale(0.55);
-        margin-left: -50px;
+    #region-popup {
+        width: 50% !important; /* Augmente la largeur à 90% pour la rendre plus visible */
+        padding: 10px !important;
     }
 
-    .interactive-map .map .region-detail {
-        max-width: 70%;
-        max-height: 75vh;
+    #right-popup {
+        width: 500% !important; /* Même ajustement pour la popup à droite */
+        padding: 10px;
+    }
+
+    #region-popup h1, #right-popup h1 {
+        font-size: 1.25rem;
+    }
+
+    #region-popup h2, #right-popup h2 {
+        font-size: 1rem;
+    }
+
+    #region-popup p, #right-popup p {
+        font-size: 0.8rem;
+    }
+
+    #right-popup img {
+        width: 50% !important; /* Image prend toute la largeur */
+        height: auto;
+        border-radius: 8px;
+    }
+
+    #region-popup .popup-section, #right-popup .popup-section {
+        margin-bottom: 15px !important;
     }
 }
+
 
 /* Animations */
 @keyframes popup-slide-in {
