@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.innerWidth < 600) {
       popup.style.width = '90%';  // Taille de la popup pour mobile
   }
-  
 
   // Sélectionne toutes les régions par leur id
   const regions = [
@@ -607,7 +606,7 @@ const showRightPopup = (regionId) => {
     rightPopup.innerHTML = `
         <button id="close-right-popup">&times;</button>
         <h3>Image de la région</h3>
-        <img src="src/data/image.png" alt="Image de la région" style="width: 100%; height: auto; max-height: 300px; object-fit: contain;">
+        <img src="src/data/image_baro.png" style="width: 100%; height: auto; max-height: 4000px; object-fit: contain;">
     `;
     rightPopup.style.display = 'block';
     rightPopup.style.transform = 'translateX(0)';
@@ -681,5 +680,4 @@ document.addEventListener('click', e => {
     }
 });
 });
-
 
