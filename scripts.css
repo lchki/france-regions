@@ -168,19 +168,6 @@ body {
     color: #555;
 }
 
-/* Espacement spécifique entre le titre et le contenu */
-.discreet-info {
-    display: block; 
-    margin: 0px 0 !important; 
-    padding: 0; 
-    line-height: 1.2; 
-    font-style: italic; 
-    font-size: 0.9em; 
-    color: #888; 
-    text-align: left;
-    font-weight: normal; 
-}
-
 /* Espacement entre les sections */
 .popup-section {
     margin-bottom: 40px; /* Espace après chaque section */
@@ -340,4 +327,54 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+
+/* création de la popup-hover en style*/
+
+/* Style compact pour la popup-hover */
+.popup-hover {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px; /* Réduction du padding */
+    background-color: rgba(255, 243, 230, 1); /* Fond de la popup */
+    border-radius: 6px; /* Angles légèrement arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Ombre plus discrète */
+    z-index: 9999;
+    width: 180px; /* Taille réduite */
+    max-width: 90%; /* Adapte la taille à l'écran */
+    transition: transform 0.1s ease-out;
+}
+
+/* Contenu de la popup */
+.popup-hover .popup-content {
+    font-family: 'Noto Serif Bengali', serif;
+    color: #07275f;
+    padding: 3px; /* Espacement intérieur réduit */
+    font-size: 0.7rem; /* Texte très petit */
+    line-height: 1; /* Hauteur de ligne réduite */
+}
+
+/* Titre de la popup */
+.popup-hover #region-title {
+    font-size: 0.9rem; /* Titre réduit mais lisible */
+    font-weight: bold;
+    margin-bottom: 3px; /* Espacement minimal */
+}
+
+/* Section de texte */
+.popup-hover #region-section {
+    font-size: 0.7rem; /* Texte encore plus petit */
+    margin-top: 3px; /* Réduction de l'espacement */
+}
+
+
+
+/* Masquer la popup sur les petits écrans */
+@media (max-width: 748px) {
+    #popup-hover {
+        display: 'none';
+    }
 }
