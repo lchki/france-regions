@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Masquer la popup-hover sur les petits écrans
   if (window.innerWidth < 600) {
-      popup.style.width = '90%';  // Taille de la popup pour mobile
+    const hoverPopup = document.getElementById('popup-hover');
+    if (hoverPopup) {
+      hoverPopup.style.display = 'none';  // Masquer la popup-hover sur mobile
+    }
   }
-
   // Sélectionne toutes les régions par leur id
   const regions = [
     'Centre-Val-de-Loire', 'Bretagne', 'Bourgogne-Franche-Comte', 'Grand-Est',
@@ -150,6 +153,101 @@ const regionData = {
         interactiveMap.style.transform = 'translate(-50%, -50%)'; // Centre au démarrage
     }
 });
+
+  // Crée la popup-hover
+  const hoverPopup = document.createElement('div');
+  hoverPopup.id = 'popup-hover';
+  
+  Object.assign(hoverPopup.style, {
+    position: 'absolute',
+    backgroundColor: 'white', // Couleur de fond
+    border: '1px solid #ccc', // Bordure fine
+    borderRadius: '8px', // Coins arrondis
+    padding: '5px', // Réduction de l'espacement interne
+    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)', // Ombre douce
+    display: 'none', // Initialement masquée
+    zIndex: '9999', // Priorité visuelle
+    width: '300px', // Taille plus petite de la popup
+    maxWidth: '100%', // Responsivité
+    fontFamily: "'Noto Serif Bengali', serif", // Police spécifique
+    color: '#07275f', // Couleur du texte
+    fontSize: '0.8rem', // Texte plus petit
+    lineHeight: '1.2', // Hauteur de ligne réduite
+});
+// Ajout de la popup au DOM
+document.body.appendChild(hoverPopup);
+
+// Crée un conteneur pour le contenu de la popup
+const popupContent = document.createElement('div');
+Object.assign(popupContent.style, {
+    padding: '5px', // Réduction de l'espacement interne
+});
+
+// Ajout du titre
+const popupTitle = document.createElement('div');
+popupTitle.id = 'region-title';
+popupTitle.textContent = 'Titre ici'; // Texte par défaut
+Object.assign(popupTitle.style, {
+    fontSize: '0.9rem', // Réduction de la taille du titre
+    fontWeight: 'bold',
+    marginBottom: '5px',
+});
+
+// Ajout de la section de contenu
+const popupSection = document.createElement('div');
+popupSection.id = 'region-section';
+popupSection.textContent = 'Contenu ici'; // Texte par défaut
+Object.assign(popupSection.style, {
+    fontSize: '0.7rem', // Texte plus petit
+    marginTop: '5px',
+});
+
+// Ajout des éléments à la popup
+popupContent.appendChild(popupTitle);
+popupContent.appendChild(popupSection);
+hoverPopup.appendChild(popupContent);
+
+  // Logic to handle hover and click actions on regions
+  regions.forEach(regionId => {
+    const region = document.getElementById(regionId);
+    if (region) {
+      region.addEventListener('mouseover', (event) => {
+        // Ne montrer la popup-hover que si l'écran est suffisamment large
+        if (window.innerWidth >= 600) {
+          const data = regionData[regionId];
+          if (data) {
+            hoverPopup.innerHTML = `
+              <h3>${data.title}</h3>
+              ${data.sections.map(section => `
+                <div class="popup-section">
+                  <h4>${section.title}</h4>
+                  <p>${section.content}</p>
+                </div>
+              `).join('')}
+            `;
+            hoverPopup.style.left = `${event.clientX + 10}px`;
+            hoverPopup.style.top = `${event.clientY + 10}px`;
+            hoverPopup.style.display = 'block';
+          }
+        }
+      });
+
+      region.addEventListener('mouseout', () => {
+        hoverPopup.style.display = 'none';
+      });
+
+      // Clic sur la région
+      region.addEventListener('click', () => {
+        const data = regionData[regionId];
+        if (data) {
+          showPopup(regionId, data);
+          showRightPopup(regionId);
+          trackRegionClick(regionId);
+        }
+      });
+    }
+  });
+
 
 // Création de la popup
 const popup = document.createElement('div');
@@ -331,36 +429,6 @@ document.addEventListener('click', e => {
             selectedRegion = null;
         }
     }
+    resetMapPosition();  // Assure-toi que la carte revienne à son état d'origine
 });
 });
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const regions = document.querySelectorAll('.region');
-  const popup = document.getElementById('popup');
-
-  // Fonction pour afficher la popup avec le nom de la région
-  regions.forEach(region => {
-      region.addEventListener('mouseenter', (event) => {
-          const regionName = event.target.getAttribute('data-name');
-          
-          // Positionner la popup en fonction de la souris
-          const rect = event.target.getBoundingClientRect();
-          const offsetX = 10; // Décalage pour la popup
-          const offsetY = -30; // Décalage vertical pour éviter de chevaucher le path
-          
-          popup.textContent = regionName;
-          popup.style.left = `${rect.left + offsetX}px`;
-          popup.style.top = `${rect.top + offsetY}px`;
-
-          // Afficher la popup
-          popup.style.display = 'block';
-      });
-
-      // Cacher la popup quand la souris quitte la région
-      region.addEventListener('mouseleave', () => {
-          popup.style.display = 'none';
-      });
-  });
-});
-
