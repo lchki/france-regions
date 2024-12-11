@@ -7,11 +7,21 @@
 
 body {
     font-family: 'Noto Serif Bengali', serif;
-    font-weight: normal; /* Supprimer le gras */
+    font-weight: 'normal'; /* Supprimer le gras */
     background-color: #f9f7f5;
     color: #07275f; /* Couleur par défaut pour le texte */
     line-height: 1.5;
 }
+
+/* CSS pour enlever le gras */
+.popup-hover h1, .popup-hover h2 {
+    font-weight: normal;
+  }
+
+/* CSS pour enlever le gras */
+.no-bold {
+    font-weight: normal;
+  }
 
 /* Conteneur principal pour organiser les 3 blocs */
 .main-container {
@@ -316,8 +326,9 @@ body {
 
 #region-popup a.download-link {
     font-family: 'Noto Sans', sans-serif;
-    display: inline-block;
+    display: block; /* Utilise block pour permettre de centrer */
     text-align: center;
+    margin: 15px auto; /* Centrer avec margin auto à gauche et à droite */
     margin-top: 15px;
     padding: 10px;
     background-color: #07275f;
@@ -327,10 +338,11 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 200px; /* Largeur réduite */
+
 }
 
 
-/* création de la popup-hover en style*/
 
 /* Style compact pour la popup-hover */
 .popup-hover {
@@ -360,7 +372,7 @@ body {
 /* Titre de la popup */
 .popup-hover #region-title {
     font-size: 0.9rem; /* Titre réduit mais lisible */
-    font-weight: bold;
+    font-weight: normal;
     margin-bottom: 3px; /* Espacement minimal */
 }
 
