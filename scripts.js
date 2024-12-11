@@ -15,104 +15,104 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const regionData = {
     'Centre-Val-de-Loire': {
-        title: '<h1>Centre-Val-de-Loire</h1>',
+        title: '<h1 style="font-weight: normal;">Centre-Val-de-Loire</h1>',
         sections: [
-            { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-            { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
+            { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
+            { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
         ],
         pdfLink: 'Centre-Val-de-Loire'
     },
 
     'Bretagne': {
-      title: '<h1>Bretagne</h1>',
+      title: '<h1 style="font-weight: normal;">Bretagne</h1>',
       sections: [
-        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-        { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'La Bretagne est une région charmante, idéale pour les vacances.' },
+        { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
+        { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La Bretagne est une région charmante, idéale pour les vacances.' },
         ],
       pdfLink: 'Bretagne'
     },
 
     'Bourgogne-Franche-Comte': {
-      title: '<h1>Bourgogne-Franche-Comte</h1>',
+      title: '<h1 style="font-weight: normal;">Bourgogne-Franche-Comte</h1>',
       sections: [
-        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-        { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Bourgogne-Franche-Comté est une belle région pour la gastronomie et le vin.' },
+        { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
+        { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Bourgogne-Franche-Comté est une belle région pour la gastronomie et le vin.' },
         ],
       pdfLink: 'Bourgogne-Franche-Comte'
     },
 
     'Grand-Est': {
-      title: '<h1>Grand-Est</h1>',
+      title: '<h1 style="font-weight: normal;">Grand-Est</h1>',
       sections: [
-        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-        { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Grand-Est est un carrefour européen avec une grande diversité culturelle.' },
+        { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
+        { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Grand-Est est un carrefour européen avec une grande diversité culturelle.' },
         ],
       pdfLink: 'Grand-Est'
     },
 
     'Occitanie': {
-      title: '<h1>Occitanie</h1>',
+      title: '<h1 style="font-weight: normal;">Occitanie</h1>',
       sections: [
-        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-        { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Occitanie est connue pour son climat et ses paysages magnifiques.' },
+        { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
+        { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Occitanie est connue pour son climat et ses paysages magnifiques.' },
         ],
       pdfLink: 'Occitanie'
     },
 
     'Hauts-de-France': {
-      title: '<h1>Hauts-de-France</h1>',
+      title: '<h1 style="font-weight: normal;">Hauts-de-France</h1>',
       sections: [
-        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-        { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoine.' },
+        { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
+        { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoine.' },
         ],
       pdfLink: 'Hauts-de-France'
     },
 
     'Auvergne-Rhone-Alpes': {
-      title: '<h1>Auvergne-Rhone-Alpes</h1>',
+      title: '<h1 style="font-weight: normal;">Auvergne-Rhone-Alpes</h1>',
       sections: [
-        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-        { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Une région montagneuse avec un fort potentiel touristique et économique.' },
+        { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
+        { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Une région montagneuse avec un fort potentiel touristique et économique.' },
         ],
       pdfLink: 'Auvergne-Rhone-Alpes'
     },
     'Normandie': {
-      title: '<h1>Normandie</h1>',
+      title: '<h1 style="font-weight: normal;">Normandie</h1>',
       sections: [
-        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-        { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'La Normandie est une région historique avec des paysages variés et une forte tradition maritime.' },
+        { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
+        { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La Normandie est une région historique avec des paysages variés et une forte tradition maritime.' },
         ],
       pdfLink: 'Normandie'
     },
     'Pays-de-la-Loire': {
-      title: '<h1>Pays-de-la-Loire</h1>',
+      title: '<h1 style="font-weight: normal;">Pays-de-la-Loire</h1>',
       sections: [
-        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-        { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Pays-de-la-Loire sont réputés pour leur économie dynamique et leur littoral.' },
+        { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
+        { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Pays-de-la-Loire sont réputés pour leur économie dynamique et leur littoral.' },
         ],
       pdfLink: 'Pays-de-la-Loire'
     },
     'PACA': {
-      title: '<h1>PACA</h1>',
+      title: '<h1 style="font-weight: normal;">PACA</h1>',
       sections: [
-        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-        { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'PACA, une région dynamique avec une belle côte méditerranéenne.' },
+        { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
+        { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'PACA, une région dynamique avec une belle côte méditerranéenne.' },
         ],
       pdfLink: 'PACA'
     },
     'Ile-de-France': {
-      title: '<h1>Ile-de-France</h1>',
+      title: '<h1 style="font-weight: normal;"> Ile-de-France</h1>',
       sections: [
-        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-        { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'La région capitale est un centre économique et culturel majeur.' },
+        { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
+        { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La région capitale est un centre économique et culturel majeur.' },
         ],
         pdfLink: 'Ile-de-France'
     },
     'Nouvelle-Aquitaine': {
-      title: '<h1>Nouvelle-Aquitaine</h1>',
+      title: '<h1 style="font-weight: normal;">Nouvelle-Aquitaine</h1>',
       sections: [
-        { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-        { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Nouvelle-Aquitaine, un grand territoire aux paysages variés et à l’économie solide.' },
+        { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
+        { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Nouvelle-Aquitaine, un grand territoire aux paysages variés et à l’économie solide.' },
         ],
       pdfLink: 'Nouvelle-Aquitaine'
     }
@@ -170,6 +170,7 @@ const regionData = {
     width: '300px', // Taille plus petite de la popup
     maxWidth: '100%', // Responsivité
     fontFamily: "'Noto Serif Bengali', serif", // Police spécifique
+    fontWeight: 'normal', // Enlève le gras
     color: '#07275f', // Couleur du texte
     fontSize: '0.8rem', // Texte plus petit
     lineHeight: '1.2', // Hauteur de ligne réduite
@@ -189,7 +190,7 @@ popupTitle.id = 'region-title';
 popupTitle.textContent = 'Titre ici'; // Texte par défaut
 Object.assign(popupTitle.style, {
     fontSize: '0.9rem', // Réduction de la taille du titre
-    fontWeight: 'bold',
+    fontWeight: 'normal',
     marginBottom: '5px',
 });
 
