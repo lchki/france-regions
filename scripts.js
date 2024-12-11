@@ -218,14 +218,14 @@ hoverPopup.appendChild(popupContent);
           const data = regionData[regionId];
           if (data) {
             hoverPopup.innerHTML = `
-              <h3>${data.title}</h3>
-              ${data.sections.map(section => `
-                <div class="popup-section">
-                  <h4>${section.title}</h4>
-                  <p>${section.content}</p>
-                </div>
-              `).join('')}
-            `;
+            <h3>${data.title}</h3>
+            ${data.sections.map(section => 
+              `<div class="popup-section">
+                <h4>${section.title}</h4>
+                <p>${section.content}</p>
+              </div>`
+            ).join('')}
+          `;
             hoverPopup.style.left = `${event.clientX + 10}px`;
             hoverPopup.style.top = `${event.clientY + 10}px`;
             hoverPopup.style.display = 'block';
