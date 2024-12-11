@@ -35,7 +35,7 @@ body {
     max-width: 90%;
     height: auto;
     max-height: 80vh;
-    background: #f5f0ea !important;;
+    background: #f5f0ea !important;
     border: 2px solid #007BFF;
     border-radius: 12px;
     padding: 20px;
@@ -222,63 +222,66 @@ body {
     #region-popup {
         width: 90%;
         max-width: 100%;
-        height: 50%;
+        height: 30%;
+        max-height: 20vh;  /* Limite la hauteur à 20% de la hauteur de l'écran */
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         z-index: 1001;
-        margin-bottom: 0;
+        margin-top: -20px;
         display: none; /* Toujours caché, visible avec JS */
     }
+
+/* Réduire la taille des titres dans la popup */
+#region-popup h1 {
+    font-size: 0.5rem; /* Réduire la taille du titre */
+    margin: 10px 0; /* Réduire l'espace autour du titre */
+}
+
+#region-popup h2 {
+    font-size: 0.3rem; /* Réduire la taille des sous-titres */
+    margin: 10px 0; /* Réduire l'espace autour du sous-titre */
+}
+
 
     /* Bloc 2 : map-container (carte) */
     .map-container {
         width: 100%;
-        height: auto;
-        margin-top: 50%; /* Décalage de la carte pour laisser de l'espace pour la popup du haut */
+        height: 70;
+        margin-top: 100%; /* Décalage de la carte pour laisser de l'espace pour la popup du haut */
+        margin-bottom: 30%; /* Ajoute de l'espace en bas de la carte pour la popup */
+
+    }
+
+    .interactive-map .map {
+        width: 100%;
+        max-width: 80%; /* Réduit la largeur de la carte */
+        transform: scale(1.2);  /* Augmenter la taille de la carte (ajuster la valeur si nécessaire) */
     }
 
     /* Bloc 3 : right-popup (popup en bas sur mobile) */
     #right-popup {
         position: fixed;
-        bottom: 0;
+        bottom: 0;  /* Place la popup en bas de l'écran */
         left: 0;
+        margin-top: 100px;
         width: 100%;
         max-width: 100%;
-        height: 50%;
+        height: 30%;
+        max-height: 60vh;  /* Limite la hauteur à 60% de la hauteur de l'écran */
         background: #fff3e6;
         border: 2px solid #007BFF;
         border-radius: 1px;
         padding: 20px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         overflow-y: auto;
-        display: none;
         z-index: 1001;
-        margin-top: 0;
+        margin-top: 20px;  /* Ajouter de l'espace entre la carte et la popup du bas */
+
     }
 }
 
-/* Autres éléments, comme les images dans la popup */
-#right-popup img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-/* Autres ajustements spécifiques à la carte */
-.interactive-map {
-    max-width: 100%;
-    height: auto;
-    visibility: visible;
-    margin: 0;
-    position: relative;
-}
-
-.interactive-map .map {
-    width: 100%;
-    margin: 20px auto;
-}
 
 
 /* Animations */
