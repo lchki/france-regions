@@ -16,37 +16,6 @@ const regionData = {
         sections: [
             { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
             { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
-            { title: '<h2>Qualité de vie</h2>', content: `
-                <ul>
-                    <li>72 % heureux</li>
-                    <li>74 % en sécurité</li>
-                    <li>69 % satisfaits de leur quartier</li>
-                    <li>46 % pessimistes pour leur avenir</li>
-                    <li>72 % pessimistes pour la société</li>
-                </ul>`
-            },
-            { title: '<h2>Économie & Service publics</h2>', content: `
-                <ul>
-                    <li>50 % ont des difficultés financières</li>
-                    <li>39 % à découvert régulièrement</li>
-                    <li>41 % estiment les services publics en recul</li>
-                    <li>31 % trouvent les transports insuffisants</li>
-                </ul>`
-            },
-            { title: '<h2>Inégalités sociales</h2>', content: `
-                <ul>
-                    <li>84 % considèrent la société injuste</li>
-                    <li>68 % estiment l’impôt inefficace</li>
-                </ul>`
-            },
-            { 
-                title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', 
-                content: '' 
-            },
-            { 
-                title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', 
-                content: '' 
-            },
         ],
         pdfLink: 'Centre-Val-de-Loire'
     },
@@ -56,36 +25,6 @@ const regionData = {
       sections: [
         { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'La Bretagne est une région charmante, idéale pour les vacances.' },
-        { title: '<h2>Qualité de vie</h2>', 
-            content: `
-              <ul>
-                <li>72 % heureux</li>
-                <li>74 % en sécurité</li>
-                <li>69 % satisfaits de leur quartier</li>
-                <li>46 % pessimistes pour leur avenir</li>
-                <li>72 % pessimistes pour la société</li>
-              </ul>` 
-          },
-          { 
-            title: '<h2>Économie & Service publics</h2>', 
-            content: `
-              <ul>
-                <li>50 % ont des difficultés financières</li>
-                <li>39 % à découvert régulièrement</li>
-                <li>41 % estiment les services publics en recul</li>
-                <li>31 % trouvent les transports insuffisants</li>
-              </ul>`
-          },
-          { 
-            title: '<h2>Inégalités sociales</h2>', 
-            content: `
-              <ul>
-                <li>84 % considèrent la société injuste</li>
-                <li>68 % estiment l’impôt inefficace</li>
-              </ul>`
-          },
-          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
-          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Bretagne'
     },
@@ -95,36 +34,6 @@ const regionData = {
       sections: [
         { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Bourgogne-Franche-Comté est une belle région pour la gastronomie et le vin.' },
-        { title: '<h2>Qualité de vie</h2>', 
-            content: `
-              <ul>
-                <li>72 % heureux</li>
-                <li>74 % en sécurité</li>
-                <li>69 % satisfaits de leur quartier</li>
-                <li>46 % pessimistes pour leur avenir</li>
-                <li>72 % pessimistes pour la société</li>
-              </ul>` 
-          },
-          { 
-            title: '<h2>Économie & Service publics</h2>', 
-            content: `
-              <ul>
-                <li>50 % ont des difficultés financières</li>
-                <li>39 % à découvert régulièrement</li>
-                <li>41 % estiment les services publics en recul</li>
-                <li>31 % trouvent les transports insuffisants</li>
-              </ul>`
-          },
-          { 
-            title: '<h2>Inégalités sociales</h2>', 
-            content: `
-              <ul>
-                <li>84 % considèrent la société injuste</li>
-                <li>68 % estiment l’impôt inefficace</li>
-              </ul>`
-          },
-          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
-          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Bourgogne-Franche-Comte'
     },
@@ -134,36 +43,6 @@ const regionData = {
       sections: [
         { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Grand-Est est un carrefour européen avec une grande diversité culturelle.' },
-        { title: '<h2>Qualité de vie</h2>', 
-            content: `
-              <ul>
-                <li>72 % heureux</li>
-                <li>74 % en sécurité</li>
-                <li>69 % satisfaits de leur quartier</li>
-                <li>46 % pessimistes pour leur avenir</li>
-                <li>72 % pessimistes pour la société</li>
-              </ul>` 
-          },
-          { 
-            title: '<h2>Économie & Service publics</h2>', 
-            content: `
-              <ul>
-                <li>50 % ont des difficultés financières</li>
-                <li>39 % à découvert régulièrement</li>
-                <li>41 % estiment les services publics en recul</li>
-                <li>31 % trouvent les transports insuffisants</li>
-              </ul>`
-          },
-          { 
-            title: '<h2>Inégalités sociales</h2>', 
-            content: `
-              <ul>
-                <li>84 % considèrent la société injuste</li>
-                <li>68 % estiment l’impôt inefficace</li>
-              </ul>`
-          },
-          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
-          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Grand-Est'
     },
@@ -173,36 +52,6 @@ const regionData = {
       sections: [
         { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Occitanie est connue pour son climat et ses paysages magnifiques.' },
-        { title: '<h2>Qualité de vie</h2>', 
-            content: `
-              <ul>
-                <li>72 % heureux</li>
-                <li>74 % en sécurité</li>
-                <li>69 % satisfaits de leur quartier</li>
-                <li>46 % pessimistes pour leur avenir</li>
-                <li>72 % pessimistes pour la société</li>
-              </ul>` 
-          },
-          { 
-            title: '<h2>Économie & Service publics</h2>', 
-            content: `
-              <ul>
-                <li>50 % ont des difficultés financières</li>
-                <li>39 % à découvert régulièrement</li>
-                <li>41 % estiment les services publics en recul</li>
-                <li>31 % trouvent les transports insuffisants</li>
-              </ul>`
-          },
-          { 
-            title: '<h2>Inégalités sociales</h2>', 
-            content: `
-              <ul>
-                <li>84 % considèrent la société injuste</li>
-                <li>68 % estiment l’impôt inefficace</li>
-              </ul>`
-          },
-          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
-          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Occitanie'
     },
@@ -212,36 +61,6 @@ const regionData = {
       sections: [
         { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoine.' },
-        { title: '<h2>Qualité de vie</h2>', 
-            content: `
-              <ul>
-                <li>72 % heureux</li>
-                <li>74 % en sécurité</li>
-                <li>69 % satisfaits de leur quartier</li>
-                <li>46 % pessimistes pour leur avenir</li>
-                <li>72 % pessimistes pour la société</li>
-              </ul>` 
-          },
-          { 
-            title: '<h2>Économie & Service publics</h2>', 
-            content: `
-              <ul>
-                <li>50 % ont des difficultés financières</li>
-                <li>39 % à découvert régulièrement</li>
-                <li>41 % estiment les services publics en recul</li>
-                <li>31 % trouvent les transports insuffisants</li>
-              </ul>`
-          },
-          { 
-            title: '<h2>Inégalités sociales</h2>', 
-            content: `
-              <ul>
-                <li>84 % considèrent la société injuste</li>
-                <li>68 % estiment l’impôt inefficace</li>
-              </ul>`
-          },
-          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
-          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Hauts-de-France'
     },
@@ -251,36 +70,6 @@ const regionData = {
       sections: [
         { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Une région montagneuse avec un fort potentiel touristique et économique.' },
-        { title: '<h2>Qualité de vie</h2>', 
-            content: `
-              <ul>
-                <li>72 % heureux</li>
-                <li>74 % en sécurité</li>
-                <li>69 % satisfaits de leur quartier</li>
-                <li>46 % pessimistes pour leur avenir</li>
-                <li>72 % pessimistes pour la société</li>
-              </ul>` 
-          },
-          { 
-            title: '<h2>Économie & Service publics</h2>', 
-            content: `
-              <ul>
-                <li>50 % ont des difficultés financières</li>
-                <li>39 % à découvert régulièrement</li>
-                <li>41 % estiment les services publics en recul</li>
-                <li>31 % trouvent les transports insuffisants</li>
-              </ul>`
-          },
-          { 
-            title: '<h2>Inégalités sociales</h2>', 
-            content: `
-              <ul>
-                <li>84 % considèrent la société injuste</li>
-                <li>68 % estiment l’impôt inefficace</li>
-              </ul>`
-          },
-          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
-          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Auvergne-Rhone-Alpes'
     },
@@ -289,36 +78,6 @@ const regionData = {
       sections: [
         { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'La Normandie est une région historique avec des paysages variés et une forte tradition maritime.' },
-        { title: '<h2>Qualité de vie</h2>', 
-            content: `
-              <ul>
-                <li>72 % heureux</li>
-                <li>74 % en sécurité</li>
-                <li>69 % satisfaits de leur quartier</li>
-                <li>46 % pessimistes pour leur avenir</li>
-                <li>72 % pessimistes pour la société</li>
-              </ul>` 
-          },
-          { 
-            title: '<h2>Économie & Service publics</h2>', 
-            content: `
-              <ul>
-                <li>50 % ont des difficultés financières</li>
-                <li>39 % à découvert régulièrement</li>
-                <li>41 % estiment les services publics en recul</li>
-                <li>31 % trouvent les transports insuffisants</li>
-              </ul>`
-          },
-          { 
-            title: '<h2>Inégalités sociales</h2>', 
-            content: `
-              <ul>
-                <li>84 % considèrent la société injuste</li>
-                <li>68 % estiment l’impôt inefficace</li>
-              </ul>`
-          },
-          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
-          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Normandie'
     },
@@ -327,36 +86,6 @@ const regionData = {
       sections: [
         { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Pays-de-la-Loire sont réputés pour leur économie dynamique et leur littoral.' },
-        { title: '<h2>Qualité de vie</h2>', 
-            content: `
-              <ul>
-                <li>72 % heureux</li>
-                <li>74 % en sécurité</li>
-                <li>69 % satisfaits de leur quartier</li>
-                <li>46 % pessimistes pour leur avenir</li>
-                <li>72 % pessimistes pour la société</li>
-              </ul>` 
-          },
-          { 
-            title: '<h2>Économie & Service publics</h2>', 
-            content: `
-              <ul>
-                <li>50 % ont des difficultés financières</li>
-                <li>39 % à découvert régulièrement</li>
-                <li>41 % estiment les services publics en recul</li>
-                <li>31 % trouvent les transports insuffisants</li>
-              </ul>`
-          },
-          { 
-            title: '<h2>Inégalités sociales</h2>', 
-            content: `
-              <ul>
-                <li>84 % considèrent la société injuste</li>
-                <li>68 % estiment l’impôt inefficace</li>
-              </ul>`
-          },
-          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
-          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Pays-de-la-Loire'
     },
@@ -365,36 +94,6 @@ const regionData = {
       sections: [
         { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'PACA, une région dynamique avec une belle côte méditerranéenne.' },
-        { title: '<h2>Qualité de vie</h2>', 
-            content: `
-              <ul>
-                <li>72 % heureux</li>
-                <li>74 % en sécurité</li>
-                <li>69 % satisfaits de leur quartier</li>
-                <li>46 % pessimistes pour leur avenir</li>
-                <li>72 % pessimistes pour la société</li>
-              </ul>` 
-          },
-          { 
-            title: '<h2>Économie & Service publics</h2>', 
-            content: `
-              <ul>
-                <li>50 % ont des difficultés financières</li>
-                <li>39 % à découvert régulièrement</li>
-                <li>41 % estiment les services publics en recul</li>
-                <li>31 % trouvent les transports insuffisants</li>
-              </ul>`
-          },
-          { 
-            title: '<h2>Inégalités sociales</h2>', 
-            content: `
-              <ul>
-                <li>84 % considèrent la société injuste</li>
-                <li>68 % estiment l’impôt inefficace</li>
-              </ul>`
-          },
-          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
-          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'PACA'
     },
@@ -403,36 +102,6 @@ const regionData = {
       sections: [
         { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'La région capitale est un centre économique et culturel majeur.' },
-        { title: '<h2>Qualité de vie</h2>', 
-            content: `
-              <ul>
-                <li>72 % heureux</li>
-                <li>74 % en sécurité</li>
-                <li>69 % satisfaits de leur quartier</li>
-                <li>46 % pessimistes pour leur avenir</li>
-                <li>72 % pessimistes pour la société</li>
-              </ul>` 
-          },
-          { 
-            title: '<h2>Économie & Service publics</h2>', 
-            content: `
-              <ul>
-                <li>50 % ont des difficultés financières</li>
-                <li>39 % à découvert régulièrement</li>
-                <li>41 % estiment les services publics en recul</li>
-                <li>31 % trouvent les transports insuffisants</li>
-              </ul>`
-          },
-          { 
-            title: '<h2>Inégalités sociales</h2>', 
-            content: `
-              <ul>
-                <li>84 % considèrent la société injuste</li>
-                <li>68 % estiment l’impôt inefficace</li>
-              </ul>`
-          },
-          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
-          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
         pdfLink: 'Ile-de-France'
     },
@@ -441,36 +110,6 @@ const regionData = {
       sections: [
         { title: '<h2>Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
         { title: '<h2>Le regard de l&apos;Institut Montaigne</h2>', content: 'Nouvelle-Aquitaine, un grand territoire aux paysages variés et à l’économie solide.' },
-        { title: '<h2>Qualité de vie</h2>', 
-            content: `
-              <ul>
-                <li>72 % heureux</li>
-                <li>74 % en sécurité</li>
-                <li>69 % satisfaits de leur quartier</li>
-                <li>46 % pessimistes pour leur avenir</li>
-                <li>72 % pessimistes pour la société</li>
-              </ul>` 
-          },
-          { 
-            title: '<h2>Économie & Service publics</h2>', 
-            content: `
-              <ul>
-                <li>50 % ont des difficultés financières</li>
-                <li>39 % à découvert régulièrement</li>
-                <li>41 % estiment les services publics en recul</li>
-                <li>31 % trouvent les transports insuffisants</li>
-              </ul>`
-          },
-          { 
-            title: '<h2>Inégalités sociales</h2>', 
-            content: `
-              <ul>
-                <li>84 % considèrent la société injuste</li>
-                <li>68 % estiment l’impôt inefficace</li>
-              </ul>`
-          },
-          { title: '<span class="discreet-info inline-info">Population : 6 069 352</span>', content: '' },
-          { title: '<span class="discreet-info inline-info">Sondés : 4 000 346</span>', content: '' },
         ],
       pdfLink: 'Nouvelle-Aquitaine'
     }
@@ -693,5 +332,35 @@ document.addEventListener('click', e => {
         }
     }
 });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const regions = document.querySelectorAll('.region');
+  const popup = document.getElementById('popup');
+
+  // Fonction pour afficher la popup avec le nom de la région
+  regions.forEach(region => {
+      region.addEventListener('mouseenter', (event) => {
+          const regionName = event.target.getAttribute('data-name');
+          
+          // Positionner la popup en fonction de la souris
+          const rect = event.target.getBoundingClientRect();
+          const offsetX = 10; // Décalage pour la popup
+          const offsetY = -30; // Décalage vertical pour éviter de chevaucher le path
+          
+          popup.textContent = regionName;
+          popup.style.left = `${rect.left + offsetX}px`;
+          popup.style.top = `${rect.top + offsetY}px`;
+
+          // Afficher la popup
+          popup.style.display = 'block';
+      });
+
+      // Cacher la popup quand la souris quitte la région
+      region.addEventListener('mouseleave', () => {
+          popup.style.display = 'none';
+      });
+  });
 });
 
