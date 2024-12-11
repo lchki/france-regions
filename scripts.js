@@ -548,6 +548,20 @@ rightPopup.style.maxHeight = '80vh'; // Limite la hauteur à 80% de la fenêtre
 rightPopup.style.overflowY = 'auto'; // Permet le défilement vertical
 document.body.appendChild(rightPopup);
 
+// Gestion du redimensionnement de la fenêtre pour la responsivité
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 600) {
+        // Sur petit écran, place la popup à la base de l'écran
+        rightPopup.style.bottom = '0';
+        rightPopup.style.top = ''; // Supprime la position top pour éviter le conflit
+    } else {
+        // Sur grand écran, remet la popup en position normale
+        rightPopup.style.bottom = '';
+        rightPopup.style.top = '50px'; // Positionne la popup à 50px du haut
+    }
+});
+
+
 // Crée une variable pour garder une trace de la région sélectionnée
 let selectedRegion = null;
 
@@ -577,7 +591,7 @@ const trackRegionClick = (regionId) => {
 const resetMapPosition = () => {
     const mapElement = document.querySelector('.interactive-map .map');
     mapElement.style.transform = 'scale(1)';  // Remettre à l'échelle d'origine
-    mapElement.style.position = 'absolute'; // Position absolue
+    mapElement.style.position = 'relative'; // Position absolue
     mapElement.style.left = '0';  // Réinitialiser le déplacement horizontal
     mapElement.style.top = '0';   // Réinitialiser le déplacement vertical
 };
