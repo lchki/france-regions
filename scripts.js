@@ -392,9 +392,7 @@ const regionImages = {
     const data = regionData[regionId];
     rightPopup.style.display = 'block';
     rightPopup.innerHTML = `
-      <img src="${data.imageSrc}" alt="${regionId}" style="max-width: 100%;">
-      <h2>${data.title}</h2>
-    `;
+      <img src="${data.imageSrc}" alt="${regionId}" style="max-width: 100%;">`;
     rightPopup.style.display = 'block';
     rightPopup.style.transform = 'translateX(0)';
   }
