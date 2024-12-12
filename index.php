@@ -57,13 +57,13 @@
   </div>
 </div></div>
  <!-- Bloc droit : popup image -->
- <div id="right-popup" class="image-wrapper">
-            <div class="image-container">
-                <img src="src/data/image_baro.png" alt="Infographie illustrative">
-            </div>
-        </div>
+ <div class="right-popup">
+    <div class="image-container">
+        <img id="region-image" src="" alt="Image de la région">
     </div>
-
+    <h3 class="region-title"></h3>
+    <!-- Autres informations de la région -->
+</div>
 <script src="prod/scripts.js"></script>
 </body>
 </html>
