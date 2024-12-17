@@ -21,7 +21,7 @@ const regionData = {
             { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
         ],
         pdfLink: 'Centre-Val-de-Loire',
-        imageSrc: 'src/data/centre-val-de-loire.png' // Chemin vers l'image
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/centre-val-de-loire.png' // Chemin vers l'image
 
     },
 
@@ -32,7 +32,7 @@ const regionData = {
         { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La Bretagne est une région charmante, idéale pour les vacances.' },
         ],
       pdfLink: 'Bretagne',
-      imageSrc: 'src/data/bretagne.png' // Chemin vers l'image
+      imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/bretagne.png' // Chemin vers l'image
 
     },
 
@@ -43,7 +43,7 @@ const regionData = {
         { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Bourgogne-Franche-Comté est une belle région pour la gastronomie et le vin.' },
         ],
       pdfLink: 'Bourgogne-Franche-Comte',
-      imageSrc: 'src/data/bourgogne-franche-comte.png' // Chemin vers l'image
+      imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/grand-est.png' // Chemin vers l'image
 
     },
 
@@ -54,7 +54,7 @@ const regionData = {
         { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Grand-Est est un carrefour européen avec une grande diversité culturelle.' },
         ],
       pdfLink: 'Grand-Est',
-      imageSrc: 'src/data/grand-est.png' // Chemin vers l'image
+      imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/occitanie.png' // Chemin vers l'image
 
     },
 
@@ -65,7 +65,7 @@ const regionData = {
         { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Occitanie est connue pour son climat et ses paysages magnifiques.' },
         ],
       pdfLink: 'Occitanie',
-      imageSrc: 'src/data/occitanie.png' // Chemin vers l'image
+      imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/hauts-de-france.png' // Chemin vers l'image
 
     },
 
@@ -76,7 +76,7 @@ const regionData = {
         { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoine.' },
         ],
       pdfLink: 'Hauts-de-France',
-      imageSrc: 'src/data/hauts-de-france.png' // Chemin vers l'image
+      imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/hauts-de-france.png' // Chemin vers l'image
 
     },
 
@@ -87,7 +87,7 @@ const regionData = {
         { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Une région montagneuse avec un fort potentiel touristique et économique.' },
         ],
       pdfLink: 'Auvergne-Rhone-Alpes',
-      imageSrc: 'src/data/auvergne-rhone-alpes.png' // Chemin vers l'image
+      imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/auvergne-rhone-alpes.png' // Chemin vers l'image
 
     },
     'Normandie': {
@@ -97,7 +97,7 @@ const regionData = {
         { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La Normandie est une région historique avec des paysages variés et une forte tradition maritime.' },
         ],
       pdfLink: 'Normandie',
-      imageSrc: 'src/data/normandie.png' // Chemin vers l'image
+      imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/normandie.png' // Chemin vers l'image
 
     },
     'Pays-de-la-Loire': {
@@ -107,7 +107,7 @@ const regionData = {
         { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Pays-de-la-Loire sont réputés pour leur économie dynamique et leur littoral.' },
         ],
       pdfLink: 'Pays-de-la-Loire',
-      imageSrc: 'src/data/pays-de-la-loire.png' // Chemin vers l'image
+      imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/pays-de-la-loire.png' // Chemin vers l'image
 
     },
     'PACA': {
@@ -117,7 +117,7 @@ const regionData = {
         { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'PACA, une région dynamique avec une belle côte méditerranéenne.' },
         ],
       pdfLink: 'PACA',
-      imageSrc: 'src/data/paca.png' // Chemin vers l'image
+      imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/paca.png' // Chemin vers l'image
 
     },
     'Ile-de-France': {
@@ -127,7 +127,7 @@ const regionData = {
         { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La région capitale est un centre économique et culturel majeur.' },
         ],
         pdfLink: 'Ile-de-France',
-        imageSrc: 'src/data/ile-de-france.png' // Chemin vers l'image
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/ile-de-france.png' // Chemin vers l'image
 
     },
     'Nouvelle-Aquitaine': {
@@ -137,7 +137,7 @@ const regionData = {
         { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Nouvelle-Aquitaine, un grand territoire aux paysages variés et à l’économie solide.' },
         ],
       pdfLink: 'Nouvelle-Aquitaine',
-      imageSrc: 'src/data/nouvelle-aquitaine.png' // Chemin vers l'image
+      imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/nouvelle-aquitaine.png' // Chemin vers l'image
 
     }
   };
