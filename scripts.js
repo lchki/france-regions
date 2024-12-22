@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Object.assign(popupTitle.style, {
     fontSize: '1.25rem',
     fontWeight: 'normal',
-    marginBottom: '5px',
+    marginBottom: '10px',
     textAlign: 'center',
 
   });
@@ -226,33 +226,43 @@ document.addEventListener('DOMContentLoaded', () => {
   Object.assign(popupSection.style, {
     fontSize: '0.9rem', // Taille ajustée
     marginTop: '5px',
+    textAlign: 'center',
   });
 
-    // Ajout des éléments à la popup
-    popupContent.appendChild(popupTitle);
-    popupContent.appendChild(popupSection);
-    hoverPopup.appendChild(popupContent);
+  // Ajout des éléments à la popup
+  popupContent.appendChild(popupTitle);
+  popupContent.appendChild(popupSection);
+  hoverPopup.appendChild(popupContent);
 
-    // Mise à jour du contenu selon la région
-const updatePopupContent = (regionName) => {
-  popupTitle.innerHTML = regionName; // Met à jour le titre avec le nom de la région
-  popupSection.textContent = 'Cliquez sur la région pour en savoir plus'; // Met à jour le texte de la section
-};
+  // Mise à jour du contenu selon la région
+  const updatePopupContent = (regionName, regionData) => {
+    // Met à jour le titre de la région avec la balise <h1>
+    popupTitle.innerHTML = `<h1 style="font-weight: normal;">${regionName}</h1>`;
 
-    // Logic to handle hover and click actions on regions
-    regions.forEach(regionId => {
-      const region = document.getElementById(regionId);
-      if (region) {
-        region.addEventListener('mouseover', (event) => {
-          if (window.innerWidth >= 600) {
-            const data = regionData[regionId];
-            if (data) {
-              updatePopupContent(data.title); // Met à jour le titre de la région
-              
-              // Positionne la popup sous le curseur
-              hoverPopup.style.left = `${event.pageX + 10}px`; // Décale légèrement sur l'axe horizontal
-              hoverPopup.style.top = `${event.pageY + 10}px`;  // Décale légèrement sur l'axe vertical
-              hoverPopup.style.display = 'block';
+    // Met à jour la première section title (en h2)
+    const firstSectionTitle = regionData.sections[0].title; // Prendre le premier title
+    const sectionTitleElement = document.createElement('div');
+    sectionTitleElement.innerHTML = firstSectionTitle; // Ajouter la première section en tant que HTML
+    popupSection.innerHTML = ''; // Vider le contenu de popupSection
+    popupSection.appendChild(sectionTitleElement); // Ajouter le title à la section
+
+    popupSection.innerHTML += '<p>Cliquez sur la région pour en savoir plus</p>'; // Ajouter le texte supplémentaire
+  };
+
+  // Logic to handle hover and click actions on regions
+  regions.forEach(regionId => {
+    const region = document.getElementById(regionId);
+    if (region) {
+      region.addEventListener('mouseover', (event) => {
+        if (window.innerWidth >= 600) {
+          const data = regionData[regionId]; // Obtenir les données pour la région
+          if (data) {
+            updatePopupContent(data.title, data); // Passer à la fonction avec le nom de la région et les données complètes
+            
+            // Positionne la popup sous le curseur
+            hoverPopup.style.left = `${event.pageX + 10}px`; // Décale légèrement sur l'axe horizontal
+            hoverPopup.style.top = `${event.pageY + 10}px`;  // Décale légèrement sur l'axe vertical
+            hoverPopup.style.display = 'block';
           }
         }
       });
@@ -274,7 +284,7 @@ const updatePopupContent = (regionName) => {
     });
 
 
-  // Création de la popup
+  // Création de la popup region-popup
   const popup = document.createElement('div');
   popup.id = 'region-popup';
   popup.style.position = 'fixed';
@@ -305,7 +315,7 @@ const updatePopupContent = (regionName) => {
   rightPopup.style.transition = 'transform 0.5s ease, width 0.5s ease';
   rightPopup.style.right = '10px';  // Position à droite
   rightPopup.style.top = '50px';    // Décale la popup vers le bas
-  rightPopup.style.width = '600px'; // Largeur de la popup
+  rightPopup.style.width = '400px'; // Largeur de la popup
   rightPopup.style.maxHeight = '80vh'; // Limite la hauteur à 80% de la fenêtre
   rightPopup.style.overflowY = 'auto'; // Permet le défilement vertical
   document.body.appendChild(rightPopup);
