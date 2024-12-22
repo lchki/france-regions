@@ -212,47 +212,47 @@ document.addEventListener('DOMContentLoaded', () => {
   popupTitle.id = 'region-title';
   popupTitle.textContent = 'Titre ici';
   Object.assign(popupTitle.style, {
-    fontSize: '0.9rem',
+    fontSize: '1.25rem',
     fontWeight: 'normal',
     marginBottom: '5px',
+    textAlign: 'center',
+
   });
 
-    // Ajout de la section de contenu
-    const popupSection = document.createElement('div');
-    popupSection.id = 'region-section';
-    popupSection.textContent = 'Contenu ici';
-    Object.assign(popupSection.style, {
-      fontSize: '0.7rem',
-      marginTop: '5px',
-    });
+  // Ajout de la section de contenu
+  const popupSection = document.createElement('div');
+  popupSection.id = 'region-section';
+  popupSection.textContent = 'Cliquez sur la région pour en savoir plus'; // Contenu par défaut
+  Object.assign(popupSection.style, {
+    fontSize: '0.9rem', // Taille ajustée
+    marginTop: '5px',
+  });
 
     // Ajout des éléments à la popup
     popupContent.appendChild(popupTitle);
     popupContent.appendChild(popupSection);
     hoverPopup.appendChild(popupContent);
 
+    // Mise à jour du contenu selon la région
+const updatePopupContent = (regionName) => {
+  popupTitle.innerHTML = regionName; // Met à jour le titre avec le nom de la région
+  popupSection.textContent = 'Cliquez sur la région pour en savoir plus'; // Met à jour le texte de la section
+};
+
     // Logic to handle hover and click actions on regions
-  regions.forEach(regionId => {
-    const region = document.getElementById(regionId);
-    if (region) {
-      region.addEventListener('mouseover', (event) => {
-        if (window.innerWidth >= 600) {
-          const data = regionData[regionId];
-          if (data) {
-            const rect = region.getBoundingClientRect();
-            hoverPopup.innerHTML = `
-              <h3>${data.title}</h3>
-              ${data.sections.map(section => 
-                `<div class="popup-section">
-                  <h4>${section.title}</h4>
-                  <p>${section.content}</p>
-                </div>`
-              ).join('')}
-            `;
-      // Positionne la popup sous le curseur
-      hoverPopup.style.left = `${event.pageX + 10}px`; // Décale légèrement sur l'axe horizontal
-      hoverPopup.style.top = `${event.pageY + 10}px`;  // Décale légèrement sur l'axe vertical
-      hoverPopup.style.display = 'block';
+    regions.forEach(regionId => {
+      const region = document.getElementById(regionId);
+      if (region) {
+        region.addEventListener('mouseover', (event) => {
+          if (window.innerWidth >= 600) {
+            const data = regionData[regionId];
+            if (data) {
+              updatePopupContent(data.title); // Met à jour le titre de la région
+              
+              // Positionne la popup sous le curseur
+              hoverPopup.style.left = `${event.pageX + 10}px`; // Décale légèrement sur l'axe horizontal
+              hoverPopup.style.top = `${event.pageY + 10}px`;  // Décale légèrement sur l'axe vertical
+              hoverPopup.style.display = 'block';
           }
         }
       });
