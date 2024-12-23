@@ -142,6 +142,82 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
+
+    /////// CODE TEST CI-DESSOUS /////////    
+    // Fonction pour alimenter les listes déroulantes avec les régions
+      const regionSelect1 = document.getElementById('region-select-1');
+      const regionSelect2 = document.getElementById('region-select-2');
+      const comparisonResults = document.getElementById('comparison-results');
+      const compareButton = document.getElementById('compare-button');
+    
+      // Fonction pour alimenter les listes déroulantes avec les régions
+      const populateRegionSelects = () => {
+        // Vérifie que les éléments select existent dans le DOM avant d'ajouter les options
+        if (regionSelect1 && regionSelect2) {
+          regions.forEach(regionId => {
+            const option1 = document.createElement('option');
+            const option2 = document.createElement('option');
+            option1.value = regionId;
+            option1.textContent = regionId;
+            option2.value = regionId;
+            option2.textContent = regionId;
+    
+            regionSelect1.appendChild(option1);
+            regionSelect2.appendChild(option2);
+          });
+          console.log('Regions loaded into selects');
+        } else {
+          console.error('Les éléments select ne sont pas trouvés dans le DOM');
+        }
+      };
+    
+      // Fonction pour comparer deux régions et afficher les titres de leurs sections
+      const compareRegions = (regionId1, regionId2) => {
+        if (!regionId1 || !regionId2) {
+          comparisonResults.innerHTML = '<p>Veuillez sélectionner deux régions pour les comparer.</p>';
+          return;
+        }
+    
+        const data1 = regionData[regionId1];
+        const data2 = regionData[regionId2];
+    
+        if (!data1 || !data2) {
+          comparisonResults.innerHTML = '<p>Impossible de récupérer les informations des régions sélectionnées.</p>';
+          return;
+        }
+    
+        // Affichage des titres des sections des deux régions
+        comparisonResults.innerHTML = `
+          <div class="comparison-row">
+            <div class="comparison-column">
+              <h3>${data1.title}</h3>
+              <ul>
+                ${data1.sections.map(section => `<li>${section.title}</li>`).join('')}
+              </ul>
+            </div>
+            <div class="comparison-column">
+              <h3>${data2.title}</h3>
+              <ul>
+                ${data2.sections.map(section => `<li>${section.title}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        `;
+      };
+    
+      // Alimenter les listes déroulantes au chargement
+      populateRegionSelects();
+    
+      // Gestion du clic sur le bouton de comparaison
+      compareButton.addEventListener('click', () => {
+        const regionId1 = regionSelect1.value;
+        const regionId2 = regionSelect2.value;
+        compareRegions(regionId1, regionId2);
+      });
+
+  //////////// CODE TEST CI-DESSUS //////////
+
+
     document.addEventListener('DOMContentLoaded', function() {
       const mapContainer = document.querySelector('.map-container');
       const interactiveMap = document.querySelector('.interactive-map');
@@ -342,22 +418,34 @@ document.addEventListener('DOMContentLoaded', () => {
       region.setAttribute('fill', color);
   };
 
-  // Fonction pour modifier l'URL sans recharger la page
-  const updateURLWithRegion = (regionId) => {
-      const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?region=" + regionId;
-      window.history.pushState({ path: newUrl }, '', newUrl);
-  };
+// Fonction pour ajouter un hash à l'URL sans recharger la page ni modifier l'URL côté serveur
+const updateURLWithRegionHash = (regionId) => {
+  const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "#" + regionId;
+  window.history.replaceState({ path: newUrl }, '', newUrl);
+};
 
-  // Fonction pour suivre les clics via Google Analytics
-  const trackRegionClick = (regionId) => {
-      if (typeof gtag !== 'undefined') {
-          gtag('event', 'region_click', {
-              'event_category': 'Carte des régions',
-              'event_label': regionId,  // Nom de la région cliquée
-              'value': 1
-          });
-      }
-  };
+// Fonction pour suivre les clics sur les régions avec Google Analytics
+const trackRegionClick = (regionId) => {
+  if (typeof gtag === 'function') {
+      gtag('event', 'click', {
+          'event_category': 'Region',
+          'event_label': regionId,
+      });
+  } else {
+      console.warn('Google Analytics (gtag) non disponible');
+  }
+};
+
+// Ajout des événements de clic sur les régions
+regions.forEach(regionId => {
+  const regionElement = document.getElementById(regionId);
+  if (regionElement) {
+      regionElement.addEventListener('click', () => {
+          updateURLWithRegionHash(regionId); // Met à jour l'URL avec un hash
+          trackRegionClick(regionId);       // Suit le clic dans Google Analytics
+      });
+  }
+});
 
   // Réinitialiser la position de la carte
   const resetMapPosition = () => {
@@ -474,6 +562,6 @@ document.addEventListener('DOMContentLoaded', () => {
               selectedRegion = null;
           }
       }
-      resetMapPosition();  // Assure-toi que la carte revienne à son état d'origine
+      resetMapPosition();  // Sassurer que la carte revienne à son état d'origine
   });
   });
