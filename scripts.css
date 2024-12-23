@@ -345,7 +345,7 @@ body {
 
 
 /* Style compact pour la popup-hover */
-.popup-hover {
+.popup-hover-js {
     display: none;
     position: absolute;
     top: 0;
@@ -361,23 +361,24 @@ body {
 }
 
 /* Contenu de la popup */
-.popup-hover .popup-content {
+.popup-hover-js .popup-content {
     font-family: 'Noto Serif Bengali', serif;
     color: #07275f;
     padding: 3px; /* Espacement intérieur réduit */
-    font-size: 0.7rem; /* Texte très petit */
-    line-height: 1; /* Hauteur de ligne réduite */
+    font-size: 0.8rem; /* Texte très petit */
+    line-height: 1.2; /* Hauteur de ligne réduite */
 }
 
 /* Titre de la popup */
-.popup-hover #region-title {
-    font-size: 0.9rem; /* Titre réduit mais lisible */
+.popup-hover-js #region-title {
+    font-size: 1rem; /* Titre réduit mais lisible */
     font-weight: normal;
     margin-bottom: 3px; /* Espacement minimal */
+    text-align: center;
 }
 
 /* Section de texte */
-.popup-hover #region-section {
+.popup-hover-js #region-section {
     font-size: 0.7rem; /* Texte encore plus petit */
     margin-top: 3px; /* Réduction de l'espacement */
 }
@@ -389,4 +390,63 @@ body {
     #popup-hover {
         display: 'none';
     }
+}
+
+
+
+.comparison-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.region-select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+}
+
+.compare-button {
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.compare-button:hover {
+    background-color: #003d80;
+}
+
+.comparison-results {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.comparison-row {
+    display: flex;
+    gap: 20px;
+}
+
+.comparison-column {
+    flex: 1;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
