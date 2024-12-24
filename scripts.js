@@ -235,6 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const regionSelect1 = document.getElementById("region-select-1");
         const regionSelect2 = document.getElementById("region-select-2");
         const compareButton = document.getElementById("compare-button");
+        const comparisonColumns = document.querySelectorAll(".comparison-column");
     
         if (!comparisonRow || !regionSelect1 || !regionSelect2 || !compareButton) {
             console.error("Un ou plusieurs éléments nécessaires ne sont pas trouvés dans le DOM.");
@@ -246,6 +247,13 @@ document.addEventListener('DOMContentLoaded', () => {
             comparisonRow.style.flexDirection = "column";
             comparisonRow.style.alignItems = "center";
             comparisonRow.style.gap = "15px"; // Espacement vertical des colonnes
+            
+            // Réduire la largeur des colonnes pour éviter le débordement
+            comparisonColumns.forEach(col => {
+                col.style.width = "100%"; // Prendre toute la largeur disponible
+                col.style.minWidth = "none"; // Supprimer la largeur minimale
+                col.style.marginBottom = "10px"; // Ajouter un espacement entre les colonnes sur petits écrans
+            });
     
             // Placer les sélections de régions et le bouton comparer en haut
             if (!comparisonContainer.classList.contains("stacked")) {
@@ -259,6 +267,12 @@ document.addEventListener('DOMContentLoaded', () => {
             comparisonRow.style.flexDirection = "row";
             comparisonRow.style.alignItems = "flex-start";
             comparisonRow.style.gap = "20px";
+            
+            // Restaurer la largeur des colonnes
+            comparisonColumns.forEach(col => {
+                col.style.width = "48%"; // Limiter la largeur pour laisser un espacement
+                col.style.minWidth = "300px"; // Largeur minimale pour les colonnes
+            });
     
             // Restaurer la position des éléments
             if (comparisonContainer.classList.contains("stacked")) {
@@ -271,6 +285,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+    
+    // Initialisation lors du chargement de la page
+    window.addEventListener("load", updateComparisonLayout);
+    
+    // Réagir aux changements de taille de la fenêtre
+    window.addEventListener("resize", updateComparisonLayout);
     
     
   //////////// CODE TEST CI-DESSUS //////////
