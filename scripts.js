@@ -185,25 +185,31 @@ document.addEventListener('DOMContentLoaded', () => {
           comparisonResults.innerHTML = '<p>Impossible de récupérer les informations des régions sélectionnées.</p>';
           return;
         }
+           // Récupération du deuxième titre et contenu pour chaque région
+          const section1 = data1.sections[1];
+          const section2 = data2.sections[1];
+
+          if (!section1 || !section2) {
+              comparisonResults.innerHTML = '<p>Les informations pour l’une des régions sont incomplètes.</p>';
+              return;
+          }
     
-        // Affichage des titres des sections des deux régions
-        comparisonResults.innerHTML = `
+        // Affichage des résultats avec le deuxième titre et son contenu
+          comparisonResults.innerHTML = `
           <div class="comparison-row">
-            <div class="comparison-column">
-              <h3>${data1.title}</h3>
-              <ul>
-                ${data1.sections.map(section => `<li>${section.title}</li>`).join('')}
-              </ul>
-            </div>
-            <div class="comparison-column">
-              <h3>${data2.title}</h3>
-              <ul>
-                ${data2.sections.map(section => `<li>${section.title}</li>`).join('')}
-              </ul>
-            </div>
+              <div class="comparison-column">
+                  <h3 class="comparison-title">${data1.title}</h3>
+                  <h4>${section1.title}</h4>
+                  <p>${section1.content}</p>
+              </div>
+              <div class="comparison-column">
+                  <h3 class="comparison-title">${data2.title}</h3>
+                  <h4>${section2.title}</h4>
+                  <p>${section2.content}</p>
+              </div>
           </div>
-        `;
-      };
+      `;
+};
     
       // Alimenter les listes déroulantes au chargement
       populateRegionSelects();
