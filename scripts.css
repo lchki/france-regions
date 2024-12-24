@@ -36,7 +36,7 @@ body {
 
 /* Bloc 1 : region-popup */
 #region-popup {
-    position: absolute; /* Utilisation de position absolute pour qu'il ne fasse pas déborder la carte */
+    position: fixed !important; /* Utilisation de position absolute pour qu'il ne fasse pas déborder la carte */
     left: 10%; /* Placement à gauche de la carte */
     top: 50%;
     transform: translateY(-50%); /* Centrer verticalement */
@@ -55,6 +55,32 @@ body {
     animation: popup-slide-in 0.4s ease-in-out;
 }
 
+#close-popup {
+    position: absolute;
+    top: 10px; /* Le bouton est placé au-dessus de la popup */
+    right: 10px; /* Le bouton est placé à 10px du bord droit */
+    background-color: #07275f; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%; /* Rendre le bouton circulaire */
+    width: 30px; /* Largeur du bouton */
+    height: 30px; /* Hauteur du bouton */
+    display: flex;
+    align-items: center; /* Centrer l'icône à l'intérieur */
+    justify-content: center; /* Centrer l'icône à l'intérieur */
+    cursor: pointer; /* Changer le curseur en pointeur lors du survol */
+    z-index: 1001; /* Assurer que le bouton est au-dessus de la popup */
+    transition: background-color 0.3s ease; /* Transition de couleur */
+}
+
+#close-popup:hover {
+    background-color: #f00; /* Couleur rouge au survol */
+}
+
+
+
 /* Bloc 2 : map-container (carte) */
 .map-container {
     width: 80%; /* Largeur de la carte */
@@ -66,7 +92,7 @@ body {
 
 /* Bloc 3 : right-popup (popup à droite avec image) */
 #right-popup {
-    position: absolute; /* Placement absolu pour qu'il ne gêne pas la carte */
+    position: fixed !important; /* Placement absolu pour qu'il ne gêne pas la carte */
     left: 70%; /* Positionner juste après la carte (ajustez cette valeur selon la taille de la carte) */
     top: 70%;
     transform: translateY(-50%); /* Centrer verticalement */
@@ -83,6 +109,33 @@ body {
     display: none; /* Visible dynamiquement avec JavaScript */
     animation: popup-slide-in 0.4s ease-in-out;
 }
+
+/* Style pour le bouton de fermeture */
+#close-right-popup {
+    position: absolute;
+    top: 10px; /* Le bouton est placé au-dessus de la popup */
+    right: 10px; /* Le bouton est placé à 10px du bord droit */
+    background-color: #07275f; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%; /* Rendre le bouton circulaire */
+    width: 30px; /* Largeur du bouton */
+    height: 30px; /* Hauteur du bouton */
+    display: flex;
+    align-items: center; /* Centrer l'icône à l'intérieur */
+    justify-content: center; /* Centrer l'icône à l'intérieur */
+    cursor: pointer; /* Changer le curseur en pointeur lors du survol */
+    z-index: 1010; /* Assurer que le bouton est au-dessus de la popup */
+    transition: background-color 0.3s ease; /* Transition de couleur */
+}
+
+/* Effet au survol du bouton */
+#close-right-popup:hover {
+    background-color: #063a59; /* Couleur du bouton au survol */
+}
+
 
 /* Styles de l'image dans le right-popup */
 #right-popup img {
@@ -416,22 +469,42 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     flex: 1;
+    font-family: 'Noto Serif Bengali', serif; /* Utilisation de la police Noto Serif Bengali */
+    font-size: 16px; /* Taille de police plus grande pour une meilleure lisibilité */
+
 }
 
 .compare-button {
     padding: 10px 20px;
     font-family: 'Noto Sans', sans-serif;
-    background-color: #07275f;
-    color: #fff;
-    border: none;
+    font-weight: bold;
+    background-color: #fff;
+    color: #07275f;
+    border: 2px solid #07275f;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 18px;
+    display: inline-flex;  /* Utilise inline-flex pour que le bouton soit en ligne */
+    align-items: center;  /* Aligne verticalement la flèche et le texte */
+    position: relative;
+    overflow: hidden;
+    line-height: 1.2;  /* Ajuste la hauteur de ligne pour centrer le texte et la flèche */
 }
 
-.compare-button:hover {
-    background-color: #003d80;
+.compare-button::before {
+    content: '\2192';  /* Code Unicode pour la flèche vers la droite (→) */
+    font-size: 24px;  /* Taille de la flèche */
+    margin-right: 8px;  /* Espacement entre la flèche et le texte */
+    transition: transform 0.3s ease;  /* Transition de mouvement */
+    display: inline-block;
+    vertical-align: middle;  /* Aligne verticalement la flèche avec le texte */
 }
+
+.compare-button:hover::before {
+    transform: translateX(10px);  /* Déplace la flèche vers la droite au survol */
+}
+
 
 .comparison-results {
     display: flex;
@@ -486,11 +559,17 @@ body {
     .region-select, .compare-button {
         width: 100%; /* Prendre toute la largeur disponible */
         max-width: 400px; /* Largeur maximale pour ne pas s'étendre trop */
+        z-index: 10; /* Augmenter si nécessaire */
     }
 
     .comparison-column {
         width: 100%; /* Les colonnes prennent 100% de la largeur sur petit écran */
         max-width: 100%; /* Empêcher les colonnes de dépasser la largeur */
         margin-bottom: 10px; /* Ajouter un espacement entre les colonnes */
+    } 
+    
+    #compare-button {
+            text-align: center;  /* Centrer le texte */
+            width: 100%;         /* Optionnel : occuper toute la largeur disponible */
+        }
     }
-}
