@@ -143,7 +143,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    /////// CODE TEST CI-DESSOUS /////////    
+    /////// CODE TEST CI-DESSOUS ///////// 
+    // Initialisation lors du chargement de la page
+  window.addEventListener("load", updateComparisonLayout);
+  
+  // Réagir aux changements de taille de la fenêtre
+  window.addEventListener("resize", updateComparisonLayout);
+
     // Fonction pour alimenter les listes déroulantes avec les régions
       const regionSelect1 = document.getElementById('region-select-1');
       const regionSelect2 = document.getElementById('region-select-2');
@@ -221,6 +227,52 @@ document.addEventListener('DOMContentLoaded', () => {
         compareRegions(regionId1, regionId2);
       });
 
+
+      ///////// responsivité tableau ////
+      function updateComparisonLayout() {
+        const comparisonRow = document.querySelector(".comparison-row");
+        const comparisonContainer = document.querySelector(".comparison-results");
+        const regionSelect1 = document.getElementById("region-select-1");
+        const regionSelect2 = document.getElementById("region-select-2");
+        const compareButton = document.getElementById("compare-button");
+    
+        if (!comparisonRow || !regionSelect1 || !regionSelect2 || !compareButton) {
+            console.error("Un ou plusieurs éléments nécessaires ne sont pas trouvés dans le DOM.");
+            return;
+        }
+    
+        if (window.innerWidth <= 600) {
+            // Passer en disposition verticale pour petits écrans
+            comparisonRow.style.flexDirection = "column";
+            comparisonRow.style.alignItems = "center";
+            comparisonRow.style.gap = "15px"; // Espacement vertical des colonnes
+    
+            // Placer les sélections de régions et le bouton comparer en haut
+            if (!comparisonContainer.classList.contains("stacked")) {
+                comparisonContainer.prepend(regionSelect2);
+                comparisonContainer.prepend(regionSelect1);
+                comparisonContainer.appendChild(compareButton);
+                comparisonContainer.classList.add("stacked");
+            }
+        } else {
+            // Restaurer la disposition horizontale pour grands écrans
+            comparisonRow.style.flexDirection = "row";
+            comparisonRow.style.alignItems = "flex-start";
+            comparisonRow.style.gap = "20px";
+    
+            // Restaurer la position des éléments
+            if (comparisonContainer.classList.contains("stacked")) {
+                const selectionWrapper = document.createElement("div");
+                selectionWrapper.className = "region-selection";
+                selectionWrapper.append(regionSelect1, regionSelect2, compareButton);
+    
+                comparisonContainer.prepend(selectionWrapper);
+                comparisonContainer.classList.remove("stacked");
+            }
+        }
+    }
+    
+    
   //////////// CODE TEST CI-DESSUS //////////
 
 
