@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    /////// CODE TEST CI-DESSOUS ///////// 
+     /////// CODE TEST CI-DESSOUS ///////// 
     // Initialisation lors du chargement de la page
   window.addEventListener("load", updateComparisonLayout);
   
@@ -293,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener("resize", updateComparisonLayout);
     
     
+    
   //////////// CODE TEST CI-DESSUS //////////
 
 
@@ -437,6 +438,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // Masquer les popups lors du défilement de la page
+    window.addEventListener('scroll', () => {
+      popup.style.display = 'none';
+      rightPopup.style.display = 'none';
+      resetMapPosition(); // Réinitialise la carte
+      if (selectedRegion) {
+          highlightRegion(selectedRegion, '#ECEDEC');
+          selectedRegion = null;
+      }
+  });
+
 
   // Création de la popup region-popup
   const popup = document.createElement('div');
@@ -450,29 +462,46 @@ document.addEventListener('DOMContentLoaded', () => {
   popup.style.zIndex = '1000';
   popup.style.transition = 'transform 0.5s ease, width 0.5s ease';
   popup.style.right = '10px';  // Position de la popup à droite
-  popup.style.top = '50px'; // Décale la popup vers le bas
-  popup.style.width = '400px'; // Largeur de la popup
+  popup.style.top = '120px'; // Décale la popup vers le bas
+  popup.style.width = '420px'; // Largeur de la popup
   popup.style.maxHeight = '80vh'; // Limite la hauteur à 80% de la fenêtre
   popup.style.overflowY = 'auto'; // Permet le défilement vertical
+  popup.style.position = 'relative'; // Assurer que le bouton est au-dessus
   document.body.appendChild(popup);
 
-  // Créer un second popup : right-popup
-  const rightPopup = document.createElement('div');
-  rightPopup.id = 'right-popup';
-  rightPopup.style.position = 'fixed';
-  rightPopup.style.backgroundColor = '#f5f0ea';
-  rightPopup.style.border = '1px solid #ccc';
-  rightPopup.style.padding = '15px';
-  rightPopup.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.15)';
-  rightPopup.style.display = 'none';  // Initialement caché
-  rightPopup.style.zIndex = '1000';
-  rightPopup.style.transition = 'transform 0.5s ease, width 0.5s ease';
-  rightPopup.style.right = '10px';  // Position à droite
-  rightPopup.style.top = '50px';    // Décale la popup vers le bas
-  rightPopup.style.width = '400px'; // Largeur de la popup
-  rightPopup.style.maxHeight = '80vh'; // Limite la hauteur à 80% de la fenêtre
-  rightPopup.style.overflowY = 'auto'; // Permet le défilement vertical
-  document.body.appendChild(rightPopup);
+
+// Création de la right-popup
+const rightPopup = document.createElement('div');
+rightPopup.id = 'right-popup';
+rightPopup.style.position = 'fixed';
+rightPopup.style.backgroundColor = '#f5f0ea';
+rightPopup.style.border = '1px solid #ccc';
+rightPopup.style.padding = '15px';
+rightPopup.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.15)';
+rightPopup.style.display = 'none';  // Initialement caché
+rightPopup.style.zIndex = '1000';
+rightPopup.style.right = '10px';
+rightPopup.style.top = '140px';
+rightPopup.style.width = '400px';
+rightPopup.style.maxHeight = '80vh';
+rightPopup.style.overflowY = 'auto';
+rightPopup.style.position = 'relative'; // Assurer que le bouton est au-dessus
+document.body.appendChild(rightPopup);
+
+// Création du bouton de fermeture (au-dessus de la popup)
+const closeRightPopupButton = document.createElement('button');
+closeRightPopupButton.id = 'close-right-popup';
+closeRightPopupButton.innerHTML = '&times;'; // Le caractère "x" pour fermer
+
+// Ajoute le bouton à la right-popup
+rightPopup.appendChild(closeRightPopupButton);
+
+// Ajouter un événement pour fermer la popup lorsque le bouton est cliqué
+closeRightPopupButton.addEventListener('click', () => {
+    rightPopup.style.display = 'none'; // Cache la popup
+});
+
+
 
   // Gestion du redimensionnement de la fenêtre pour la responsivité
   window.addEventListener('resize', () => {
@@ -486,7 +515,6 @@ document.addEventListener('DOMContentLoaded', () => {
           rightPopup.style.top = '50px'; // Positionne la popup à 50px du haut
       }
   });
-
 
   // Crée une variable pour garder une trace de la région sélectionnée
   let selectedRegion = null;
@@ -562,16 +590,35 @@ regions.forEach(regionId => {
     // Ajoutez ici toutes les régions et leur chemin d'image .png
   };
 
-    // Fonction pour afficher la popup à droite
-    function showRightPopup(regionId) {
-      const rightPopup = document.getElementById('right-popup');
-      const data = regionData[regionId];
-      rightPopup.style.display = 'block';
-      rightPopup.innerHTML = `
-        <img src="${data.imageSrc}" alt="${regionId}" style="max-width: 100%;">`;
-      rightPopup.style.display = 'block';
-      rightPopup.style.transform = 'translateX(0)';
-    }
+// Fonction pour afficher la popup à droite
+function showRightPopup(regionId) {
+  const rightPopup = document.getElementById('right-popup');
+  const data = regionData[regionId];
+
+  // Création du bouton de fermeture
+  const closeRightPopupButton = document.createElement('button');
+  closeRightPopupButton.id = 'close-right-popup';
+  closeRightPopupButton.innerHTML = '&times;'; // Le caractère "x" pour fermer
+
+  // Ajouter l'événement pour fermer la popup
+  closeRightPopupButton.addEventListener('click', () => {
+      rightPopup.style.display = 'none'; // Cache la popup
+      if (selectedRegion) {
+          highlightRegion(selectedRegion, '#ECEDEC');
+          selectedRegion = null;
+      }
+  });
+
+  // Vide le contenu actuel de la popup avant d'ajouter le bouton et l'image
+  rightPopup.innerHTML = ''; // Effacer tout le contenu actuel de la popup
+  rightPopup.appendChild(closeRightPopupButton); // Ajouter le bouton de fermeture
+  rightPopup.innerHTML += `
+      <img src="${data.imageSrc}" alt="${regionId}" style="max-width: 100%;">`;
+
+  // Afficher la popup
+  rightPopup.style.display = 'block';
+  rightPopup.style.transform = 'translateX(0)';
+}
 
 
   // Fonction pour gérer les clics sur les régions
@@ -643,3 +690,33 @@ regions.forEach(regionId => {
       resetMapPosition();  // Sassurer que la carte revienne à son état d'origine
   });
   });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 600) {
+        // Sur petit écran, ajuster la popup
+        rightPopup.style.position = 'fixed';
+        rightPopup.style.bottom = '0';
+        rightPopup.style.top = ''; // Supprime top
+    } else {
+        // Sur grand écran, remettre en position normale
+        rightPopup.style.position = 'fixed';
+        rightPopup.style.bottom = '';
+        rightPopup.style.top = '100px'; // Position normale
+    }
+});
+
+const ensurePopupPosition = () => {
+  if (rightPopup.style.position !== 'fixed') {
+      rightPopup.style.position = 'fixed';
+      rightPopup.style.top = '100px';
+      rightPopup.style.right = '10px';
+  }
+  if (popup.style.position !== 'fixed') {
+      popup.style.position = 'fixed';
+      popup.style.top = '100px';
+      popup.style.right = '10px';
+  }
+};
+
+// Appelle cette fonction après avoir ajouté les popups
+ensurePopupPosition();
