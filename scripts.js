@@ -230,59 +230,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
       ///////// responsivité tableau ////
       function updateComparisonLayout() {
+        const comparisonContainer = document.querySelector(".comparison-container");
         const comparisonRow = document.querySelector(".comparison-row");
-        const comparisonContainer = document.querySelector(".comparison-results");
         const regionSelect1 = document.getElementById("region-select-1");
         const regionSelect2 = document.getElementById("region-select-2");
         const compareButton = document.getElementById("compare-button");
-        const comparisonColumns = document.querySelectorAll(".comparison-column");
     
-        if (!comparisonRow || !regionSelect1 || !regionSelect2 || !compareButton) {
+        // Vérifier si les éléments existent
+        if (!comparisonContainer || !comparisonRow || !regionSelect1 || !regionSelect2 || !compareButton) {
             console.error("Un ou plusieurs éléments nécessaires ne sont pas trouvés dans le DOM.");
             return;
         }
     
+        // Mode Mobile (max-width: 600px)
         if (window.innerWidth <= 600) {
-            // Passer en disposition verticale pour petits écrans
+            // Mettre en colonne
             comparisonRow.style.flexDirection = "column";
             comparisonRow.style.alignItems = "center";
-            comparisonRow.style.gap = "15px"; // Espacement vertical des colonnes
-            
-            // Réduire la largeur des colonnes pour éviter le débordement
-            comparisonColumns.forEach(col => {
-                col.style.width = "100%"; // Prendre toute la largeur disponible
-                col.style.minWidth = "none"; // Supprimer la largeur minimale
-                col.style.marginBottom = "10px"; // Ajouter un espacement entre les colonnes sur petits écrans
-            });
+            comparisonRow.style.gap = "15px"; // Espacement entre les éléments
+            compareButton.style.width = "100%"; // Le bouton Comparer prend toute la largeur
+            compareButton.style.marginTop = "10px"; // Espacement entre le bouton et les autres éléments
     
-            // Placer les sélections de régions et le bouton comparer en haut
-            if (!comparisonContainer.classList.contains("stacked")) {
-                comparisonContainer.prepend(regionSelect2);
-                comparisonContainer.prepend(regionSelect1);
-                comparisonContainer.appendChild(compareButton);
-                comparisonContainer.classList.add("stacked");
-            }
         } else {
-            // Restaurer la disposition horizontale pour grands écrans
+            // Mode Desktop
             comparisonRow.style.flexDirection = "row";
             comparisonRow.style.alignItems = "flex-start";
-            comparisonRow.style.gap = "20px";
-            
-            // Restaurer la largeur des colonnes
-            comparisonColumns.forEach(col => {
-                col.style.width = "48%"; // Limiter la largeur pour laisser un espacement
-                col.style.minWidth = "300px"; // Largeur minimale pour les colonnes
-            });
-    
-            // Restaurer la position des éléments
-            if (comparisonContainer.classList.contains("stacked")) {
-                const selectionWrapper = document.createElement("div");
-                selectionWrapper.className = "region-selection";
-                selectionWrapper.append(regionSelect1, regionSelect2, compareButton);
-    
-                comparisonContainer.prepend(selectionWrapper);
-                comparisonContainer.classList.remove("stacked");
-            }
+            comparisonRow.style.gap = "20px"; // Espacement entre les colonnes
+            compareButton.style.width = "auto"; // Le bouton reprend sa taille normale
+            compareButton.style.marginTop = "0"; // Pas d'espacement supplémentaire en mode desktop
         }
     }
     
@@ -291,6 +266,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Réagir aux changements de taille de la fenêtre
     window.addEventListener("resize", updateComparisonLayout);
+    
+    
+    
     
     
     
@@ -453,69 +431,82 @@ document.addEventListener('DOMContentLoaded', () => {
   // Création de la popup region-popup
   const popup = document.createElement('div');
   popup.id = 'region-popup';
-  popup.style.position = 'fixed';
-  popup.style.backgroundColor = '#fff';
-  popup.style.border = '1px solid #ccc';
-  popup.style.padding = '15px';
-  popup.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.15)';
-  popup.style.display = 'none';
-  popup.style.zIndex = '1000';
-  popup.style.transition = 'transform 0.5s ease, width 0.5s ease';
-  popup.style.right = '10px';  // Position de la popup à droite
-  popup.style.top = '120px'; // Décale la popup vers le bas
-  popup.style.width = '420px'; // Largeur de la popup
-  popup.style.maxHeight = '80vh'; // Limite la hauteur à 80% de la fenêtre
-  popup.style.overflowY = 'auto'; // Permet le défilement vertical
-  popup.style.position = 'relative'; // Assurer que le bouton est au-dessus
+  // Configuration initiale de `popup`
+  Object.assign(popup.style, {
+      position: 'fixed',
+      backgroundColor: '#fff',
+      border: '1px solid #ccc',
+      padding: '15px',
+      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)',
+      display: 'none',
+      zIndex: '1000',
+      transition: 'transform 0.5s ease, width 0.5s ease',
+      right: '10px',
+      top: '120px',
+      width: '420px',
+      maxHeight: '80vh',
+      overflowY: 'auto'
+  });
   document.body.appendChild(popup);
 
 
 // Création de la right-popup
 const rightPopup = document.createElement('div');
 rightPopup.id = 'right-popup';
-rightPopup.style.position = 'fixed';
-rightPopup.style.backgroundColor = '#f5f0ea';
-rightPopup.style.border = '1px solid #ccc';
-rightPopup.style.padding = '15px';
-rightPopup.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.15)';
-rightPopup.style.display = 'none';  // Initialement caché
-rightPopup.style.zIndex = '1000';
-rightPopup.style.right = '10px';
-rightPopup.style.top = '140px';
-rightPopup.style.width = '400px';
-rightPopup.style.maxHeight = '80vh';
-rightPopup.style.overflowY = 'auto';
-rightPopup.style.position = 'relative'; // Assurer que le bouton est au-dessus
+// Configuration initiale de `rightPopup`
+Object.assign(rightPopup.style, {
+    position: 'fixed',
+    backgroundColor: '#f5f0ea',
+    border: '1px solid #ccc',
+    padding: '15px',
+    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)',
+    display: 'none',
+    zIndex: '1000',
+    right: '10px',
+    top: '140px',
+    width: '400px',
+    maxHeight: '80vh',
+    overflowY: 'auto'
+});
 document.body.appendChild(rightPopup);
 
-// Création du bouton de fermeture (au-dessus de la popup)
+// Bouton de fermeture pour `rightPopup`
 const closeRightPopupButton = document.createElement('button');
 closeRightPopupButton.id = 'close-right-popup';
-closeRightPopupButton.innerHTML = '&times;'; // Le caractère "x" pour fermer
-
-// Ajoute le bouton à la right-popup
+closeRightPopupButton.innerHTML = '&times;';
+closeRightPopupButton.addEventListener('click', () => {
+    rightPopup.style.display = 'none';
+});
 rightPopup.appendChild(closeRightPopupButton);
 
-// Ajouter un événement pour fermer la popup lorsque le bouton est cliqué
-closeRightPopupButton.addEventListener('click', () => {
-    rightPopup.style.display = 'none'; // Cache la popup
-});
+  // Fonction pour ajuster la responsivité
+const adjustPopupsForMobile = () => {
+  if (window.innerWidth < 600) {
+      // Petit écran
+      rightPopup.style.bottom = '0';
+      rightPopup.style.top = '';
+      rightPopup.style.width = '90%';
+      rightPopup.style.left = '5%';
+      rightPopup.style.height = '45vh'; // Définir une hauteur adaptée pour mobile
 
 
+      popup.style.bottom = '55vh';
+      popup.style.top = '';
+  } else {
+      // Grand écran
+      rightPopup.style.bottom = '';
+      rightPopup.style.top = '140px';
+      rightPopup.style.width = '400px';
+      rightPopup.style.left = '';
 
-  // Gestion du redimensionnement de la fenêtre pour la responsivité
-  window.addEventListener('resize', () => {
-      if (window.innerWidth < 600) {
-          // Sur petit écran, place la popup à la base de l'écran
-          rightPopup.style.bottom = '0';
-          rightPopup.style.top = ''; // Supprime la position top pour éviter le conflit
-      } else {
-          // Sur grand écran, remet la popup en position normale
-          rightPopup.style.bottom = '';
-          rightPopup.style.top = '50px'; // Positionne la popup à 50px du haut
-      }
-  });
+      popup.style.bottom = '';
+      popup.style.top = '120px';
+  }
+};
 
+// Appel de la fonction pour ajuster la position au chargement et au redimensionnement
+window.addEventListener('load', adjustPopupsForMobile);
+window.addEventListener('resize', adjustPopupsForMobile);
   // Crée une variable pour garder une trace de la région sélectionnée
   let selectedRegion = null;
 
@@ -590,10 +581,10 @@ regions.forEach(regionId => {
     // Ajoutez ici toutes les régions et leur chemin d'image .png
   };
 
-// Fonction pour afficher la popup à droite
+// Fonction pour afficher `rightPopup`
 function showRightPopup(regionId) {
-  const rightPopup = document.getElementById('right-popup');
-  const data = regionData[regionId];
+    const data = regionData[regionId]; // Assurez-vous que `regionData` existe
+    if (!data) return;
 
   // Création du bouton de fermeture
   const closeRightPopupButton = document.createElement('button');
