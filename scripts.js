@@ -390,9 +390,15 @@ const trackRegionClick = (regionId) => {
   };
 
   // Logique pour gérer les actions de survol et de clic sur les régions
+  let activeRegionId = null; // Variable pour suivre la région active
+
   regions.forEach(regionId => {
     const region = document.getElementById(regionId);
     if (region) {
+      // Détection des appareils Android et Firefox Android
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      const isFirefox = /Firefox/i.test(navigator.userAgent);
+  
       // Gestion des survols uniquement pour les écrans non tactiles
       if (!('ontouchstart' in window)) {
         region.addEventListener('mouseover', (event) => {
@@ -412,29 +418,75 @@ const trackRegionClick = (regionId) => {
         });
       }
   
-      // Gestion des clics et des interactions tactiles
-      region.addEventListener('click', (event) => {
+      // Fonction de gestion de clic et de touchstart
+      const handleRegionClick = (event) => {
         event.preventDefault();
-        const data = regionData[regionId];
-        if (data) {
-          showPopup(regionId, data);
-          showRightPopup(regionId);
-          trackRegionClick(regionId);
-        }
-      });
   
-      // Ajout de support pour les événements tactiles
-      region.addEventListener('touchstart', (event) => {
-        event.preventDefault(); // Évite le comportement par défaut sur mobile
+        // Si la région est déjà active, on ne fait rien
+        if (activeRegionId === regionId) return;
+  
+        // Réinitialiser la couleur de la région précédemment active
+        if (activeRegionId && activeRegionId !== regionId) {
+          const previousRegion = document.getElementById(activeRegionId);
+          if (previousRegion) {
+            previousRegion.style.fill = ''; // Réinitialise au style par défaut
+            previousRegion.style.stroke = '';
+          }
+        }
+  
+        // Définir la nouvelle région active
+        activeRegionId = regionId;
+  
+        // Appliquer les styles de la région active
+        region.style.fill = '#d1af6c'; // Exemple : couleur de sélection
+        region.style.stroke = '#d1af6c';
+  
+        // (Facultatif) Afficher des informations ou exécuter d'autres actions
         const data = regionData[regionId];
         if (data) {
           showPopup(regionId, data);
           showRightPopup(regionId);
           trackRegionClick(regionId);
         }
-      });
+      };
+  
+      // Ajout de gestionnaires d'événements pour le clic et le touchstart
+      region.addEventListener('click', handleRegionClick);
+      region.addEventListener('touchstart', handleRegionClick);
+  
+      // Réinitialisation du style après perte de focus (pour Android)
+      if (isAndroid) {
+        region.addEventListener('mouseleave', () => {
+          region.style.fill = ''; // Réinitialise au style par défaut
+          region.style.stroke = '';
+        });
+      }
+  
+      // Gestion spécifique pour Firefox sur Android
+      if (isAndroid && isFirefox) {
+        region.addEventListener('click', () => {
+          console.log(`Firefox Android - Région cliquée : ${regionId}`);
+          // Appliquer un style visuel particulier pour Firefox Android
+          region.style.fill = '#e0c081'; // Exemple de couleur personnalisée
+          region.style.stroke = '#e0c081';
+        });
+  
+        region.addEventListener('touchstart', () => {
+          region.style.fill = '#e0c081'; // Couleur tactile pour Firefox Android
+          region.style.stroke = '#e0c081';
+        });
+  
+        // Réinitialisation après interaction dans Firefox
+        region.addEventListener('mouseleave', () => {
+          region.style.fill = ''; // Réinitialise au style par défaut
+          region.style.stroke = '';
+        });
+      }
     }
   });
+  
+
+
 
     // Masquer les popups lors du défilement de la page
     window.addEventListener('scroll', () => {
