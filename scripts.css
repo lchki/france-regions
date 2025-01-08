@@ -171,14 +171,23 @@ body {
 }
 
 /* Styles pour les régions */
-.interactive-map .map .region {
-    cursor: pointer;
-    transition: fill 0.3s ease, stroke 0.3s ease;
+.interactive-map .map .region:hover {
+    fill: #d1af6c; /* Couleur au survol */
+    stroke: #d1af6c;
 }
 
-.interactive-map .map .region:hover {
-    fill: #FFA500; /* Couleur au survol */
-    stroke: #FFA500;
+/* Styles spécifiques pour Android */
+.android .interactive-map .map .region:hover {
+    fill: #d1af6c !important; /* Couleur au survol sur Android */
+    stroke: #d1af6c !important;
+}
+
+.android .interactive-map .map .region {
+    fill: #e0c081; /* Exemple de couleur par défaut pour Android */
+}
+
+.firefox-android .interactive-map .map .region {
+    fill: #d4b57f; /* Couleur adaptée à Firefox Android */
 }
 
 .interactive-map .map .region[data-opened="opened"] {
