@@ -13,101 +13,113 @@ document.addEventListener('DOMContentLoaded', () => {
       'PACA', 'Ile-de-France', 'Nouvelle-Aquitaine'
     ];
 
+    // Fonction pour suivre les clics sur les régions avec Google Analytics
+const trackRegionClick = (regionId) => {
+  if (typeof gtag === 'function') {
+      gtag('event', 'click', {
+          'event_category': 'Region',
+          'event_label': regionId,
+      });
+  } else {
+      console.warn('Google Analytics (gtag) non disponible');
+  }
+};
+
   const regionData = {
       'Centre-Val-de-Loire': {
           title: '<h1 style="font-weight: normal;">Centre-Val-de-Loire</h1>',
-          sections: [
+          /*sections: [
               { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
               { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
           ],
           pdfLink: 'Centre-Val-de-Loire',
-          imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/centre-val-de-loire.png' // Chemin vers l'image
+          imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/centre-val-de-loire.png' // Chemin vers l'image */
 
       },
 
       'Bretagne': {
         title: '<h1 style="font-weight: normal;">Bretagne</h1>',
-        sections: [
+        /*sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La Bretagne est une région charmante, idéale pour les vacances.' },
           ],
         pdfLink: 'Bretagne',
-        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/bretagne.png' // Chemin vers l'image
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/bretagne.png' // Chemin vers l'image */
 
       },
 
       'Bourgogne-Franche-Comte': {
         title: '<h1 style="font-weight: normal;">Bourgogne-Franche-Comte</h1>',
-        sections: [
+        /* sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Bourgogne-Franche-Comté est une belle région pour la gastronomie et le vin.' },
           ],
         pdfLink: 'Bourgogne-Franche-Comte',
-        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/grand-est.png' // Chemin vers l'image
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/grand-est.png' // Chemin vers l'image */
 
       },
 
       'Grand-Est': {
         title: '<h1 style="font-weight: normal;">Grand-Est</h1>',
-        sections: [
+        /* sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Grand-Est est un carrefour européen avec une grande diversité culturelle.' },
           ],
         pdfLink: 'Grand-Est',
-        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/occitanie.png' // Chemin vers l'image
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/occitanie.png' // Chemin vers l'image */
 
       },
 
       'Occitanie': {
         title: '<h1 style="font-weight: normal;">Occitanie</h1>',
-        sections: [
+        /* sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Occitanie est connue pour son climat et ses paysages magnifiques.' },
           ],
         pdfLink: 'Occitanie',
-        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/hauts-de-france.png' // Chemin vers l'image
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/hauts-de-france.png' // Chemin vers l'image */
 
       },
 
       'Hauts-de-France': {
         title: '<h1 style="font-weight: normal;">Hauts-de-France</h1>',
-        sections: [
+        /* sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoine.' },
           ],
         pdfLink: 'Hauts-de-France',
-        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/hauts-de-france.png' // Chemin vers l'image
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/hauts-de-france.png' // Chemin vers l'image */
 
       },
 
       'Auvergne-Rhone-Alpes': {
         title: '<h1 style="font-weight: normal;">Auvergne-Rhone-Alpes</h1>',
-        sections: [
+        /* sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Une région montagneuse avec un fort potentiel touristique et économique.' },
           ],
         pdfLink: 'Auvergne-Rhone-Alpes',
-        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/auvergne-rhone-alpes.png' // Chemin vers l'image
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/auvergne-rhone-alpes.png' // Chemin vers l'image */
 
       },
       'Normandie': {
         title: '<h1 style="font-weight: normal;">Normandie</h1>',
-        sections: [
+       /* sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La Normandie est une région historique avec des paysages variés et une forte tradition maritime.' },
           ],
         pdfLink: 'Normandie',
-        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/normandie.png' // Chemin vers l'image
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/normandie.png' // Chemin vers l'image */
 
       },
       'Pays-de-la-Loire': {
         title: '<h1 style="font-weight: normal;">Pays-de-la-Loire</h1>',
-        sections: [
+        /* sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Pays-de-la-Loire sont réputés pour leur économie dynamique et leur littoral.' },
           ],
         pdfLink: 'Pays-de-la-Loire',
-        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/pays-de-la-loire.png' // Chemin vers l'image
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/pays-de-la-loire.png' // Chemin vers l'image */
 
       },
       'PACA': {
@@ -122,26 +134,25 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       'Ile-de-France': {
         title: '<h1 style="font-weight: normal;"> Ile-de-France</h1>',
-        sections: [
+        /* sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La région capitale est un centre économique et culturel majeur.' },
           ],
           pdfLink: 'Ile-de-France',
-          imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/ile-de-france.png' // Chemin vers l'image
+          imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/ile-de-france.png' // Chemin vers l'image */
 
       },
       'Nouvelle-Aquitaine': {
         title: '<h1 style="font-weight: normal;">Nouvelle-Aquitaine</h1>',
-        sections: [
+        /* sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Nouvelle-Aquitaine, un grand territoire aux paysages variés et à l’économie solide.' },
           ],
         pdfLink: 'Nouvelle-Aquitaine',
-        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/nouvelle-aquitaine.png' // Chemin vers l'image
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/nouvelle-aquitaine.png' // Chemin vers l'image */
 
       }
     };
-
 
      /////// CODE TEST CI-DESSOUS ///////// 
     // Initialisation lors du chargement de la page
@@ -267,11 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Réagir aux changements de taille de la fenêtre
     window.addEventListener("resize", updateComparisonLayout);
     
-    
-    
-    
-    
-    
+      
   //////////// CODE TEST CI-DESSUS //////////
 
 
@@ -382,39 +389,52 @@ document.addEventListener('DOMContentLoaded', () => {
     popupSection.innerHTML += '<p>Cliquez sur la région pour en savoir plus</p>'; // Ajouter le texte supplémentaire
   };
 
-  // Logic to handle hover and click actions on regions
+  // Logique pour gérer les actions de survol et de clic sur les régions
   regions.forEach(regionId => {
     const region = document.getElementById(regionId);
     if (region) {
-      region.addEventListener('mouseover', (event) => {
-        if (window.innerWidth >= 600) {
-          const data = regionData[regionId]; // Obtenir les données pour la région
-          if (data) {
-            updatePopupContent(data.title, data); // Passer à la fonction avec le nom de la région et les données complètes
-            
-            // Positionne la popup sous le curseur
-            hoverPopup.style.left = `${event.pageX + 10}px`; // Décale légèrement sur l'axe horizontal
-            hoverPopup.style.top = `${event.pageY + 10}px`;  // Décale légèrement sur l'axe vertical
-            hoverPopup.style.display = 'block';
-          }
-        }
-      });
-
-      region.addEventListener('mouseout', () => {
-        hoverPopup.style.display = 'none';
-      });
-
-        // Clic sur la région
-        region.addEventListener('click', () => {
-          const data = regionData[regionId];
-          if (data) {
-            showPopup(regionId, data);
-            showRightPopup(regionId);
-            trackRegionClick(regionId);
+      // Gestion des survols uniquement pour les écrans non tactiles
+      if (!('ontouchstart' in window)) {
+        region.addEventListener('mouseover', (event) => {
+          if (window.innerWidth >= 600) {
+            const data = regionData[regionId];
+            if (data) {
+              updatePopupContent(data.title, data); // Mise à jour de la popup
+              hoverPopup.style.left = `${event.pageX + 10}px`;
+              hoverPopup.style.top = `${event.pageY + 10}px`;
+              hoverPopup.style.display = 'block';
+            }
           }
         });
+  
+        region.addEventListener('mouseout', () => {
+          hoverPopup.style.display = 'none';
+        });
       }
-    });
+  
+      // Gestion des clics et des interactions tactiles
+      region.addEventListener('click', (event) => {
+        event.preventDefault();
+        const data = regionData[regionId];
+        if (data) {
+          showPopup(regionId, data);
+          showRightPopup(regionId);
+          trackRegionClick(regionId);
+        }
+      });
+  
+      // Ajout de support pour les événements tactiles
+      region.addEventListener('touchstart', (event) => {
+        event.preventDefault(); // Évite le comportement par défaut sur mobile
+        const data = regionData[regionId];
+        if (data) {
+          showPopup(regionId, data);
+          showRightPopup(regionId);
+          trackRegionClick(regionId);
+        }
+      });
+    }
+  });
 
     // Masquer les popups lors du défilement de la page
     window.addEventListener('scroll', () => {
@@ -519,18 +539,6 @@ window.addEventListener('resize', adjustPopupsForMobile);
 const updateURLWithRegionHash = (regionId) => {
   const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "#" + regionId;
   window.history.replaceState({ path: newUrl }, '', newUrl);
-};
-
-// Fonction pour suivre les clics sur les régions avec Google Analytics
-const trackRegionClick = (regionId) => {
-  if (typeof gtag === 'function') {
-      gtag('event', 'click', {
-          'event_category': 'Region',
-          'event_label': regionId,
-      });
-  } else {
-      console.warn('Google Analytics (gtag) non disponible');
-  }
 };
 
 // Ajout des événements de clic sur les régions
@@ -711,3 +719,4 @@ const ensurePopupPosition = () => {
 
 // Appelle cette fonction après avoir ajouté les popups
 ensurePopupPosition();
+
