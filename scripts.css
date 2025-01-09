@@ -343,22 +343,33 @@ body {
 
 /* Responsivité sur petits écran */
 @media screen and (max-width: 600px) {
+    /* Right Popup */
     #right-popup {
-        width: 90%; /* Largeur adaptée à l'écran */
-        left: 5%; /* Centré horizontalement */
-        bottom: 0; /* Placé en bas de l'écran */
-        top: auto; /* Désactiver la position top */
-        transform: none; /* Supprimer l'effet de translation */
-        z-index: 1000; /* Assurer un empilement correct */
-        height: auto; /* Hauteur adaptée au contenu */
-        max-height: 50vh; /* Limiter la hauteur à 50% de l'écran */
-        overflow-y: auto; /* Activer le défilement vertical */
-        padding: 15px; /* Réduire le padding pour petits écrans */
+        width: 80% !important; /* Élargir la largeur à 75% de l'écran */
+        left: 12.5% !important; /* Centrer horizontalement */
+        bottom: 5% !important; /* Placer un peu plus haut que le bas de l'écran */
+        top: auto !important; /* Désactiver la position top */
+        transform: none !important; /* Supprimer l'effet de translation */
+        z-index: 1000 !important; /* Assurer un empilement correct */
+        height: auto !important; /* Hauteur ajustée en fonction du contenu */
+        max-height: 35vh !important; /* Limiter la hauteur à 35% de l'écran */
+        overflow-y: auto !important; /* Activer le défilement vertical si nécessaire */
+        padding: 10px !important; /* Réduire le padding pour petits écrans */
+        font-size: 12px !important; /* Réduire la taille de police pour le contenu */
+        box-sizing: border-box !important; /* Pour inclure padding et border dans la largeur/hauteur */
     }
 
+    /* Region Popup */
     #region-popup {
-        bottom: auto; /* Désactiver la position bottom si appliquée */
-        z-index: 1002; /* Assurer que region-popup reste au-dessus */
+        width: 80% !important; /* Réduire la largeur à 70% de l'écran */
+        left: 15% !important; /* Centrer horizontalement */
+        top: 20% !important; /* Remonter la popup à 20% du haut de l'écran */
+        bottom: auto !important; /* Désactiver la position bottom si appliquée */
+        z-index: 1002 !important; /* Assurer que region-popup reste au-dessus */
+        padding: 10px !important; /* Réduire le padding pour petits écrans */
+        font-size: 14px !important; /* Réduire la taille de police pour les petits écrans */
+        max-height: 30vh !important; /* Limiter la hauteur à 30% de l'écran */
+        overflow-y: auto !important; /* Activer le défilement vertical si nécessaire */
     }
 }
 
