@@ -1,0 +1,698 @@
+
+/* Styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Serif Bengali', serif;
+    font-weight: 'normal'; /* Supprimer le gras */
+    background-color: #f9f7f5;
+    color: #07275f; /* Couleur par défaut pour le texte */
+    line-height: 1.5;
+}
+
+
+
+/* CSS pour enlever le gras */
+.popup-hover h1, .popup-hover h2 {
+    font-weight: normal;
+  }
+
+/* CSS pour enlever le gras */
+.no-bold {
+    font-weight: normal;
+  }
+
+/* Conteneur principal pour organiser les 3 blocs */
+.main-container {
+    display: flex;
+    justify-content: center; /* Centre les blocs horizontalement */
+    align-items: flex-start; /* Aligne les blocs au top de la page */
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    padding: 20px; /* Espacement intérieur */
+}
+
+/* Bloc 1 : region-popup */
+#region-popup {
+    position: fixed !important; /* Utilisation de position absolute pour qu'il ne fasse pas déborder la carte */
+    left: 10%; /* Placement à gauche de la carte */
+    top: 50%;
+    transform: translateY(-50%); /* Centrer verticalement */
+    z-index: 1001; /* Placer la popup au-dessus de la carte */
+    width: 300px;
+    max-width: 90%;
+    height: auto;
+    max-height: 80vh;
+    background: #f5f0ea !important;
+    border: 2px solid #007BFF;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    display: none; /* Visible dynamiquement avec JavaScript */
+    animation: popup-slide-in 0.4s ease-in-out;
+}
+
+#close-popup {
+    position: absolute;
+    top: 10px; /* Le bouton est placé au-dessus de la popup */
+    right: 10px; /* Le bouton est placé à 10px du bord droit */
+    background-color: #07275f; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%; /* Rendre le bouton circulaire */
+    width: 30px; /* Largeur du bouton */
+    height: 30px; /* Hauteur du bouton */
+    display: flex;
+    align-items: center; /* Centrer l'icône à l'intérieur */
+    justify-content: center; /* Centrer l'icône à l'intérieur */
+    cursor: pointer; /* Changer le curseur en pointeur lors du survol */
+    z-index: 1010; /* Assurer que le bouton est au-dessus de la popup */
+    transition: background-color 0.3s ease; /* Transition de couleur */
+}
+
+#close-popup:hover {
+    background-color: #f00; /* Couleur rouge au survol */
+}
+
+
+
+/* Bloc 2 : map-container (carte) */
+.map-container {
+    width: 80%; /* Largeur de la carte */
+    max-width: 1000px;
+    height: auto;
+    z-index: 1; /* La carte est en arrière-plan */
+    margin: 0;
+}
+
+/* Animation: slide-in de droite à gauche */
+@keyframes slideRightToLeft {
+    from {
+        transform: translateX(100%); /* Démarre à droite de l'écran */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0); /* Se déplace à sa position initiale */
+        opacity: 1;
+    }
+}
+
+/* Bloc 3 : right-popup (popup à droite avec image) */
+#right-popup {
+    position: fixed !important; /* Placement absolu pour qu'il ne gêne pas la carte */
+    left: 70%; /* Positionner juste après la carte (ajustez cette valeur selon la taille de la carte) */
+    top: 70%;
+    transform: translateY(-50%); /* Centrer verticalement */
+    z-index: 1001; /* Placer la popup au-dessus de la carte */
+    width: 600px; /* Largeur ajustée */
+    height: auto;
+    max-height: 80vh;
+    background: #fff3e6; /* Couleur légèrement différente pour distinction */
+    border: 2px solid #007BFF;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    display: none; /* Visible dynamiquement avec JavaScript */
+    animation: popup-slide-in 0.4s ease-in-out;
+    overflow-y: scroll; /* Barre de défilement */
+    scrollbar-width: thin;
+    scrollbar-color: #07275f #f0f0f0;
+}
+
+/* Responsivité sur petits écrans */
+@media screen and (max-width: 600px) {
+    /* Animation pour la right-popup */
+    #right-popup {
+        animation: slideRightToLeft 0.5s ease-out forwards; /* Appliquer l'animation */
+    }
+}
+
+/* Assurez-vous que right-popup n'est pas invisible ou caché */
+#right-popup {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Style pour le bouton de fermeture */
+#close-right-popup {
+    position: absolute;
+    top: 10px; /* Le bouton est placé au-dessus de la popup */
+    right: 10px; /* Le bouton est placé à 10px du bord droit */
+    background-color: #07275f; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%; /* Rendre le bouton circulaire */
+    width: 30px; /* Largeur du bouton */
+    height: 30px; /* Hauteur du bouton */
+    display: flex;
+    align-items: center; /* Centrer l'icône à l'intérieur */
+    justify-content: center; /* Centrer l'icône à l'intérieur */
+    cursor: pointer; /* Changer le curseur en pointeur lors du survol */
+    z-index: 1010; /* Assurer que le bouton est au-dessus de la popup */
+    transition: background-color 0.3s ease; /* Transition de couleur */
+}
+
+/* Effet au survol du bouton */
+#close-right-popup:hover {
+    background-color: #063a59; /* Couleur du bouton au survol */
+}
+
+
+/* Styles de l'image dans le right-popup */
+#right-popup img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Styles pour la carte interactive */
+.interactive-map {
+    max-width: 100%; /* La carte ne dépasse pas la largeur de la fenêtre */
+    height: auto; /* La hauteur s'adapte automatiquement */
+    visibility: visible; /* La carte reste toujours visible */
+    margin: 0;
+    transform: none; /* Pas de transformation supplémentaire */
+    position: relative; /* Assure que la carte reste au centre */
+}
+
+/* Ajustement de la carte */
+.interactive-map .map {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    transform: scale(1); /* La carte ne diminue plus */
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
+
+/* Objet SVG dans la carte */
+.interactive-map .map object {
+    width: 100%;
+    height: auto;
+}
+
+/* Styles pour les régions */
+.interactive-map .map .region:hover {
+    fill: #ecd097; /* Couleur au survol */
+    stroke: #d1af6c;
+}
+
+/* Styles spécifiques pour Android */
+.android .interactive-map .map .region:hover {
+    fill: #d1af6c !important; /* Couleur au survol sur Android */
+    stroke: #d1af6c !important;
+}
+
+.android .interactive-map .map .region {
+    fill: #e0c081; /* Exemple de couleur par défaut pour Android */
+}
+
+.firefox-android .interactive-map .map .region {
+    fill: #d4b57f; /* Couleur adaptée à Firefox Android */
+}
+
+.interactive-map .map .region[data-opened="opened"] {
+    fill: #FF7F00;
+    stroke: #FF7F00;
+}
+
+/* Détails de la région */
+.interactive-map .map .region-detail {
+    position: absolute;
+    background: white;
+    border: 2px solid #FF7F00;
+    border-radius: 8px;
+    padding: 0.5rem;
+    display: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+    max-width: 250px;
+    max-height: 350px;
+    overflow-y: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.interactive-map .map .region-detail.visible {
+    display: block;
+    opacity: 1;
+}
+
+.interactive-map .map .region-detail.opened {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Applique un défilement personnalisé sur les popups */
+#region-popup, #right-popup {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 9999;
+    top: 120px;
+    right: 10px;
+    width: 420px;
+    max-height: 80vh;
+    overflow-y: scroll; /* Toujours activer le défilement */
+    -webkit-overflow-scrolling: touch; /* Défilement fluide pour iOS */
+    scrollbar-width: thin; /* Utilisation d'une barre de défilement fine pour Firefox */
+    scrollbar-color: #07275f #f0f0f0; /* Définir les couleurs de la scrollbar dans Firefox */
+}
+
+/* Style personnalisé des barres de défilement pour WebKit (Safari, Chrome, etc.) */
+#region-popup::-webkit-scrollbar,
+#right-popup::-webkit-scrollbar {
+    width: 8px; /* Largeur de la barre de défilement */
+}
+
+#region-popup::-webkit-scrollbar-track,
+#right-popup::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Couleur de l'arrière-plan de la piste */
+}
+
+#region-popup::-webkit-scrollbar-thumb,
+#right-popup::-webkit-scrollbar-thumb {
+    background: #07275f; /* Couleur de la barre de défilement */
+    border-radius: 10px;
+    border: 2px solid #f0f0f0; /* Bordure autour de la barre de défilement */
+}
+
+#region-popup::-webkit-scrollbar-thumb:hover,
+#right-popup::-webkit-scrollbar-thumb:hover {
+    background: #05305a; /* Couleur au survol */
+}
+
+
+
+
+/* Scrolling dans les détails */
+.interactive-map .map .region-detail .scrolling-menu {
+    max-height: 40vh;
+    overflow-y: auto;
+    padding-right: 10px; /* Ajoute un espace pour mieux gérer la barre de défilement */
+}
+
+/* Listes dans la région détaillée */
+.interactive-map .map .region-detail .menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.interactive-map .map .region-detail .menu li {
+    margin: 10px 0;
+    color: #555;
+}
+
+/* Espacement entre les sections */
+.popup-section {
+    margin-bottom: 40px; /* Espace après chaque section */
+}
+
+/* Pour espacer les autres informations sous forme de liste */
+.popup-section ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .interactive-map .map {
+        width: 80%;
+        transform: scale(0.65);
+    }
+
+    .interactive-map .map .region-detail {
+        max-width: 80%;
+        max-height: 75vh;
+    }
+
+    .interactive-map .map .region-detail .scrolling-menu {
+        max-height: 50vh;
+    }
+
+}
+
+/* Responsivité : ajustement sur les petits écrans */
+@media (max-width: 768px) {
+    /* Adaptation du conteneur principal */
+    .main-container {
+        flex-direction: column; /* Empile les blocs sur les petits écrans */
+        align-items: center;
+    }
+
+    /* Bloc 1 : region-popup (popup en haut sur mobile) */
+    #region-popup {
+        width: 90%;
+        max-width: 100%;
+        height: 30%;
+        max-height: 20vh;  /* Limite la hauteur à 20% de la hauteur de l'écran */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1001;
+        margin-top: -20px;
+        display: none; /* Toujours caché, visible avec JS */
+    }
+
+/* Réduire la taille des titres dans la popup */
+#region-popup h1 {
+    font-size: 0.5rem; /* Réduire la taille du titre */
+    margin: 10px 0; /* Réduire l'espace autour du titre */
+}
+
+#region-popup h2 {
+    font-size: 0.3rem; /* Réduire la taille des sous-titres */
+    margin: 10px 0; /* Réduire l'espace autour du sous-titre */
+}
+
+
+    /* Bloc 2 : map-container (carte) */
+    .map-container {
+        width: 100%;
+        height: 70;
+        margin-top: 100%; /* Décalage de la carte pour laisser de l'espace pour la popup du haut */
+        margin-bottom: 30%; /* Ajoute de l'espace en bas de la carte pour la popup */
+
+    }
+
+    .interactive-map .map {
+        width: 100%;
+        max-width: 80%; /* Réduit la largeur de la carte */
+        transform: scale(1.2);  /* Augmenter la taille de la carte (ajuster la valeur si nécessaire) */
+    }
+
+    /* Bloc 3 : right-popup (popup en bas sur mobile) */
+    #right-popup {
+        position: fixed;
+        bottom: 0;  /* Place la popup en bas de l'écran */
+        left: 0;
+        margin-top: 100px;
+        width: 100%;
+        max-width: 100%;
+        height: 30%;
+        max-height: 60vh;  /* Limite la hauteur à 60% de la hauteur de l'écran */
+        background: #fff3e6;
+        border: 2px solid #007BFF;
+        border-radius: 1px;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        overflow-y: auto;
+        z-index: 1001;
+        margin-top: 20px;  /* Ajouter de l'espace entre la carte et la popup du bas */
+
+    }
+}
+
+/* Responsivité sur petits écran */
+@media screen and (max-width: 600px) {
+    /* Right Popup */
+    #right-popup {
+        width: 80% !important; /* Élargir la largeur à 75% de l'écran */
+        left: 12.5% !important; /* Centrer horizontalement */
+        bottom: 5% !important; /* Placer un peu plus haut que le bas de l'écran */
+        top: auto !important; /* Désactiver la position top */
+        z-index: 1000 !important; /* Assurer un empilement correct */
+        height: auto !important; /* Hauteur ajustée en fonction du contenu */
+        max-height: 35vh !important; /* Limiter la hauteur à 35% de l'écran */
+        overflow-y: auto !important; /* Activer le défilement vertical si nécessaire */
+        padding: 10px !important; /* Réduire le padding pour petits écrans */
+        font-size: 12px !important; /* Réduire la taille de police pour le contenu */
+        box-sizing: border-box !important; /* Pour inclure padding et border dans la largeur/hauteur */
+        animation: slideRightToLeft 0.5s ease-out forwards; /* Appliquer l'animation */
+    }
+
+    /* Region Popup */
+    #region-popup {
+        width: 80% !important; /* Réduire la largeur à 70% de l'écran */
+        left: 15% !important; /* Centrer horizontalement */
+        top: 20% !important; /* Remonter la popup à 20% du haut de l'écran */
+        bottom: auto !important; /* Désactiver la position bottom si appliquée */
+        z-index: 1002 !important; /* Assurer que region-popup reste au-dessus */
+        padding: 10px !important; /* Réduire le padding pour petits écrans */
+        font-size: 14px !important; /* Réduire la taille de police pour les petits écrans */
+        max-height: 30vh !important; /* Limiter la hauteur à 30% de l'écran */
+        overflow-y: auto !important; /* Activer le défilement vertical si nécessaire */
+    }
+}
+
+/* Animations */
+@keyframes popup-slide-in {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Animation pour region-popup (glissement de gauche à droite) */
+    #region-popup {
+        animation: slide-left-to-right 0.5s ease-out;
+    }
+
+    /* Animation de glissement pour region-popup */
+    @keyframes slide-left-to-right {
+        0% {
+            transform: translateX(-100%); /* Commence à gauche hors de l'écran */
+        }
+        100% {
+            transform: translateX(0); /* Termine au centre de l'écran */
+        }
+    }
+}
+
+
+/* Popup dynamique */
+#region-popup h1 {
+    font-family: 'Noto Serif Bengali', serif; /* Police spécifique */
+    font-weight: normal; /* Supprimer le gras */
+    font-size: 2rem; /* Augmente la taille pour un H1 */
+    color: #07275f; /* Couleur adaptée */
+    margin: 20px 0; /* Ajoute de l'espace au-dessus et en dessous */
+    text-align: left; /* Aligne le texte à gauche */
+    position: relative; /* Nécessaire pour positionner le pseudo-élément */
+    padding-left: 40px; /* Ajoute de l'espace entre le titre et la ligne */
+    white-space: nowrap; /* Empêche le titre de se couper en plusieurs lignes */
+}
+
+#region-popup h1::before {
+    content: ""; /* Pas de texte, juste un espace */
+    position: absolute;
+    left: 0; /* Positionne le trait à gauche du titre */
+    top: 50%; /* Aligne le trait au centre vertical du titre */
+    transform: translateY(-50%); /* Aligne parfaitement le trait avec le titre */
+    width: 30px; /* Longueur du trait (fixée, petite) */
+    height: 2px; /* Épaisseur du trait */
+    background-color: #07275f; /* Couleur du trait */
+    z-index: -1; /* Placer le trait derrière le texte */
+}
+
+#region-popup h2 {
+    font-weight: normal; /* Supprimer le gras */
+    font-size: 1.25rem; /* Taille de sous-titre */
+    margin: 15px 0; /* Marge autour du h2 */
+}
+
+#region-popup a.download-link {
+    font-family: 'Noto Sans', sans-serif;
+    display: block; /* Utilise block pour permettre de centrer */
+    text-align: center;
+    margin: 15px auto; /* Centrer avec margin auto à gauche et à droite */
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #07275f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px; /* Largeur réduite */
+
+}
+
+
+
+/* Style compact pour la popup-hover */
+.popup-hover-js {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px; /* Réduction du padding */
+    background-color: rgba(255, 243, 230, 1); /* Fond de la popup */
+    border-radius: 6px; /* Angles légèrement arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Ombre plus discrète */
+    z-index: 9999;
+    width: 180px; /* Taille réduite */
+    max-width: 90%; /* Adapte la taille à l'écran */
+    transition: transform 0.1s ease-out;
+}
+
+/* Contenu de la popup */
+.popup-hover-js .popup-content {
+    font-family: 'Noto Serif Bengali', serif;
+    color: #07275f;
+    padding: 3px; /* Espacement intérieur réduit */
+    font-size: 0.8rem; /* Texte très petit */
+    line-height: 1.2; /* Hauteur de ligne réduite */
+}
+
+/* Titre de la popup */
+.popup-hover-js #region-title {
+    font-size: 1rem; /* Titre réduit mais lisible */
+    font-weight: normal;
+    margin-bottom: 3px; /* Espacement minimal */
+    text-align: center;
+}
+
+/* Section de texte */
+.popup-hover-js #region-section {
+    font-size: 0.7rem; /* Texte encore plus petit */
+    margin-top: 3px; /* Réduction de l'espacement */
+}
+
+/* Masquer la popup sur les petits écrans */
+@media (max-width: 748px) {
+    #popup-hover {
+        display: 'none';
+    }
+}
+
+
+
+.comparison-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.region-select {
+    display: block !important;
+    opacity: 1 !important; /* Force la visibilité */
+    visibility: visible !important;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+    font-family: 'Noto Serif Bengali', serif; /* Utilisation de la police Noto Serif Bengali */
+    font-size: 16px; /* Taille de police plus grande pour une meilleure lisibilité */
+    z-index: 10; /* Positionner au-dessus d'autres éléments */
+
+}
+
+.compare-button {
+    padding: 10px 20px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px; /* Ajuste la taille de la police selon tes préférences */
+    font-weight: bold;
+    background-color: #fff;
+    color: #07275f;
+    border: 2px solid #07275f; /* Ajout de la bordure bleue */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.compare-button::before {
+    content: '\2192'; /* Code Unicode pour la flèche vers la droite (→) */
+    font-size: 22px; /* Taille plus grande pour la flèche */
+    margin-right: 8px; /* Espacement entre la flèche et le texte */
+    transition: transform 0.3s ease; /* Transition pour l'animation */
+}
+
+.compare-button:hover::before {
+    transform: translateX(10px); /* Déplace la flèche à droite au survol */
+}
+
+.comparison-results {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap; /* Permet de gérer les débordements */
+    width: 100%; /* S'assurer que le conteneur utilise toute la largeur disponible */
+    box-sizing: border-box; /* Inclut les bordures et les paddings dans la largeur totale */
+}
+
+.comparison-row {
+    display: flex;
+    flex-direction: row; /* Disposition par défaut en ligne */
+    gap: 20px;
+    width: 100%; /* Assure que la ligne prend toute la largeur */
+}
+
+.comparison-column {
+    flex: 1;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 200px; /* Largeur minimale des colonnes */
+    max-width: 48%; /* Limite la largeur maximale pour permettre une certaine espacement */
+    box-sizing: border-box; /* Empêche le débordement lié au padding */
+}
+
+.comparison-title {
+    font-weight: bold !important;
+    margin-bottom: 1em !important;
+    font-size: 1.5em !important;
+    color: #333 !important;
+}
+
+/* Ajout des styles pour petits écrans */
+@media (max-width: 600px) {
+    /* Adapter les colonnes */
+    .comparison-row {
+        flex-direction: column; /* Passer en disposition verticale */
+        gap: 10px; /* Réduire l'espacement */
+    }
+
+    /* Centrer et espacer les sélections et le bouton */
+    .comparison-form {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .region-select, .compare-button {
+        width: 100%; /* Prendre toute la largeur disponible */
+        max-width: 400px; /* Largeur maximale pour ne pas s'étendre trop */
+    }
+
+    .comparison-column {
+        width: 100%; /* Les colonnes prennent 100% de la largeur sur petit écran */
+        max-width: 100%; /* Empêcher les colonnes de dépasser la largeur */
+        margin-bottom: 10px; /* Ajouter un espacement entre les colonnes */
+    }
+}
