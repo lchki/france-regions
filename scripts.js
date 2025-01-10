@@ -282,41 +282,124 @@ const trackRegionClick = (regionId) => {
   //////////// CODE TEST CI-DESSUS //////////
 
 
-    document.addEventListener('DOMContentLoaded', function() {
-      const mapContainer = document.querySelector('.map-container');
-      const interactiveMap = document.querySelector('.interactive-map');
+  document.addEventListener('DOMContentLoaded', function() {
+    const mapContainer = document.querySelector('.map-container');
+    const interactiveMap = document.querySelector('.interactive-map');
+  
+    // Ajuster l'espace blanc au-dessus de la carte pour les mobiles
+    function adjustMapContainer() {
+        const windowWidth = window.innerWidth;
+        
+        if (windowWidth <= 600) {
+            // Réduire l'espace au-dessus de la carte (padding ou margin)
+            mapContainer.style.paddingTop = '0';  // Réduit le padding au-dessus
+            mapContainer.style.marginTop = '0';   // Réduit la marge au-dessus
+        } else {
+            // Rétablir les styles pour les grands écrans
+            mapContainer.style.paddingTop = '20px'; // Valeur à ajuster si nécessaire
+            mapContainer.style.marginTop = '20px';  // Valeur à ajuster si nécessaire
+        }
+    }
 
-      // Empêcher la carte de disparaître
-      interactiveMap.addEventListener('click', function(e) {
-          // Empêche tout changement de visibilité ou de position
-          e.stopPropagation();
-          
-          // S'assurer que la carte reste bien visible
-          interactiveMap.style.visibility = 'visible';
-          interactiveMap.style.zIndex = 9999;
-      });
+    // Appliquer l'ajustement au redimensionnement de la fenêtre
+    window.addEventListener('resize', adjustMapContainer);
+    
+    // Forcer l'ajustement lors du chargement initial
+    adjustMapContainer();
 
-      // Écouter le redimensionnement de la fenêtre pour s'assurer que la carte reste au centre
-      window.addEventListener('resize', function() {
-          const mapHeight = interactiveMap.offsetHeight;
-          const containerHeight = mapContainer.offsetHeight;
-          
-          // Ajuster la carte si elle déborde
-          if (mapHeight > containerHeight) {
-              interactiveMap.style.top = '50%';
-              interactiveMap.style.transform = 'translate(-50%, -50%)'; // Centre correctement
-          }
-      });
+    // Empêcher la carte de disparaître
+    interactiveMap.addEventListener('click', function(e) {
+        // Empêche tout changement de visibilité ou de position
+        e.stopPropagation();
 
-      // Forcer l'initialisation pour être sûr que la carte est bien centrée au chargement
-      const mapHeight = interactiveMap.offsetHeight;
-      const containerHeight = mapContainer.offsetHeight;
+        // S'assurer que la carte reste bien visible
+        interactiveMap.style.visibility = 'visible';
+        interactiveMap.style.zIndex = 9999;
+    });
 
-      if (mapHeight < containerHeight) {
-          interactiveMap.style.top = '50%';
-          interactiveMap.style.transform = 'translate(-50%, -50%)'; // Centre au démarrage
-      }
+    // Écouter le redimensionnement de la fenêtre pour s'assurer que la carte reste au centre
+    window.addEventListener('resize', function() {
+        const mapHeight = interactiveMap.offsetHeight;
+        const containerHeight = mapContainer.offsetHeight;
+
+        // Ajuster la carte si elle déborde
+        if (mapHeight > containerHeight) {
+            interactiveMap.style.top = '50%';
+            interactiveMap.style.transform = 'translate(-50%, -50%)'; // Centre correctement
+        }
+    });
+
+    // Forcer l'initialisation pour être sûr que la carte est bien centrée au chargement
+    const mapHeight = interactiveMap.offsetHeight;
+    const containerHeight = mapContainer.offsetHeight;
+
+    if (mapHeight < containerHeight) {
+        interactiveMap.style.top = '50%';
+        interactiveMap.style.transform = 'translate(-50%, -50%)'; // Centre au démarrage
+    }
+});
+
+/////////////////////
+// code pour bloquer les régions non publiées 
+// Liste des régions non cliquables
+const nonClickableRegions = [
+  'Centre-Val-de-Loire',
+  'Bretagne',
+  'Occitanie',
+  'Bourgogne-Franche-Comte', 
+  'Grand-Est',
+  'Occitanie',
+  'Hauts-de-France',
+  'Auvergne-Rhone-Alpes',
+  'Normandie',
+  'Pays-de-la-Loire',
+  'Ile-de-France',
+  'Nouvelle-Aquitaine'
+];
+
+// Fonction pour désactiver le clic et le hover sur les régions non cliquables
+function disableRegionInteractions() {
+  nonClickableRegions.forEach(region => {
+    // Désactiver le clic
+    const regionElement = document.getElementById(region);
+    if (regionElement) {
+      regionElement.style.pointerEvents = 'none';  // Désactive les interactions
+    }
+    
+    // Désactiver le hover
+    const regionHoverElement = document.querySelector(`[data-region='${region}']`);
+    if (regionHoverElement) {
+      regionHoverElement.classList.add('disabled'); // Ajoute une classe CSS pour désactiver l'effet hover
+    }
   });
+}
+
+// Appeler la fonction pour appliquer les restrictions
+disableRegionInteractions();
+
+//////// fin code bloquage régions///
+
+// Fonction pour désactiver le clic et le hover sur les régions non cliquables
+function disableRegionInteractions() {
+  nonClickableRegions.forEach(region => {
+    // Désactiver le clic
+    const regionElement = document.getElementById(region);
+    if (regionElement) {
+      regionElement.style.pointerEvents = 'none';  // Désactive les interactions
+    }
+    
+    // Désactiver le hover
+    const regionHoverElement = document.querySelector(`[data-region='${region}']`);
+    if (regionHoverElement) {
+      regionHoverElement.classList.add('disabled'); // Ajoute une classe CSS pour désactiver l'effet hover
+    }
+  });
+}
+
+// Appeler la fonction pour appliquer les restrictions
+disableRegionInteractions();
+
+
 
  // Crée la popup-hover-js
  const hoverPopup = document.createElement('div');
@@ -422,8 +505,15 @@ const trackRegionClick = (regionId) => {
       const handleRegionClick = (event) => {
         event.preventDefault();
   
-        // Si la région est déjà active, on ne fait rien
-        if (activeRegionId === regionId) return;
+        // Si la région est déjà active, réafficher les popups
+        if (activeRegionId === regionId) {
+          const data = regionData[regionId];
+          if (data) {
+            showPopup(regionId, data);  // Réafficher la popup
+            showRightPopup(regionId);  // Réafficher la popup à droite
+          }
+          return; // Ne fait rien si la région est déjà active
+        }
   
         // Réinitialiser la couleur de la région précédemment active
         if (activeRegionId && activeRegionId !== regionId) {
@@ -444,9 +534,9 @@ const trackRegionClick = (regionId) => {
         // (Facultatif) Afficher des informations ou exécuter d'autres actions
         const data = regionData[regionId];
         if (data) {
-          showPopup(regionId, data);
-          showRightPopup(regionId);
-          trackRegionClick(regionId);
+          showPopup(regionId, data); // Afficher la popup
+          showRightPopup(regionId);  // Afficher la popup à droite
+          trackRegionClick(regionId); // Traquer le clic
         }
       };
   
@@ -484,9 +574,6 @@ const trackRegionClick = (regionId) => {
       }
     }
   });
-  
-
-
 
     // Masquer les popups lors du défilement de la page
     window.addEventListener('scroll', () => {
@@ -499,6 +586,22 @@ const trackRegionClick = (regionId) => {
       }
   });
 
+// Fonction pour vérifier si l'appareil est iOS
+function isIOS() {
+  return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+// Appliquer des styles spécifiques si l'on détecte un appareil iOS
+if (isIOS()) {
+  // On applique du JavaScript pour forcer l'affichage de la barre de défilement
+  document.querySelectorAll('#region-popup, #right-popup').forEach(function(popup) {
+      // Ajouter un événement 'touchstart' pour activer le défilement sur iOS
+      popup.addEventListener('touchstart', function() {
+          popup.style.webkitOverflowScrolling = 'touch'; // Défilement fluide
+          popup.style.overflowY = 'scroll'; // S'assurer que le défilement est activé
+      });
+  });
+}
 
   // Création de la popup region-popup
   const popup = document.createElement('div');
@@ -517,7 +620,9 @@ const trackRegionClick = (regionId) => {
       top: '120px',
       width: '420px',
       maxHeight: '80vh',
-      overflowY: 'auto'
+      overflowY: 'auto',
+      WebkitOverflowScrolling: 'touch' // Défilement fluide pour Safari mobile
+
   });
   document.body.appendChild(popup);
 
@@ -538,9 +643,45 @@ Object.assign(rightPopup.style, {
     top: '140px',
     width: '400px',
     maxHeight: '80vh',
-    overflowY: 'auto'
+    overflowY: 'auto',
+    WebkitOverflowScrolling: 'touch' // Défilement fluide pour Safari mobile
+
 });
 document.body.appendChild(rightPopup);
+
+// Ajout de styles pour les scrollbars
+const style = document.createElement('style');
+style.textContent = `
+    #region-popup::-webkit-scrollbar,
+    #right-popup::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    #region-popup::-webkit-scrollbar-track,
+    #right-popup::-webkit-scrollbar-track {
+        background: #f0f0f0;
+    }
+
+    #region-popup::-webkit-scrollbar-thumb,
+    #right-popup::-webkit-scrollbar-thumb {
+        background: #07275f;
+        border-radius: 10px;
+        border: 2px solid #f0f0f0;
+    }
+
+    #region-popup::-webkit-scrollbar-thumb:hover,
+    #right-popup::-webkit-scrollbar-thumb:hover {
+        background: #05305a;
+    }
+
+    /* Styles pour Firefox */
+    #region-popup,
+    #right-popup {
+        scrollbar-width: thin; /* Fine barre de défilement */
+        scrollbar-color: #07275f #f0f0f0; /* Couleurs pouce/piste */
+    }
+`;
+document.head.appendChild(style);
 
 // Bouton de fermeture pour `rightPopup`
 const closeRightPopupButton = document.createElement('button');
@@ -772,3 +913,14 @@ const ensurePopupPosition = () => {
 // Appelle cette fonction après avoir ajouté les popups
 ensurePopupPosition();
 
+// Ajouter des classes pour activer la scrollbar en toutes circonstances
+const regionPopup = document.querySelector('.region-popup');
+const rightPopup = document.querySelector('.right-popup');
+
+// Forcer l'affichage des scrollbars
+regionPopup.style.overflowY = 'scroll';
+rightPopup.style.overflowY = 'scroll';
+
+// Appliquer les styles personnalisés
+regionPopup.classList.add('custom-scrollbar');
+rightPopup.classList.add('custom-scrollbar');
