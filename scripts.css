@@ -1,3 +1,4 @@
+
 /* Styles généraux */
 * {
     margin: 0;
@@ -90,6 +91,18 @@ body {
     margin: 0;
 }
 
+/* Animation: slide-in de droite à gauche */
+@keyframes slideRightToLeft {
+    from {
+        transform: translateX(100%); /* Démarre à droite de l'écran */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0); /* Se déplace à sa position initiale */
+        opacity: 1;
+    }
+}
+
 /* Bloc 3 : right-popup (popup à droite avec image) */
 #right-popup {
     position: fixed !important; /* Placement absolu pour qu'il ne gêne pas la carte */
@@ -108,6 +121,23 @@ body {
     overflow-y: auto;
     display: none; /* Visible dynamiquement avec JavaScript */
     animation: popup-slide-in 0.4s ease-in-out;
+    overflow-y: scroll; /* Barre de défilement */
+    scrollbar-width: thin;
+    scrollbar-color: #07275f #f0f0f0;
+}
+
+/* Responsivité sur petits écrans */
+@media screen and (max-width: 600px) {
+    /* Animation pour la right-popup */
+    #right-popup {
+        animation: slideRightToLeft 0.5s ease-out forwards; /* Appliquer l'animation */
+    }
+}
+
+/* Assurez-vous que right-popup n'est pas invisible ou caché */
+#right-popup {
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Style pour le bouton de fermeture */
@@ -172,7 +202,7 @@ body {
 
 /* Styles pour les régions */
 .interactive-map .map .region:hover {
-    fill: #d1af6c; /* Couleur au survol */
+    fill: #ecd097; /* Couleur au survol */
     stroke: #d1af6c;
 }
 
@@ -221,6 +251,51 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+/* Applique un défilement personnalisé sur les popups */
+#region-popup, #right-popup {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 9999;
+    top: 120px;
+    right: 10px;
+    width: 420px;
+    max-height: 80vh;
+    overflow-y: scroll; /* Toujours activer le défilement */
+    -webkit-overflow-scrolling: touch; /* Défilement fluide pour iOS */
+    scrollbar-width: thin; /* Utilisation d'une barre de défilement fine pour Firefox */
+    scrollbar-color: #07275f #f0f0f0; /* Définir les couleurs de la scrollbar dans Firefox */
+}
+
+/* Style personnalisé des barres de défilement pour WebKit (Safari, Chrome, etc.) */
+#region-popup::-webkit-scrollbar,
+#right-popup::-webkit-scrollbar {
+    width: 8px; /* Largeur de la barre de défilement */
+}
+
+#region-popup::-webkit-scrollbar-track,
+#right-popup::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Couleur de l'arrière-plan de la piste */
+}
+
+#region-popup::-webkit-scrollbar-thumb,
+#right-popup::-webkit-scrollbar-thumb {
+    background: #07275f; /* Couleur de la barre de défilement */
+    border-radius: 10px;
+    border: 2px solid #f0f0f0; /* Bordure autour de la barre de défilement */
+}
+
+#region-popup::-webkit-scrollbar-thumb:hover,
+#right-popup::-webkit-scrollbar-thumb:hover {
+    background: #05305a; /* Couleur au survol */
+}
+
+
+
 
 /* Scrolling dans les détails */
 .interactive-map .map .region-detail .scrolling-menu {
@@ -349,7 +424,6 @@ body {
         left: 12.5% !important; /* Centrer horizontalement */
         bottom: 5% !important; /* Placer un peu plus haut que le bas de l'écran */
         top: auto !important; /* Désactiver la position top */
-        transform: none !important; /* Supprimer l'effet de translation */
         z-index: 1000 !important; /* Assurer un empilement correct */
         height: auto !important; /* Hauteur ajustée en fonction du contenu */
         max-height: 35vh !important; /* Limiter la hauteur à 35% de l'écran */
@@ -357,6 +431,7 @@ body {
         padding: 10px !important; /* Réduire le padding pour petits écrans */
         font-size: 12px !important; /* Réduire la taille de police pour le contenu */
         box-sizing: border-box !important; /* Pour inclure padding et border dans la largeur/hauteur */
+        animation: slideRightToLeft 0.5s ease-out forwards; /* Appliquer l'animation */
     }
 
     /* Region Popup */
@@ -373,7 +448,6 @@ body {
     }
 }
 
-
 /* Animations */
 @keyframes popup-slide-in {
     0% {
@@ -385,6 +459,24 @@ body {
         opacity: 1;
     }
 }
+
+@media screen and (max-width: 768px) {
+    /* Animation pour region-popup (glissement de gauche à droite) */
+    #region-popup {
+        animation: slide-left-to-right 0.5s ease-out;
+    }
+
+    /* Animation de glissement pour region-popup */
+    @keyframes slide-left-to-right {
+        0% {
+            transform: translateX(-100%); /* Commence à gauche hors de l'écran */
+        }
+        100% {
+            transform: translateX(0); /* Termine au centre de l'écran */
+        }
+    }
+}
+
 
 /* Popup dynamique */
 #region-popup h1 {
@@ -475,8 +567,6 @@ body {
     font-size: 0.7rem; /* Texte encore plus petit */
     margin-top: 3px; /* Réduction de l'espacement */
 }
-
-
 
 /* Masquer la popup sur les petits écrans */
 @media (max-width: 748px) {
