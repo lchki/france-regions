@@ -85,7 +85,7 @@ const trackRegionClick = (regionId) => {
         title: '<h1 style="font-weight: normal;">Hauts-de-France</h1>',
          sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoine.' },
+          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoine.' },
           ],
         pdfLink: 'Hauts-de-France',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/hauts-de-france.png' // Chemin vers l'image */
@@ -359,25 +359,38 @@ const nonClickableRegions = [
 
 // Fonction pour désactiver le clic uniquement, mais garder le hover actif
 function disableRegionClicks() {
+  // Détecter les appareils tactiles
+  const isTouchDevice = 'ontouchstart' in window;
+
   nonClickableRegions.forEach(region => {
     const regionElement = document.getElementById(region);
 
     if (regionElement) {
-      // Désactiver le clic, mais permettre le hover
-      regionElement.addEventListener('click', (event) => {
-        event.stopImmediatePropagation(); // Empêche le clic de se propager
-      });
+      // Si c'est un appareil tactile, on empêche l'interaction avec la région
+      if (isTouchDevice) {
+        regionElement.addEventListener('touchstart', (event) => {
+          event.preventDefault(); // Empêche toute interaction tactile sur les régions inactives
+          event.stopImmediatePropagation(); // Empêche la propagation du touche
+        });
+      } else {
+        // Si c'est un appareil non tactile (desktop), on empêche le clic
+        regionElement.addEventListener('click', (event) => {
+          event.stopImmediatePropagation(); // Empêche le clic de se propager
+        });
+      }
 
-      // Ajouter un gestionnaire de survol pour afficher la popup
-      regionElement.addEventListener('mouseenter', () => {
-        const hoverPopup = document.getElementById('popup-hover-js');
-        hoverPopup.style.display = 'block'; // Affiche la popup au survol
-      });
+      // Ajouter un gestionnaire de survol pour afficher la popup (seulement pour les appareils non tactiles)
+      if (!isTouchDevice) {
+        regionElement.addEventListener('mouseenter', () => {
+          const hoverPopup = document.getElementById('popup-hover-js');
+          hoverPopup.style.display = 'block'; // Affiche la popup au survol
+        });
 
-      regionElement.addEventListener('mouseleave', () => {
-        const hoverPopup = document.getElementById('popup-hover-js');
-        hoverPopup.style.display = 'none'; // Masque la popup lorsque le survol disparaît
-      });
+        regionElement.addEventListener('mouseleave', () => {
+          const hoverPopup = document.getElementById('popup-hover-js');
+          hoverPopup.style.display = 'none'; // Masque la popup lorsque le survol disparaît
+        });
+      }
 
       // Ajouter une classe disabled pour les styles de hover personnalisés
       regionElement.classList.add('disabled');
@@ -914,3 +927,4 @@ rightPopup.style.overflowY = 'scroll';
 // Appliquer les styles personnalisés
 regionPopup.classList.add('custom-scrollbar');
 rightPopup.classList.add('custom-scrollbar');
+
