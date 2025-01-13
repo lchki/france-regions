@@ -29,8 +29,8 @@ const trackRegionClick = (regionId) => {
       'Centre-Val-de-Loire': {
           title: '<h1 style="font-weight: normal;">Centre-Val-de-Loire</h1>',
           sections: [
-              { title: '<h2 style="font-weight: normal"> Prochainement dévoilé</h2>', content: '' },
-              { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Prochainement dévoilé' },
+              { title: '<h2 style="font-weight: normal">Prochainement dévoilé</h2>', content: '' },
+              { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
           ],
           pdfLink: 'Centre-Val-de-Loire',
           imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/centre-val-de-loire.png' // Chemin vers l'image */
@@ -41,7 +41,7 @@ const trackRegionClick = (regionId) => {
         title: '<h1 style="font-weight: normal;">Bretagne</h1>',
         sections: [
           { title: '<h2 style="font-weight: normal"> Prochainement dévoilé</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Prochainement dévoilé' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
           ],
         pdfLink: 'Bretagne',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/bretagne.png' // Chemin vers l'image */
@@ -49,10 +49,10 @@ const trackRegionClick = (regionId) => {
       },
 
       'Bourgogne-Franche-Comte': {
-        title: '<h1 style="font-weight: normal;">Bourgogne-Franche-Comte</h1>',
+        title: '<h1 style="font-weight: normal;">Bourgogne-Franche-Comté</h1>',
          sections: [
-          { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Bourgogne-Franche-Comté est une belle région pour la gastronomie et le vin.' },
+          { title: '<h2 style="font-weight: normal"> Prochainement dévoilé</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
           ],
         pdfLink: 'Bourgogne-Franche-Comte',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/grand-est.png' // Chemin vers l'image */
@@ -62,32 +62,32 @@ const trackRegionClick = (regionId) => {
       'Grand-Est': {
         title: '<h1 style="font-weight: normal;">Grand-Est</h1>',
          sections: [
-          { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Grand-Est est un carrefour européen avec une grande diversité culturelle.' },
+          { title: '<h2 style="font-weight: normal"> Prochainement dévoilé</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Prochainement dévoilé' },
           ],
         pdfLink: 'Grand-Est',
-        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/occitanie.png' // Chemin vers l'image */
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/grand-est.png' // Chemin vers l'image */
 
       },
 
       'Occitanie': {
         title: '<h1 style="font-weight: normal;">Occitanie</h1>',
          sections: [
-          { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Occitanie est connue pour son climat et ses paysages magnifiques.' },
+          { title: '<h2 style="font-weight: normal"> Prochainement dévoilé</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
           ],
         pdfLink: 'Occitanie',
-        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/hauts-de-france.png' // Chemin vers l'image */
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/occitanie.png' // Chemin vers l'image */
 
       },
 
       'Hauts-de-France': {
         title: '<h1 style="font-weight: normal;">Hauts-de-France</h1>',
          sections: [
-          { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoineLes Hauts-de-France sont une région riche en histoire et en patrimoine.' },
+          { title: '<h2 style="font-weight: normal"> La difficulté du pouvoir de vivre</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Les habitants des Hauts-de-France ont particulièrement le sentiment que le <b>modèle social est en panne</b> (49 % soit +4 pts par rapport à la moyenne nationale) et que <b> l&rsquo;identité de la France </b> est menacée (77 %, +5 pts moy. nat.). C&rsquo;est la catégorie des "<b>empêchés</b>" qui y est la plus représentée dans la région, caractérisée par le manque de moyen pour <b>diagnostiquer leur émissions de CO2</b> (67 %, +6 pts moy. nat.).' },
           ],
-        pdfLink: 'Hauts-de-France',
+        pdfLink: '/ressources/pdfs/publications/barometre-des-territoires-2025-haut-de-france.pdf',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/hauts-de-france.png' // Chemin vers l'image */
 
       },
@@ -95,8 +95,8 @@ const trackRegionClick = (regionId) => {
       'Auvergne-Rhone-Alpes': {
         title: '<h1 style="font-weight: normal;">Auvergne-Rhone-Alpes</h1>',
          sections: [
-          { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Une région montagneuse avec un fort potentiel touristique et économique.' },
+          { title: '<h2 style="font-weight: normal"> Prochainement dévoilé</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
           ],
         pdfLink: 'Auvergne-Rhone-Alpes',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/auvergne-rhone-alpes.png' // Chemin vers l'image */
@@ -105,8 +105,8 @@ const trackRegionClick = (regionId) => {
       'Normandie': {
         title: '<h1 style="font-weight: normal;">Normandie</h1>',
         sections: [
-          { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La Normandie est une région historique avec des paysages variés et une forte tradition maritime.' },
+          { title: '<h2 style="font-weight: normal"> Prochainement dévoilés</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
           ],
         pdfLink: 'Normandie',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/normandie.png' // Chemin vers l'image */
@@ -115,8 +115,8 @@ const trackRegionClick = (regionId) => {
       'Pays-de-la-Loire': {
         title: '<h1 style="font-weight: normal;">Pays-de-la-Loire</h1>',
          sections: [
-          { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Pays-de-la-Loire sont réputés pour leur économie dynamique et leur littoral.' },
+          { title: '<h2 style="font-weight: normal"> Prochainement dévoilés</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
           ],
         pdfLink: 'Pays-de-la-Loire',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/pays-de-la-loire.png' // Chemin vers l'image */
@@ -125,8 +125,8 @@ const trackRegionClick = (regionId) => {
       'PACA': {
         title: '<h1 style="font-weight: normal;">PACA</h1>',
         sections: [
-          { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'PACA, une région dynamique avec une belle côte méditerranéenne.' },
+          { title: '<h2 style="font-weight: normal"> Prochainement</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
           ],
         pdfLink: 'PACA',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/paca.png' // Chemin vers l'image
@@ -135,8 +135,8 @@ const trackRegionClick = (regionId) => {
       'Ile-de-France': {
         title: '<h1 style="font-weight: normal;"> Ile-de-France</h1>',
          sections: [
-          { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La région capitale est un centre économique et culturel majeur.' },
+          { title: '<h2 style="font-weight: normal">Prochainement dévoilé</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
           ],
           pdfLink: 'Ile-de-France',
           imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/ile-de-france.png' // Chemin vers l'image */
@@ -145,15 +145,16 @@ const trackRegionClick = (regionId) => {
       'Nouvelle-Aquitaine': {
         title: '<h1 style="font-weight: normal;">Nouvelle-Aquitaine</h1>',
          sections: [
-          { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Nouvelle-Aquitaine, un grand territoire aux paysages variés et à l’économie solide.' },
-          ],
-        pdfLink: 'Nouvelle-Aquitaine',
+          { title: '<h2 style="font-weight: normal">Une économie à l’ombre du risque climatique</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Les habitants de Nouvelle-Aquitaine jugent qu&rsquo;ils vivent dans un <b>endroit qui va bien</b> (69 %, +4 points par rapport à la moyenne nationale) malgré la forte <b>exposition aux risques climatiques</b> (41 %, +5 pts moy. nat.). 34 % ( +9 pts moy. nat., 1ère place du classement région par région) des habitants ont déjà eu<b>des dégâts sur leur logement</b> à cause de catastrophes naturelles.' }
+],
+        pdfLink: '/ressources/pdfs/publications/barometre-des-territoires-2025-nouvelle-aquitaine.pdf',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/nouvelle-aquitaine.png' // Chemin vers l'image */
 
       }
     };
 
+    /*
      /////// CODE TEST CI-DESSOUS ///////// 
     // Initialisation lors du chargement de la page
   window.addEventListener("load", updateComparisonLayout);
@@ -237,6 +238,7 @@ const trackRegionClick = (regionId) => {
         const regionId2 = regionSelect2.value;
         compareRegions(regionId1, regionId2);
       });
+      
 
 
       ///////// responsivité tableau ////
@@ -280,7 +282,7 @@ const trackRegionClick = (regionId) => {
     
       
   //////////// CODE TEST CI-DESSUS //////////
-
+*/
 
   document.addEventListener('DOMContentLoaded', function() {
     const mapContainer = document.querySelector('.map-container');
@@ -354,7 +356,6 @@ const nonClickableRegions = [
   'PACA',
   'Pays-de-la-Loire',
   'Ile-de-France',
-  'Nouvelle-Aquitaine'
 ];
 
 // Fonction pour désactiver le clic uniquement, mais garder le hover actif
@@ -450,9 +451,10 @@ disableRegionClicks();
   popupSection.id = 'region-section';
   popupSection.textContent = 'Cliquez sur la région pour en savoir plus'; // Contenu par défaut
   Object.assign(popupSection.style, {
-    fontSize: '0.9rem', // Taille ajustée
+    fontSize: '1rem', // Taille ajustée
     marginTop: '5px',
     textAlign: 'center',
+    
   });
 
   // Ajout des éléments à la popup
@@ -472,7 +474,7 @@ disableRegionClicks();
     popupSection.innerHTML = ''; // Vider le contenu de popupSection
     popupSection.appendChild(sectionTitleElement); // Ajouter le title à la section
 
-    popupSection.innerHTML += '<p>Cliquez sur la région pour en savoir plus</p>'; // Ajouter le texte supplémentaire
+    popupSection.innerHTML += '<p style="font-style: italic;">Cliquez sur la région pour en savoir plus</p>'; // Ajouter le texte supplémentaire
   };
 
   // Logique pour gérer les actions de survol et de clic sur les régions
