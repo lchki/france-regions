@@ -79,7 +79,7 @@ body {
 }
 
 #close-popup:hover {
-    background-color: #f00; /* Couleur rouge au survol */
+    background-color: #07275f; /* Couleur bleue au survol */
 }
 
 
@@ -186,6 +186,11 @@ body {
     position: relative; /* Assure que la carte reste au centre */
 }
 
+/* Couleur de la région par défaut */
+.interactive-map .map .region {
+    fill: #07275f; /* Couleur de remplissage */
+}
+
 /* Ajustement de la carte */
 .interactive-map .map {
     width: 100%;
@@ -223,8 +228,8 @@ body {
 }
 
 .interactive-map .map .region[data-opened="opened"] {
-    fill: #FF7F00;
-    stroke: #FF7F00;
+    fill: #d4b57f;
+    stroke: #d4b57f;
 }
 
 /* Détails de la région */
@@ -296,7 +301,32 @@ body {
     background: #05305a; /* Couleur au survol */
 }
 
+/* régions cliquable et non-cliquable style */
+/* Style pour les régions cliquables */
+.clickable {
+    fill: #07275f !important; /* Couleur bleue pour les régions actives */
+    cursor: pointer; /* Curseur pointer pour indiquer l'interaction */
+    transition: fill 0.3s ease;
+}
 
+/* Style pour le survol des régions cliquables */
+.clickable:hover {
+    fill: #d4b57f; /* Couleur légèrement plus foncée au survol */
+}
+
+/* Style pour les régions non cliquables (désactivées) */
+.disabled {
+    fill: #f9f7f5 !important; /* Couleur grise pour les régions désactivées */
+    cursor: not-allowed; /* Curseur pour indiquer l'interdiction */
+}
+
+/* Optionnel : Style spécifique pour le survol des régions désactivées */
+.disabled:hover {
+    fill: #f9f7f5; /* La couleur reste inchangée au survol */
+    cursor: not-allowed; /* Assurez-vous que le curseur reste désactivé */
+}
+
+  
 
 
 /* Scrolling dans les détails */
