@@ -31,11 +31,13 @@ body {
     display: flex;
     justify-content: center; /* Centre les blocs horizontalement */
     align-items: flex-start; /* Aligne les blocs au top de la page */
-    width: 100%;
+    width: 80%;
     height: 100vh;
     position: relative;
     padding: 20px; /* Espacement intérieur */
 }
+
+
 
 /* Bloc 1 : region-popup */
 #region-popup {
@@ -93,6 +95,7 @@ body {
     margin: 0;
 }
 
+
 /* Animation: slide-in de droite à gauche */
 @keyframes slideRightToLeft {
     from {
@@ -103,6 +106,35 @@ body {
         transform: translateX(0); /* Se déplace à sa position initiale */
         opacity: 1;
     }
+}
+
+@media screen and (max-width: 600px) {
+    /* Suppression des marges et paddings de main-container */
+/* Container principal pour la carte */
+.main-container {
+    display: flex;              /* Active flexbox */
+    justify-content: center;    /* Centre horizontalement */
+    align-items: center;        /* Centre verticalement */
+    height: 50vh;               /* Hauteur de l'écran pour occuper une partie de l'espace vertical */
+    margin: 0;                  /* Retirer toute marge */
+    padding: 0;                 /* Retirer tout padding */
+}
+
+/* Container de la carte */
+.map-container {
+    display: flex;              /* Active flexbox à l'intérieur du container de la carte */
+    justify-content: center;    /* Centre horizontalement */
+    align-items: center;        /* Centre verticalement */
+    width: 90vw;                /* Utilise 90% de la largeur de l'écran */
+    height: 70vh;               /* Utilise 70% de la hauteur de l'écran */
+    margin: 0;                  /* Retirer toute marge supplémentaire */
+}
+
+/* La carte elle-même doit occuper toute la largeur et hauteur de son conteneur */
+.interactive-map {
+    width: 100%;                /* Carte qui occupe toute la largeur */
+    height: 100%;               /* Carte qui occupe toute la hauteur */
+}
 }
 
 /* Bloc 3 : right-popup (popup à droite avec image) */
@@ -188,7 +220,7 @@ body {
 
 /* Couleur de la région par défaut */
 .interactive-map .map .region {
-    fill: #07275f; /* Couleur de remplissage */
+    fill: #637FB2; /* Couleur de remplissage */
 }
 
 /* Ajustement de la carte */
@@ -536,9 +568,11 @@ body {
 }
 
 #region-popup h2 {
+    font-family: 'Noto Serif Bengali', serif;
     font-weight: normal; /* Supprimer le gras */
-    font-size: 1.25rem; /* Taille de sous-titre */
+    font-size: 1.50rem; /* Taille de sous-titre */
     margin: 15px 0; /* Marge autour du h2 */
+    text-align: center; /* Centrer le texte */
 }
 
 #region-popup a.download-link {
@@ -586,17 +620,16 @@ body {
     line-height: 1.2; /* Hauteur de ligne réduite */
 }
 
-/* Titre de la popup */
 .popup-hover-js #region-title {
-    font-size: 1rem; /* Titre réduit mais lisible */
+    font-size: 2rem; /* Taille pour le titre */
     font-weight: normal;
     margin-bottom: 3px; /* Espacement minimal */
     text-align: center;
 }
 
-/* Section de texte */
+/* Section de texte dans la popup */
 .popup-hover-js #region-section {
-    font-size: 0.7rem; /* Texte encore plus petit */
+    font-size: 0.9rem; /* Taille pour le texte normal */
     margin-top: 3px; /* Réduction de l'espacement */
 }
 
@@ -606,8 +639,6 @@ body {
         display: 'none';
     }
 }
-
-
 
 .comparison-container {
     margin-top: 20px;
