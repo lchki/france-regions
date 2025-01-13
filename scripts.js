@@ -28,9 +28,9 @@ const trackRegionClick = (regionId) => {
   const regionData = {
       'Centre-Val-de-Loire': {
           title: '<h1 style="font-weight: normal;">Centre-Val-de-Loire</h1>',
-          /*sections: [
-              { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-              { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Centre-Val-de-Loire est plutôt cool, alors allons y passer des vacances' },
+          sections: [
+              { title: '<h2 style="font-weight: normal"> Prochainement dévoilé</h2>', content: '' },
+              { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Prochainement dévoilé' },
           ],
           pdfLink: 'Centre-Val-de-Loire',
           imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/centre-val-de-loire.png' // Chemin vers l'image */
@@ -39,9 +39,9 @@ const trackRegionClick = (regionId) => {
 
       'Bretagne': {
         title: '<h1 style="font-weight: normal;">Bretagne</h1>',
-        /*sections: [
-          { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La Bretagne est une région charmante, idéale pour les vacances.' },
+        sections: [
+          { title: '<h2 style="font-weight: normal"> Prochainement dévoilé</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Prochainement dévoilé' },
           ],
         pdfLink: 'Bretagne',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/bretagne.png' // Chemin vers l'image */
@@ -50,7 +50,7 @@ const trackRegionClick = (regionId) => {
 
       'Bourgogne-Franche-Comte': {
         title: '<h1 style="font-weight: normal;">Bourgogne-Franche-Comte</h1>',
-        /* sections: [
+         sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Bourgogne-Franche-Comté est une belle région pour la gastronomie et le vin.' },
           ],
@@ -61,7 +61,7 @@ const trackRegionClick = (regionId) => {
 
       'Grand-Est': {
         title: '<h1 style="font-weight: normal;">Grand-Est</h1>',
-        /* sections: [
+         sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Le Grand-Est est un carrefour européen avec une grande diversité culturelle.' },
           ],
@@ -72,7 +72,7 @@ const trackRegionClick = (regionId) => {
 
       'Occitanie': {
         title: '<h1 style="font-weight: normal;">Occitanie</h1>',
-        /* sections: [
+         sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Occitanie est connue pour son climat et ses paysages magnifiques.' },
           ],
@@ -83,7 +83,7 @@ const trackRegionClick = (regionId) => {
 
       'Hauts-de-France': {
         title: '<h1 style="font-weight: normal;">Hauts-de-France</h1>',
-        /* sections: [
+         sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Hauts-de-France sont une région riche en histoire et en patrimoine.' },
           ],
@@ -94,7 +94,7 @@ const trackRegionClick = (regionId) => {
 
       'Auvergne-Rhone-Alpes': {
         title: '<h1 style="font-weight: normal;">Auvergne-Rhone-Alpes</h1>',
-        /* sections: [
+         sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Une région montagneuse avec un fort potentiel touristique et économique.' },
           ],
@@ -104,7 +104,7 @@ const trackRegionClick = (regionId) => {
       },
       'Normandie': {
         title: '<h1 style="font-weight: normal;">Normandie</h1>',
-       /* sections: [
+        sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La Normandie est une région historique avec des paysages variés et une forte tradition maritime.' },
           ],
@@ -114,7 +114,7 @@ const trackRegionClick = (regionId) => {
       },
       'Pays-de-la-Loire': {
         title: '<h1 style="font-weight: normal;">Pays-de-la-Loire</h1>',
-        /* sections: [
+         sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Les Pays-de-la-Loire sont réputés pour leur économie dynamique et leur littoral.' },
           ],
@@ -134,7 +134,7 @@ const trackRegionClick = (regionId) => {
       },
       'Ile-de-France': {
         title: '<h1 style="font-weight: normal;"> Ile-de-France</h1>',
-        /* sections: [
+         sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'La région capitale est un centre économique et culturel majeur.' },
           ],
@@ -144,7 +144,7 @@ const trackRegionClick = (regionId) => {
       },
       'Nouvelle-Aquitaine': {
         title: '<h1 style="font-weight: normal;">Nouvelle-Aquitaine</h1>',
-        /* sections: [
+         sections: [
           { title: '<h2 style="font-weight: normal"> Un attachement au territoire plus fort que les inégalités territoriales</h2>', content: '' },
           { title: '<h2 style="font-weight: normal"> Le regard de l&apos;Institut Montaigne</h2>', content: 'Nouvelle-Aquitaine, un grand territoire aux paysages variés et à l’économie solide.' },
           ],
@@ -349,56 +349,46 @@ const nonClickableRegions = [
   'Bourgogne-Franche-Comte', 
   'Grand-Est',
   'Occitanie',
-  'Hauts-de-France',
   'Auvergne-Rhone-Alpes',
   'Normandie',
+  'PACA',
   'Pays-de-la-Loire',
   'Ile-de-France',
   'Nouvelle-Aquitaine'
 ];
 
-// Fonction pour désactiver le clic et le hover sur les régions non cliquables
-function disableRegionInteractions() {
+// Fonction pour désactiver le clic uniquement, mais garder le hover actif
+function disableRegionClicks() {
   nonClickableRegions.forEach(region => {
-    // Désactiver le clic
     const regionElement = document.getElementById(region);
+
     if (regionElement) {
-      regionElement.style.pointerEvents = 'none';  // Désactive les interactions
-    }
-    
-    // Désactiver le hover
-    const regionHoverElement = document.querySelector(`[data-region='${region}']`);
-    if (regionHoverElement) {
-      regionHoverElement.classList.add('disabled'); // Ajoute une classe CSS pour désactiver l'effet hover
+      // Désactiver le clic, mais permettre le hover
+      regionElement.addEventListener('click', (event) => {
+        event.stopImmediatePropagation(); // Empêche le clic de se propager
+      });
+
+      // Ajouter un gestionnaire de survol pour afficher la popup
+      regionElement.addEventListener('mouseenter', () => {
+        const hoverPopup = document.getElementById('popup-hover-js');
+        hoverPopup.style.display = 'block'; // Affiche la popup au survol
+      });
+
+      regionElement.addEventListener('mouseleave', () => {
+        const hoverPopup = document.getElementById('popup-hover-js');
+        hoverPopup.style.display = 'none'; // Masque la popup lorsque le survol disparaît
+      });
+
+      // Ajouter une classe disabled pour les styles de hover personnalisés
+      regionElement.classList.add('disabled');
     }
   });
 }
 
 // Appeler la fonction pour appliquer les restrictions
-disableRegionInteractions();
+disableRegionClicks();
 
 //////// fin code bloquage régions///
-
-// Fonction pour désactiver le clic et le hover sur les régions non cliquables
-function disableRegionInteractions() {
-  nonClickableRegions.forEach(region => {
-    // Désactiver le clic
-    const regionElement = document.getElementById(region);
-    if (regionElement) {
-      regionElement.style.pointerEvents = 'none';  // Désactive les interactions
-    }
-    
-    // Désactiver le hover
-    const regionHoverElement = document.querySelector(`[data-region='${region}']`);
-    if (regionHoverElement) {
-      regionHoverElement.classList.add('disabled'); // Ajoute une classe CSS pour désactiver l'effet hover
-    }
-  });
-}
-
-// Appeler la fonction pour appliquer les restrictions
-disableRegionInteractions();
-
 
 
  // Crée la popup-hover-js
