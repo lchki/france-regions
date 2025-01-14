@@ -109,33 +109,34 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-    /* Suppression des marges et paddings de main-container */
-/* Container principal pour la carte */
-.main-container {
-    display: flex;              /* Active flexbox */
-    justify-content: center;    /* Centre horizontalement */
-    align-items: center;        /* Centre verticalement */
-    height: 50vh;               /* Hauteur de l'écran pour occuper une partie de l'espace vertical */
-    margin: 0;                  /* Retirer toute marge */
-    padding: 0;                 /* Retirer tout padding */
+    /* Reset margin and padding for the main container */
+    .main-container {
+        display: flex !important;              /* Active flexbox */
+        justify-content: center !important;    /* Centre horizontalement */
+        align-items: center !important;        /* Centre verticalement */
+        height: 50vh !important;               /* Hauteur de l'écran pour occuper une partie de l'espace vertical */
+        margin: 0 !important;                  /* Retirer toute marge */
+        padding: 0 !important;                 /* Retirer tout padding */
+    }
+
+    /* Reset margin and padding for the map container */
+    .map-container {
+        margin: 50 !important;  /* No margin */
+        padding: 50 !important; /* No padding */
+        width: 100vw !important;          /* Full width of the viewport */
+        height: 60vh !important;         /* Full height of the viewport */
+    }
+
+    /* Make the map bigger */
+    .interactive-map {
+        width: 100vw !important;              /* Take full width of the viewport */
+        height: 100vh !important;             /* Take full height of the viewport */
+        object-fit: contain !important;       /* Ensure the map is contained properly within the bounds */
+    }
 }
 
-/* Container de la carte */
-.map-container {
-    display: flex;              /* Active flexbox à l'intérieur du container de la carte */
-    justify-content: center;    /* Centre horizontalement */
-    align-items: center;        /* Centre verticalement */
-    width: 90vw;                /* Utilise 90% de la largeur de l'écran */
-    height: 70vh;               /* Utilise 70% de la hauteur de l'écran */
-    margin: 0;                  /* Retirer toute marge supplémentaire */
-}
 
-/* La carte elle-même doit occuper toute la largeur et hauteur de son conteneur */
-.interactive-map {
-    width: 100%;                /* Carte qui occupe toute la largeur */
-    height: 100%;               /* Carte qui occupe toute la hauteur */
-}
-}
+
 
 /* Bloc 3 : right-popup (popup à droite avec image) */
 #right-popup {
@@ -757,3 +758,37 @@ body {
         margin-bottom: 10px; /* Ajouter un espacement entre les colonnes */
     }
 }
+
+/* Apply the scroll indicator only for screens smaller than 600px */
+@media screen and (max-width: 600px) {
+    /* Position the scroll indicator inside the popups */
+    #region-popup::after, #right-popup::after {
+      content: '↓'; /* Down arrow symbol */
+      position: absolute; /* Position relative to the popup */
+      bottom: 10px; /* Position it near the bottom of the popup */
+      right: 10px; /* Position it at the right side of the popup */
+      font-size: 24px;
+      color: #000; /* Arrow color */
+      opacity: var(--arrow-opacity, 1); /* Use the custom property for opacity */
+      animation: bounce 1s infinite;
+      pointer-events: none; /* Prevent the arrow from interfering with user interaction */
+    }
+  
+    /* Add a simple bounce animation to attract attention */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0); /* No horizontal movement */
+      }
+      50% {
+        transform: translateY(10px); /* Bounce effect */
+      }
+    }
+  
+    /* Ensure the popups are scrollable and have enough height on mobile */
+    #region-popup, #right-popup {
+      max-height: 80vh;
+      overflow-y: auto; /* Enable vertical scrolling */
+      padding-bottom: 40px; /* Add padding to prevent the arrow from overlapping content */
+      position: relative; /* Needed for positioning the arrow inside the popup */
+    }
+  }
