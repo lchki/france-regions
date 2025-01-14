@@ -580,16 +580,28 @@ disableRegionClicks();
     }
   });
 
-    // Masquer les popups lors du défilement de la page
-    window.addEventListener('scroll', () => {
-      popup.style.display = 'none';
-      rightPopup.style.display = 'none';
-      resetMapPosition(); // Réinitialise la carte
-      if (selectedRegion) {
-          highlightRegion(selectedRegion, '#ECEDEC');
-          selectedRegion = null;
+  let lastScrollTop = 0;
+  const scrollThreshold = 30; // The scroll distance threshold in pixels (now 50px)
+  
+  window.addEventListener('scroll', () => {
+      let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+      // Check if the user has scrolled more than 50px
+      if (Math.abs(currentScrollTop - lastScrollTop) >= scrollThreshold) {
+          popup.style.display = 'none';
+          rightPopup.style.display = 'none';
+          resetMapPosition(); // Reset the map
+  
+          if (selectedRegion) {
+              highlightRegion(selectedRegion, '#ECEDEC');
+              selectedRegion = null;
+          }
       }
+  
+      // Update the last scroll position
+      lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
   });
+  
 
 // Fonction pour vérifier si l'appareil est iOS
 function isIOS() {
@@ -789,7 +801,7 @@ regions.forEach(regionId => {
 
 // Fonction pour afficher `rightPopup`
 function showRightPopup(regionId) {
-    const data = regionData[regionId]; // Assurez-vous que `regionData` existe
+    const data = regionData[regionId]; 
     if (!data) return;
 
   // Création du bouton de fermeture
