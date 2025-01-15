@@ -92,7 +92,7 @@ body {
     max-width: 1000px;
     height: auto;
     z-index: 1; /* La carte est en arrière-plan */
-    margin: 0;
+    margin-left: 40px !important; /* Shifts the map slightly to the right */
 }
 
 
@@ -121,6 +121,7 @@ body {
 
     /* Reset margin and padding for the map container */
     .map-container {
+        margin-left: 20px; /* Shifts the map slightly to the right */
         margin: 50 !important;  /* No margin */
         padding: 50 !important; /* No padding */
         width: 100vw !important;          /* Full width of the viewport */
@@ -138,7 +139,7 @@ body {
 
 /* Styling for the popup message */
 .coming-soon-message {
-    background-color: #fff3e6;
+    background-color: #f5f0ea;
     color: #08275e;
     padding: 15px;
     border-radius: 0px;
