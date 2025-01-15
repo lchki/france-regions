@@ -136,6 +136,33 @@ body {
 }
 
 
+/* Styling for the popup message */
+.coming-soon-message {
+    background-color: #fff3e6;
+    color: #08275e;
+    padding: 15px;
+    border-radius: 0px;
+    font-family: 'Noto Serif', serif;
+    font-size: 16px;
+    font-weight: bold !important;
+    position: absolute; /* Make sure it's positioned over the map */
+    z-index: 9999; /* Ensure it appears above the map */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: fadeIn 0.3s forwards; /* Fade-in animation */
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Animation for fading in the message */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
 
 
 /* Bloc 3 : right-popup (popup à droite avec image) */
@@ -545,7 +572,7 @@ body {
 
 /* Popup dynamique */
 #region-popup h1 {
-    font-family: 'Noto Serif Bengali', serif; /* Police spécifique */
+    font-family: 'Noto Serif'; /* Police spécifique */
     font-weight: normal; /* Supprimer le gras */
     font-size: 2rem; /* Augmente la taille pour un H1 */
     color: #07275f; /* Couleur adaptée */
@@ -569,7 +596,7 @@ body {
 }
 
 #region-popup h2 {
-    font-family: 'Noto Serif Bengali', serif;
+    font-family: 'Noto Serif';
     font-weight: normal; /* Supprimer le gras */
     font-size: 1.50rem; /* Taille de sous-titre */
     margin: 15px 0; /* Marge autour du h2 */
@@ -614,7 +641,7 @@ body {
 
 /* Contenu de la popup */
 .popup-hover-js .popup-content {
-    font-family: 'Noto Serif Bengali', serif;
+    font-family: 'Noto Serif';
     color: #07275f;
     padding: 3px; /* Espacement intérieur réduit */
     font-size: 0.8rem; /* Texte très petit */
@@ -666,7 +693,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     flex: 1;
-    font-family: 'Noto Serif Bengali', serif; /* Utilisation de la police Noto Serif Bengali */
+    font-family: 'Noto Serif'; /* Utilisation de la police Noto Serif Bengali */
     font-size: 16px; /* Taille de police plus grande pour une meilleure lisibilité */
     z-index: 10; /* Positionner au-dessus d'autres éléments */
 
