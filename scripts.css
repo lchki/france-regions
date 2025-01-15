@@ -248,7 +248,7 @@ body {
 
 /* Couleur de la région par défaut */
 .interactive-map .map .region {
-    fill: #637FB2; /* Couleur de remplissage */
+    fill: #d1af6c; /* Couleur de remplissage */
 }
 
 /* Ajustement de la carte */
@@ -513,7 +513,7 @@ body {
     /* Right Popup */
     #right-popup {
         width: 80% !important; /* Élargir la largeur à 75% de l'écran */
-        left: 12.5% !important; /* Centrer horizontalement */
+        left: 20% !important; /* Centrer horizontalement */
         bottom: 5% !important; /* Placer un peu plus haut que le bas de l'écran */
         top: auto !important; /* Désactiver la position top */
         z-index: 1000 !important; /* Assurer un empilement correct */
@@ -526,18 +526,28 @@ body {
         animation: slideRightToLeft 0.5s ease-out forwards; /* Appliquer l'animation */
     }
 
-    /* Region Popup */
     #region-popup {
-        width: 80% !important; /* Réduire la largeur à 70% de l'écran */
-        left: 15% !important; /* Centrer horizontalement */
+        width: 95vw !important; /* Réduire la largeur à 90% de l'écran */
+        max-width: 95%; /* Maximum width of 90% */
+        left: 1% !important; /* Centrer horizontalement */
         top: 20% !important; /* Remonter la popup à 20% du haut de l'écran */
         bottom: auto !important; /* Désactiver la position bottom si appliquée */
         z-index: 1002 !important; /* Assurer que region-popup reste au-dessus */
-        padding: 10px !important; /* Réduire le padding pour petits écrans */
+        padding: 15px !important; /* Réduire le padding pour petits écrans */
         font-size: 14px !important; /* Réduire la taille de police pour les petits écrans */
         max-height: 30vh !important; /* Limiter la hauteur à 30% de l'écran */
         overflow-y: auto !important; /* Activer le défilement vertical si nécessaire */
     }
+
+    /* Adjusting the content inside the popup */
+    #region-popup h1 {
+        font-size: 1.5rem !important; /* Taille plus petite pour le titre h1 sur mobile */
+    }
+
+    #region-popup h2 {
+        font-size: 1rem !important; /* Taille plus petite pour le titre h2 sur mobile */
+    }
+
 }
 
 /* Animations */
