@@ -385,12 +385,26 @@ function disableRegionClicks() {
       if (!isTouchDevice) {
         regionElement.addEventListener('mouseenter', () => {
           const hoverPopup = document.getElementById('popup-hover-js');
+          const clickForMore = hoverPopup.querySelector('.click-for-more');
+          
           hoverPopup.style.display = 'block'; // Display hover popup
+          
+          // Hide the "Click for more" section for non-clickable regions
+          if (clickForMore) {
+            clickForMore.style.display = 'none'; // Hide "Click for more"
+          }
         });
 
         regionElement.addEventListener('mouseleave', () => {
           const hoverPopup = document.getElementById('popup-hover-js');
+          const clickForMore = hoverPopup.querySelector('.click-for-more');
+          
           hoverPopup.style.display = 'none'; // Hide hover popup
+          
+          // Ensure the "Click for more" is shown again when mouse leaves
+          if (clickForMore) {
+            clickForMore.style.display = 'block'; // Show "Click for more"
+          }
         });
       }
 
@@ -485,6 +499,7 @@ Object.assign(popupSection.style, {
 
 // Creating the "Click to find out more" section with an arrow and bold font
 const clickForMore = document.createElement('div');
+clickForMore.classList.add('click-for-more'); // Add a class for easy targeting
 clickForMore.innerHTML = '&#8594; <b>Cliquez pour en savoir plus</b>';  // Adding an arrow (→) and making the text bold
 Object.assign(clickForMore.style, {
    fontSize: '1rem',
@@ -518,6 +533,7 @@ const updatePopupContent = (regionName, regionData) => {
    // Add the click-for-more section text
    clickForMore.innerHTML = '&#8594; <b>Cliquez pour en savoir plus</b>'; // Reset the "click for more" text with arrow and bold
 };
+
 
 
 
@@ -986,4 +1002,3 @@ rightPopup.style.overflowY = 'scroll';
 // Appliquer les styles personnalisés
 regionPopup.classList.add('custom-scrollbar');
 rightPopup.classList.add('custom-scrollbar');
-
