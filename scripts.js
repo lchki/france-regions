@@ -922,17 +922,37 @@ function showRightPopup(regionId) {
       }
   });
 
-  // Fermeture du popup à gauche
-  popup.addEventListener('click', e => {
-      if (e.target.id === 'close-popup') {
-          popup.style.display = 'none';
-          resetMapPosition();
-          if (selectedRegion) {
-              highlightRegion(selectedRegion, '#ECEDEC');
-              selectedRegion = null;
-          }
+// Function to simulate a click on a region based on the URL hash
+function simulateClickFromHash() {
+  const hash = window.location.hash.substring(1);  // Get the hash without the "#"
+  console.log("Hash from URL:", hash);  // Log the hash to ensure it's read correctly
+
+  // Check if the hash matches any of the region IDs
+  if (hash && regions.includes(hash)) {
+      const region = document.getElementById(hash);  // Get the region element by ID
+      console.log("Region found, simulating click:", region);  // Log the region element
+
+      // If the region exists, simulate a click event after a small delay
+      if (region) {
+          setTimeout(() => {
+              // Create a click event
+              const clickEvent = new MouseEvent('click', {
+                  bubbles: true,
+                  cancelable: true,
+                  view: window
+              });
+
+              // Dispatch the click event to the region
+              region.dispatchEvent(clickEvent);
+          }, 100);  // Delay of 100ms to allow the page to settle
       }
-  });
+  }
+}
+
+// Trigger the click simulation when the page is loaded or when the hash changes
+window.addEventListener('load', simulateClickFromHash);
+window.addEventListener('hashchange', simulateClickFromHash);
+
 
   // Fermeture du right-popup à droite
   rightPopup.addEventListener('click', e => {
