@@ -27,12 +27,12 @@ const trackRegionClick = (regionId) => {
 
   const regionData = {
       'Centre-Val-de-Loire': {
-          title: '<h1 style="font-weight: normal;">Centre-Val-de-Loire</h1>',
+          title: '<h1 style="font-weight: normal;">Centre-Val de Loire</h1>',
           sections: [
-              { title: '<h2 style="font-weight: normal">Prochainement dévoilé</h2>', content: '' },
-              { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
+              { title: '<h2 style="font-weight: normal"> À la recherche d’un dynamisme perdu</h2>', content: '' },
+              { title: '<h2 style="font-weight: normal"> </h2>', content: 'Le Centre-Val de Loire voit fortement disparaître ses <b>commerces de proximité</b> (63 %, +9 points par rapport à la moyenne nationale) <b>et ses services publics</b> (56 %, +12 pts moy. nat., 1ère place du classement région par région). Ses habitants, même freinés par le manque de moyens financiers, sont néanmoins 82 % (+5 pts moy. nat) à avoir changé ou être en train de changer tout ce qui peut l&rsquo;être dans leur mode de vie pour diminuer leur impact environnemental.' },
           ],
-          pdfLink: 'Centre-Val-de-Loire',
+          pdfLink: '/ressources/pdfs/publications/barometre-des-territoires-2025-centre-val-de-loire.pdf',
           imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/centre-val-de-loire.png' // Chemin vers l'image */
 
       },
@@ -49,13 +49,13 @@ const trackRegionClick = (regionId) => {
       },
 
       'Bourgogne-Franche-Comte': {
-        title: '<h1 style="font-weight: normal;">Bourgogne-Franche-Comté</h1>',
+        title: '<h1 style="font-weight: normal;">Bourgogne Franche-Comté</h1>',
          sections: [
-          { title: '<h2 style="font-weight: normal"> Prochainement dévoilé</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
+          { title: '<h2 style="font-weight: normal"> L’attachement malgré l’inquiétude</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Les habitants de Bourgogne Franche-Comté sont très attachés à leur région (74 %, +4 points par rapport à la moyenne nationale) même s&rsquo;ils constatent que là où ils vivent, <b>les paysages et la biodiversité changent</b> (46 %, +9 pts moy. nat.) et que <b>leur quartier n&rsquo;est pas dynamique</b> (54 %, +9 pts moy. nat., 1ère place du classement région par région)' },
           ],
-        pdfLink: 'Bourgogne-Franche-Comte',
-        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/grand-est.png' // Chemin vers l'image */
+        pdfLink: '/ressources/pdfs/publications/barometre-des-territoires-2025-bourgogne-franche-comte.pdf',
+        imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/bourgogne-franche-comte.png' // Chemin vers l'image */
 
       },
 
@@ -73,10 +73,10 @@ const trackRegionClick = (regionId) => {
       'Occitanie': {
         title: '<h1 style="font-weight: normal;">Occitanie</h1>',
          sections: [
-          { title: '<h2 style="font-weight: normal"> Prochainement dévoilé</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
+          { title: '<h2 style="font-weight: normal">Face à la mer et aux changements climatiques</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Les habitants d&rsquo;Occitanie se sentent particulièrement exposés aux <b>catastrophes naturelles</b> liées au dérèglement climatique (48 %, +12 pts  points par rapport à la moyenne nationale) qui pourraient <b>détruire des emplois</b> (44 %, +10 pts moy. nat.). Ils sont tout de même prêts aux <b>changements</b> (80 %, +1 pt moy. nat.)' },
           ],
-        pdfLink: 'Occitanie',
+        pdfLink: '/ressources/pdfs/publications/barometre-des-territoires-2025-occitanie.pdf',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/occitanie.png' // Chemin vers l'image */
 
       },
@@ -93,32 +93,32 @@ const trackRegionClick = (regionId) => {
       },
 
       'Auvergne-Rhone-Alpes': {
-        title: '<h1 style="font-weight: normal;">Auvergne-Rhone-Alpes</h1>',
+        title: '<h1 style="font-weight: normal;">Auvergne Rhône-Alpes</h1>',
          sections: [
-          { title: '<h2 style="font-weight: normal"> Prochainement dévoilé</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
+          { title: '<h2 style="font-weight: normal"> Pourtant, que la montagne est belle</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: '52 % des habitants voient <b>les paysages changer à cause du dérèglement climatique</b> (+14 points par rapport à la moyenne nationale, 1ère place du classement région par région). Cela touche particulièrement les habitants du massif alpin : 74 % pour les Savoyards et Haut-Savoyards. <b>L’impact du mode de vie sur les ressources naturelles est un sujet de discussion</b> pour 47 % des habitants (+6 pts moy. nat., 1ère place).' },
           ],
-        pdfLink: 'Auvergne-Rhone-Alpes',
+        pdfLink: '/ressources/pdfs/publications/barometre-des-territoires-2025-auvergne-rhone-alpes.pdf',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/auvergne-rhone-alpes.png' // Chemin vers l'image */
 
       },
       'Normandie': {
         title: '<h1 style="font-weight: normal;">Normandie</h1>',
         sections: [
-          { title: '<h2 style="font-weight: normal"> Prochainement dévoilés</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
+          { title: '<h2 style="font-weight: normal"> Un havre (trop ?) tranquille</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Très attachés à leur pays (79 %, -1 pts moyenne nat) les Normands estiment qu’il fait <b>bon vivre</b> dans leur quartier (82 %, +4 pts) et qu’ils <b>s’y sentent en sécurité</b> (84 %, +6 pts moy. nat.), même s&rsquo;ils remarquent la <b>disparition de services publics</b> (53 %, +9 pts moy. nat.)' },
           ],
-        pdfLink: 'Normandie',
+        pdfLink: '/ressources/pdfs/publications/barometre-des-territoires-2025-normandie.pdf',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/normandie.png' // Chemin vers l'image */
 
       },
       'Pays-de-la-Loire': {
-        title: '<h1 style="font-weight: normal;">Pays-de-la-Loire</h1>',
+        title: '<h1 style="font-weight: normal;">Pays de la Loire</h1>',
          sections: [
-          { title: '<h2 style="font-weight: normal"> Prochainement dévoilés</h2>', content: '' },
-          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Prochainement dévoilé' },
+          { title: '<h2 style="font-weight: normal"> Le bon tempo</h2>', content: '' },
+          { title: '<h2 style="font-weight: normal"> </h2>', content: 'Le dynamisme des Pays de la Loire transparaît dans les témoignages des habitants. Ils pensent qu&rsquo;il fait <b>bon vivre</b> dans leur quartier (86 %, +8 points par rapport à la moyenne nationale) et que les habitants prennent des initiatives pour animer <b>la vie locale</b> (63 %, +10 pts moy. nat.)' },
           ],
-        pdfLink: 'Pays-de-la-Loire',
+        pdfLink: '/ressources/pdfs/publications/barometre-des-territoires-2025-pays-de-la-loire.pdf',
         imageSrc: '/themes/custom/imv4/templates/publications/im_barometre_des_territoires/data/pays-de-la-loire.png' // Chemin vers l'image */
 
       },
@@ -154,7 +154,7 @@ const trackRegionClick = (regionId) => {
       }
     };
 
-    /*
+     /*
      /////// CODE TEST CI-DESSOUS ///////// 
     // Initialisation lors du chargement de la page
   window.addEventListener("load", updateComparisonLayout);
@@ -344,16 +344,9 @@ const trackRegionClick = (regionId) => {
 /////////////////////
 // List of non-clickable regions
 const nonClickableRegions = [
-  'Centre-Val-de-Loire',
   'Bretagne',
-  'Occitanie',
-  'Bourgogne-Franche-Comte', 
   'Grand-Est',
-  'Occitanie',
-  'Auvergne-Rhone-Alpes',
-  'Normandie',
   'PACA',
-  'Pays-de-la-Loire',
   'Ile-de-France',
 ];
 
@@ -702,6 +695,39 @@ if (isIOS()) {
       WebkitOverflowScrolling: 'touch' // Défilement fluide pour Safari mobile
 
   });
+  // Ajout du bouton de fermeture une seule fois
+const closePopupButton = document.createElement('button');
+closePopupButton.id = 'close-popup';
+closePopupButton.innerHTML = '&times;';
+Object.assign(closePopupButton.style, {
+    position: "absolute",
+    top: "10px",
+    right: "10px",
+    backgroundColor: "#07275f",
+    color: "white",
+    fontSize: "20px",
+    fontWeight: "bold",
+    border: "none",
+    borderRadius: "50%",
+    width: "30px",
+    height: "30px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+    zIndex: "1010",
+    transition: "background-color 0.3s ease"
+});
+
+// Ajout de l'événement une seule fois
+closePopupButton.addEventListener('click', () => {
+    console.log("Fermeture de la popup...");
+    popup.style.display = "none"; // Masquer la popup
+});
+
+// Ajouter le bouton à la popup
+popup.appendChild(closePopupButton);
+document.body.appendChild(popup);
   document.body.appendChild(popup);
 
 
@@ -770,6 +796,7 @@ closeRightPopupButton.addEventListener('click', () => {
 });
 rightPopup.appendChild(closeRightPopupButton);
 
+
   // Fonction pour ajuster la responsivité
 const adjustPopupsForMobile = () => {
   if (window.innerWidth < 600) {
@@ -834,22 +861,27 @@ regions.forEach(regionId => {
 
   // Fonction pour afficher la popup
   const showPopup = (regionId, data) => {
-      const sectionsHTML = data.sections.map(section => `
-          <div class="popup-section">
-              <h4>${section.title}</h4>
-              <p>${section.content}</p>
-          </div>
-      `).join('');
+    const sectionsHTML = data.sections.map(section => `
+        <div class="popup-section">
+            <h4>${section.title}</h4>
+            <p>${section.content}</p>
+        </div>
+    `).join('');
 
-      popup.innerHTML = `
-          <button id="close-popup">&times;</button>
-          <h3>${data.title}</h3>
-          ${sectionsHTML}
-          <a href="${data.pdfLink}" target="_blank" class="download-link">Télécharger le PDF</a>
-      `;
-      popup.style.display = 'block';
-      popup.style.transform = 'translateX(0)';
-  };
+    // On met à jour le contenu de la popup sans toucher au bouton de fermeture
+    popup.innerHTML = `
+        <h3>${data.title}</h3>
+        ${sectionsHTML}
+        <a href="${data.pdfLink}" target="_blank" class="download-link">Télécharger le PDF</a>
+    `;
+
+    // On s'assure que le bouton de fermeture reste dans la popup
+    popup.appendChild(closePopupButton);
+
+    // Afficher la popup
+    popup.style.display = 'block';
+    popup.style.transform = 'translateX(0)';
+};
 
   // Fonction pour afficher l'image dans le right-popup
   // Objet contenant les images associées aux régions
@@ -929,29 +961,34 @@ function simulateClickFromHash() {
 
   // Check if the hash matches any of the region IDs
   if (hash && regions.includes(hash)) {
-      const region = document.getElementById(hash);  // Get the region element by ID
-      console.log("Region found, simulating click:", region);  // Log the region element
+    const region = document.getElementById(hash);  // Get the region element by ID
+    console.log("Region found, simulating click:", region);  // Log the region element
 
-      // If the region exists, simulate a click event after a small delay
-      if (region) {
-          setTimeout(() => {
-              // Create a click event
-              const clickEvent = new MouseEvent('click', {
-                  bubbles: true,
-                  cancelable: true,
-                  view: window
-              });
+    // If the region exists, simulate a click event after a small delay
+    if (region) {
+      setTimeout(() => {
+        // Scroll the region into view if it's not already visible
+        region.scrollIntoView({ behavior: "smooth", block: "center" });
 
-              // Dispatch the click event to the region
-              region.dispatchEvent(clickEvent);
-          }, 100);  // Delay of 100ms to allow the page to settle
-      }
+        // Simulate a real user interaction (using mouse click event)
+        const clickEvent = new MouseEvent("click", {
+          bubbles: true,
+          cancelable: true,
+          view: window
+        });
+
+        region.dispatchEvent(clickEvent);  // Dispatch the click event to the region
+
+        console.log("Simulated click on:", region);
+      }, 200);  // 200ms delay to ensure everything is ready
+    }
   }
 }
 
 // Trigger the click simulation when the page is loaded or when the hash changes
-window.addEventListener('load', simulateClickFromHash);
-window.addEventListener('hashchange', simulateClickFromHash);
+window.addEventListener("load", () => setTimeout(simulateClickFromHash, 500));  // Delay to ensure elements are loaded
+window.addEventListener("hashchange", simulateClickFromHash);
+
 
 
   // Fermeture du right-popup à droite
